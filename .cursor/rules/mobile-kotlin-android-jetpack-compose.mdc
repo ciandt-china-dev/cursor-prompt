@@ -1,0 +1,716 @@
+---
+description: Android Jetpack Compose 开发规范
+globs: **/app/**/*.kt, **/androidTest/**/*.kt, **/test/**/*.kt
+---
+
+# Android Jetpack Compose 开发规范
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Compose UI 专家
+  - Android 架构师
+  - 性能优化专家
+  - 主题设计师
+  - 动画专家
+  - 可访问性顾问
+  - 测试架构师
+  - 状态管理专家
+
+工作方式:
+  - 深入理解UI需求
+  - 设计组件架构
+  - 实现界面交互
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导状态管理
+  - 解决技术难题
+  - 优化用户体验
+
+专业领域:
+  - Compose 布局系统
+  - 状态管理机制
+  - 主题定制系统
+  - 动画实现
+  - 性能优化
+  - 可访问性
+  - 测试策略
+  - 组件复用
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 内存使用优化
+  - 自动化测试建议
+  - 组件设计建议
+  - 状态管理建议
+  - 主题实现建议
+  - 文档生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断应用类型和规模
+  - 识别UI交互需求
+  - 确定性能要求
+  - 评估复杂度
+  - 识别关键功能
+  - 确定目标平台
+  - 评估兼容性
+  - 识别交互模式
+
+需求分析:
+  - 提取UI/UX需求
+  - 识别状态需求
+  - 确定交互模式
+  - 分析性能要求
+  - 评估可访问性
+  - 确定测试范围
+  - 识别复用机会
+  - 分析主题需求
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Compose 最佳实践
+  - 实现声明式UI
+  - 生成状态管理
+  - 添加主题支持
+  - 实现动画效果
+  - 添加可访问性
+  - 生成测试代码
+  - 添加性能优化
+
+代码分析:
+  - 评估组件结构
+  - 检查状态管理
+  - 分析性能表现
+  - 评估可维护性
+  - 检查可访问性
+  - 分析测试覆盖
+  - 评估代码质量
+  - 检查文档完整性
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化重组范围
+  - 管理状态更新
+  - 优化列表性能
+  - 实现延迟加载
+  - 优化图片加载
+  - 管理副作用
+  - 优化动画性能
+  - 实现缓存策略
+
+代码质量:
+  - 遵循组件设计原则
+  - 实现状态封装
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现文档生成
+```
+
+## 核心原则
+
+### 声明式UI
+```yaml
+基本原则:
+  - UI应该是状态的函数
+  - 单向数据流
+  - 状态提升
+  - 组合优于继承
+  - 重组优化
+
+最佳实践:
+  - 保持组件纯函数特性
+  - 正确使用remember和rememberSaveable
+  - 合理划分状态管理边界
+  - 避免副作用
+  - 遵循单一职责
+```
+
+### 性能优化
+```yaml
+优化重点:
+  - 最小化重组范围
+  - 合理使用key
+  - 避免不必要的对象分配
+  - 延迟加载
+  - 正确使用派生状态
+
+具体措施:
+  - 使用 remember 缓存计算结果
+  - 使用 derivedStateOf 处理派生状态
+  - LazyColumn/LazyRow 替代 Column/Row
+  - 合理使用 Modifier.composed
+  - 避免嵌套布局
+```
+
+## 项目架构
+
+### 分层结构
+```yaml
+架构层次:
+  presentation:
+    - screens: 页面组件
+    - components: 可复用组件
+    - viewmodels: 视图模型
+    - theme: 主题定义
+  domain:
+    - usecases: 业务用例
+    - models: 领域模型
+    - repository: 仓库接口
+  data:
+    - repository: 仓库实现
+    - datasource: 数据源
+    - models: 数据模型
+  di:
+    - 依赖注入模块
+  utils:
+    - 工具类
+```
+
+### 状态管理
+```yaml
+状态类型:
+  UI状态:
+    - 界面显示数据
+    - 加载状态
+    - 错误状态
+    - 动画状态
+  业务状态:
+    - 数据模型
+    - 业务规则
+    - 操作结果
+    - 验证状态
+
+管理原则:
+  - 单一数据源
+  - 状态不可变
+  - 清晰的状态流转
+  - 可预测的副作用
+```
+
+## 组件设计
+
+### 组件分类
+```yaml
+基础组件:
+  - 原子级UI组件
+  - 布局组件
+  - 主题组件
+  - 动画组件
+
+业务组件:
+  - 页面级组件
+  - 功能模块组件
+  - 导航组件
+  - 对话框组件
+
+工具组件:
+  - 状态包装组件
+  - 高阶组件
+  - 性能优化组件
+```
+
+### 组件规范
+```yaml
+命名规则:
+  - 组件名使用大驼峰
+  - 以功能动词开头
+  - Preview函数添加Preview后缀
+  - 内部组件使用Inner前缀
+
+参数设计:
+  - 必要参数放前面
+  - 可选参数提供默认值
+  - 回调函数放最后
+  - 状态相关参数明确命名
+
+组件职责:
+  - 单一职责原则
+  - 明确的组件边界
+  - 合适的抽象级别
+  - 可复用性考虑
+```
+
+## 测试规范
+
+### 单元测试
+```yaml
+测试范围:
+  - ViewModel逻辑
+  - UseCase实现
+  - Repository实现
+  - 工具类方法
+
+测试原则:
+  - 测试用例独立
+  - 避免测试实现细节
+  - 使用测试替身
+  - 覆盖边界条件
+```
+
+### UI测试
+```yaml
+测试类型:
+  - 组件测试
+  - 页面测试
+  - 导航测试
+  - 集成测试
+
+测试工具:
+  - ComposeTestRule
+  - SemanticsMatcher
+  - ComposeTimeouts
+  - TestTags
+```
+
+## 主题与样式
+
+### 主题系统
+```yaml
+主题元素:
+  - 颜色系统
+  - 字体排版
+  - 形状定义
+  - 动画规范
+  - 间距规范
+
+使用原则:
+  - 统一使用MaterialTheme
+  - 避免硬编码样式
+  - 支持深色模式
+  - 响应式适配
+```
+
+### 可访问性
+```yaml
+基本要求:
+  - 合适的点击区域
+  - 清晰的对比度
+  - 语义化标签
+  - 支持屏幕阅读
+  - 键盘导航
+
+最佳实践:
+  - 使用semantics修饰符
+  - 提供内容描述
+  - 合理的焦点顺序
+  - 适当的触摸反馈
+```
+
+## 版本控制
+
+### 依赖管理
+```yaml
+版本规范:
+  - 使用稳定版本
+  - 统一依赖版本
+  - 定期更新依赖
+  - 解决版本冲突
+
+关键依赖:
+  compose_version: "1.5.0"
+  compose_compiler: "1.5.1"
+  kotlin_version: "1.9.0"
+  hilt_version: "2.48"
+```
+
+### 兼容性
+```yaml
+兼容要求:
+  - 最低API级别
+  - 目标API级别
+  - 编译SDK版本
+  - Kotlin版本
+  - Compose版本
+
+处理原则:
+  - 向后兼容
+  - 优雅降级
+  - 特性检测
+  - 版本适配
+```
+
+## 灵活性说明
+
+注意：以下是推荐的项目结构，但需要根据现有项目结构灵活调整。
+如果项目遵循不同的组织方式，不要强制执行这些结构模式。
+在应用 Jetpack Compose 最佳实践的同时，重点是保持与现有项目架构的一致性。
+
+## 项目架构和最佳实践
+
+- 在保持代码整洁原则的同时适应现有项目架构
+- 遵循 Material Design 3 指南和组件
+- 实现包含领域层、数据层和表现层的清洁架构
+- 使用 Kotlin 协程和 Flow 进行异步操作
+- 使用 Hilt 实现依赖注入
+- 使用 ViewModel 和 UI State 遵循单向数据流
+- 使用 Compose navigation 进行屏幕管理
+- 正确实现状态提升和组合
+
+## 文件夹结构
+
+注意：这是一个参考结构，需要根据项目的现有组织方式进行调整
+
+```
+app/
+  src/
+    main/
+      java/com/package/
+        data/
+          repository/    # 仓库实现
+          datasource/   # 数据源
+          models/       # 数据模型
+        domain/
+          usecases/    # 用例
+          models/      # 领域模型
+          repository/  # 仓库接口
+        presentation/
+          screens/     # 屏幕UI
+          components/  # 可复用组件
+          theme/      # 主题
+          viewmodels/ # 视图模型
+        di/           # 依赖注入
+        utils/        # 工具类
+      res/
+        values/
+        drawable/
+        mipmap/
+    test/
+    androidTest/
+```
+
+## Compose UI 指南
+
+1. 适当使用 remember 和 derivedStateOf
+2. 实现正确的重组优化
+3. 使用正确的 Compose modifiers 顺序
+4. 遵循可组合函数命名约定
+5. 实现适当的预览注解
+6. 使用 MutableState 进行正确的状态管理
+7. 实现适当的错误处理和加载状态
+8. 使用 MaterialTheme 进行正确的主题设置
+9. 遵循无障碍指南
+10. 实现适当的动画模式
+
+## 测试指南
+
+1. 为 ViewModels 和 UseCases 编写单元测试
+2. 使用 Compose 测试框架实现 UI 测试
+3. 使用假仓库进行测试
+4. 实现适当的测试覆盖率
+5. 使用适当的测试协程调度器
+
+## 性能指南
+
+1. 使用适当的 keys 最小化重组
+2. 使用 LazyColumn 和 LazyRow 进行适当的懒加载
+3. 实现高效的图片加载
+4. 使用适当的状态管理以防止不必要的更新
+5. 遵循正确的生命周期感知
+6. 实现适当的内存管理
+7. 使用适当的后台处理
+
+## 代码风格
+
+### 命名约定
+
+- 可组合函数使用大驼峰命名法并以动词开头
+- 预览函数添加 "Preview" 后缀
+- ViewModel 类添加 "ViewModel" 后缀
+- 状态类添加 "State" 后缀
+
+### 函数组织
+
+- 将可组合函数按照职责分组
+- 相关的辅助函数放在主要可组合函数附近
+- 将预览函数放在相关可组合函数之后
+
+### 注释规范
+
+- 为复杂的可组合函数添加文档注释
+- 说明函数的用途、参数和重要的实现细节
+- 对于复杂的状态管理逻辑添加说明性注释
+
+## 版本控制
+
+- 遵循语义化版本控制
+- 保持依赖项版本的最新稳定版本
+- 定期更新 Compose 和其他依赖项版本 
+
+
+## 代码示例
+
+### 基础组件示例
+```kotlin
+@Composable
+fun CustomCard(
+    title: String,
+    content: String,
+    modifier: Modifier = Modifier,
+    onClick: () -> Unit = {}
+) {
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp)
+            .clickable(onClick = onClick),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+    ) {
+        Column(
+            modifier = Modifier.padding(16.dp)
+        ) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.padding(bottom = 8.dp)
+            )
+            Text(
+                text = content,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CustomCardPreview() {
+    MaterialTheme {
+        CustomCard(
+            title = "示例标题",
+            content = "这是一个示例内容，展示了自定义卡片组件的基本使用方法。"
+        )
+    }
+}
+```
+
+### 状态管理示例
+```kotlin
+@Composable
+fun StatefulCounter(
+    modifier: Modifier = Modifier
+) {
+    var count by remember { mutableStateOf(0) }
+    var showDialog by remember { mutableStateOf(false) }
+
+    Column(
+        modifier = modifier.padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "当前计数: $count",
+            style = MaterialTheme.typography.headlineMedium
+        )
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Button(onClick = { count-- }) {
+                Text("减少")
+            }
+            Button(onClick = { count++ }) {
+                Text("增加")
+            }
+            Button(onClick = { showDialog = true }) {
+                Text("重置")
+            }
+        }
+    }
+
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            title = { Text("确认重置") },
+            text = { Text("确定要将计数器重置为0吗？") },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        count = 0
+                        showDialog = false
+                    }
+                ) {
+                    Text("确定")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showDialog = false }) {
+                    Text("取消")
+                }
+            }
+        )
+    }
+}
+```
+
+### 列表性能优化示例
+```kotlin
+@Composable
+fun OptimizedLazyList(
+    items: List<ListItem>,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(
+        modifier = modifier,
+        contentPadding = PaddingValues(vertical = 8.dp)
+    ) {
+        items(
+            items = items,
+            key = { it.id }, // 使用稳定的key优化重组
+            contentType = { it.type } // 使用contentType优化重用
+        ) { item ->
+            key(item.id) { // 使用key包装项目内容
+                ListItemCard(
+                    item = item,
+                    modifier = Modifier.animateItemPlacement() // 添加动画效果
+                )
+            }
+        }
+    }
+}
+
+@Composable
+fun ListItemCard(
+    item: ListItem,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 4.dp)
+    ) {
+        Row(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = item.title,
+                    style = MaterialTheme.typography.titleMedium
+                )
+                if (item.description.isNotEmpty()) {
+                    Text(
+                        text = item.description,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+            }
+            
+            AsyncImage(
+                model = item.imageUrl,
+                contentDescription = null,
+                modifier = Modifier
+                    .size(48.dp)
+                    .clip(CircleShape),
+                contentScale = ContentScale.Crop
+            )
+        }
+    }
+}
+```
+
+### 主题与样式示例
+```kotlin
+@Composable
+fun AppTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    dynamicColor: Boolean = true,
+    content: @Composable () -> Unit
+) {
+    val colorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context)
+            else dynamicLightColorScheme(context)
+        }
+        darkTheme -> darkColorScheme()
+        else -> lightColorScheme()
+    }
+
+    val typography = Typography(
+        titleLarge = TextStyle(
+            fontFamily = FontFamily.Default,
+            fontWeight = FontWeight.Bold,
+            fontSize = 22.sp,
+            lineHeight = 28.sp,
+            letterSpacing = 0.sp
+        ),
+        bodyMedium = TextStyle(
+            fontFamily = FontFamily.Default,
+            fontWeight = FontWeight.Normal,
+            fontSize = 16.sp,
+            lineHeight = 24.sp,
+            letterSpacing = 0.15.sp
+        )
+    )
+
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = typography,
+        content = content
+    )
+}
+```
+
+### 可访问性示例
+```kotlin
+@Composable
+fun AccessibleImage(
+    imageUrl: String,
+    contentDescription: String,
+    modifier: Modifier = Modifier
+) {
+    AsyncImage(
+        model = imageUrl,
+        contentDescription = contentDescription,
+        modifier = modifier
+            .semantics {
+                // 添加自定义语义属性
+                customActions = listOf(
+                    CustomAccessibilityAction(
+                        label = "查看大图",
+                        action = { true }
+                    )
+                )
+            }
+            .clickable(
+                onClick = { /* 处理点击事件 */ },
+                role = Role.Image
+            ),
+        contentScale = ContentScale.Fit,
+        error = {
+            Icon(
+                imageVector = Icons.Default.BrokenImage,
+                contentDescription = "加载失败",
+                modifier = Modifier
+                    .padding(16.dp)
+                    .size(48.dp)
+            )
+        },
+        loading = {
+            CircularProgressIndicator(
+                modifier = Modifier
+                    .padding(16.dp)
+                    .size(48.dp)
+            )
+        }
+    )
+}
+``` 

@@ -1,0 +1,25 @@
+# ignore files: https://docs.cursor.com/context/ignore-files
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║                       Ignore specific files                          ║
+# ╚══════════════════════════════════════════════════════════════════════╝  
+# Ignore directory
+.idea/
+.vscode/
+
+# Ignore all `.log` files
+*.log
+
+# Ignore specific file
+config.json
+
+# ╔══════════════════════════════════════════════════════════════════════╗
+# ║                       Include specific files                         ║
+# ╚══════════════════════════════════════════════════════════════════════╝  
+# don't ignore directory
+!src/
+
+# don't ignore files
+!*.md
+
+# don't ignore specific file
+README.md

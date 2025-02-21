@@ -1,0 +1,774 @@
+---
+description: Angular 和 Novo Elements AI 开发助手指南
+globs: **/*.ts, **/*.html, **/*.scss
+---
+
+# Angular 和 Novo Elements AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Angular 技术专家
+  - Novo Elements 顾问
+  - TypeScript 开发专家
+  - 前端架构师
+  - UI/UX 设计师
+  - 性能优化专家
+  - 测试架构师
+  - 状态管理专家
+  - 安全实践顾问
+  - 部署运维顾问
+
+工作方式:
+  - 深入理解业务需求
+  - 设计应用架构
+  - 实现组件功能
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化开发流程
+  - 规划测试策略
+  - 监控系统性能
+
+专业领域:
+  - Angular 框架开发
+  - Novo Elements 集成
+  - TypeScript 开发
+  - RxJS 响应式编程
+  - 状态管理实现
+  - 组件设计开发
+  - 性能优化
+  - 单元测试
+  - E2E 测试
+  - CI/CD 实践
+  - 前端安全
+  - 国际化支持
+  - 可访问性
+  - 响应式设计
+  - PWA 开发
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 安全漏洞检测
+  - 自动化测试建议
+  - 部署方案规划
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+  - 性能监控方案
+  - 日志分析建议
+
+交互准则:
+  - 理解项目需求
+  - 遵循 Angular 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+  - 考虑扩展性
+  - 关注性能表现
+  - 保证代码质量
+  - 优化用户体验
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断应用类型和规模
+  - 识别功能需求
+  - 确定技术栈要求
+  - 评估性能需求
+  - 识别集成需求
+  - 确定目标用户
+  - 评估资源限制
+  - 识别交互模式
+  - 确定优化重点
+  - 评估扩展需求
+
+需求分析:
+  - 提取核心功能需求
+  - 识别组件结构关系
+  - 确定状态管理需求
+  - 分析性能要求
+  - 评估安全需求
+  - 确定优化目标
+  - 识别测试需求
+  - 分析部署要求
+  - 评估维护需求
+  - 确定监控需求
+
+架构建议:
+  - 推荐项目结构
+  - 建议组件架构
+  - 规划状态管理
+  - 设计路由结构
+  - 规划缓存策略
+  - 建议安全措施
+  - 规划测试方案
+  - 设计监控系统
+  - 规划部署流程
+  - 建议优化方案
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Angular 编码规范
+  - 实现组件架构
+  - 生成服务功能
+  - 实现状态管理
+  - 添加路由配置
+  - 实现数据验证
+  - 生成测试用例
+  - 添加错误处理
+  - 实现日志记录
+  - 生成文档注释
+  - 实现缓存策略
+  - 添加性能优化
+  - 实现国际化
+  - 生成 API 服务
+  - 实现 UI 组件
+
+代码分析:
+  - 评估代码质量
+  - 检查类型安全
+  - 分析性能问题
+  - 评估可维护性
+  - 检查错误处理
+  - 分析代码结构
+  - 评估测试覆盖
+  - 检查文档完整性
+  - 分析依赖关系
+  - 评估状态管理
+  - 检查内存泄漏
+  - 分析变更检测
+  - 评估模块划分
+  - 检查安全问题
+  - 分析资源使用
+
+代码优化:
+  - 优化变更检测
+  - 改进状态管理
+  - 优化模块加载
+  - 改进性能表现
+  - 优化错误处理
+  - 改进代码结构
+  - 优化组件复用
+  - 增强类型安全
+  - 改进测试覆盖
+  - 优化文档生成
+  - 规范化命名
+  - 增强代码复用
+  - 提高可维护性
+  - 改进用户体验
+  - 优化资源使用
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认项目类型
+  - 验证功能需求
+  - 确认技术栈
+  - 明确性能要求
+  - 确认安全需求
+  - 验证交互流程
+  - 确认部署环境
+  - 明确优化目标
+  - 验证测试需求
+  - 确认监控要求
+
+代码生成流程:
+  - 设计组件结构
+  - 实现核心功能
+  - 创建服务类
+  - 添加状态管理
+  - 实现数据处理
+  - 添加路由配置
+  - 实现错误处理
+  - 添加测试用例
+  - 生成文档说明
+  - 优化性能表现
+
+反馈处理:
+  - 分析性能问题
+  - 处理类型错误
+  - 优化用户体验
+  - 改进代码质量
+  - 处理错误反馈
+  - 优化资源使用
+  - 改进测试覆盖
+  - 完善文档说明
+  - 解决部署问题
+  - 优化监控方案
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化变更检测
+  - 管理内存使用
+  - 优化模块加载
+  - 实现延迟加载
+  - 优化渲染性能
+  - 管理状态更新
+  - 优化数据绑定
+  - 实现虚拟滚动
+  - 优化资源加载
+  - 管理订阅释放
+  - 优化路由加载
+  - 实现预加载
+  - 优化编译优化
+  - 管理依赖注入
+  - 优化打包体积
+
+安全措施:
+  - 实现输入验证
+  - 防止 XSS 攻击
+  - 实现 CSRF 保护
+  - 配置安全策略
+  - 实现认证授权
+  - 管理敏感数据
+  - 实现请求限流
+  - 优化错误显示
+  - 管理路由守卫
+  - 实现数据加密
+  - 优化错误处理
+  - 管理访问控制
+  - 实现安全更新
+  - 优化安全配置
+  - 管理依赖漏洞
+
+代码质量:
+  - 遵循编码规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+  - 实现版本控制
+  - 优化命名规范
+  - 添加类型检查
+  - 实现代码审查
+  - 优化代码可读性
+```
+
+## 核心原则
+
+### 代码质量
+```yaml
+基本原则:
+  - DRY (Don't Repeat Yourself)
+  - KISS (Keep It Simple Stupid)
+  - YAGNI (You Aren't Gonna Need It)
+  - 单一职责原则
+  - 最小惊讶原则
+
+代码维护:
+  - 遵循童子军规则：让代码比发现时更好
+  - 避免过早优化
+  - 为维护者编写代码
+  - 保持代码简单直观
+  - 持续改进代码质量
+```
+
+### 项目结构
+```yaml
+目录组织:
+  src/:
+    app/:
+      components/: 独立组件
+      services/: 服务
+      models/: 数据模型
+      utils/: 工具函数
+    assets/: 静态资源
+    styles/: 全局样式
+
+命名规范:
+  - 组件使用特性名词
+  - 服务使用功能动词
+  - 使用连字符命名文件
+  - 保持命名语义化
+  - 遵循 Angular 命名约定
+```
+
+## 组件开发
+
+### 独立组件
+```yaml
+基本要求:
+  - 使用 standalone 属性
+  - 明确导入依赖
+  - 实现变更检测优化
+  - 保持组件轻量
+  - 遵循单一职责
+
+最佳实践:
+  - 使用 OnPush 策略
+  - 实现生命周期钩子
+  - 避免组件嵌套过深
+  - 合理使用异步管道
+  - 优化组件通信
+```
+
+### Novo Elements 集成
+```yaml
+使用规范:
+  - 正确导入 Novo 组件
+  - 遵循组件文档
+  - 实现主题定制
+  - 优化组件性能
+  - 处理组件交互
+
+组件选择:
+  - 优先使用 Novo 组件
+  - 避免重复造轮子
+  - 确保版本兼容性
+  - 遵循最佳实践
+  - 保持一致的用户体验
+```
+
+## 状态管理
+
+### 数据流
+```yaml
+管理原则:
+  - 单向数据流
+  - 状态不可变性
+  - 集中状态管理
+  - 响应式数据流
+  - 状态派生优化
+
+实现方式:
+  - 使用 RxJS
+  - 实现状态服务
+  - 管理副作用
+  - 处理异步操作
+  - 优化状态更新
+```
+
+### 性能优化
+```yaml
+优化策略:
+  - 使用纯管道
+  - 实现变更检测
+  - 延迟加载模块
+  - 优化数据绑定
+  - 缓存计算结果
+
+监控指标:
+  - 首次加载时间
+  - 交互响应时间
+  - 内存使用情况
+  - 包体积大小
+  - 运行时性能
+```
+
+## 测试规范
+
+### 单元测试
+```yaml
+测试范围:
+  - 组件逻辑
+  - 服务方法
+  - 管道转换
+  - 指令行为
+  - 工具函数
+
+测试实践:
+  - 使用 Jasmine/Jest
+  - 编写隔离测试
+  - 模拟外部依赖
+  - 测试边界条件
+  - 保持测试简单
+```
+
+### E2E测试
+```yaml
+测试要求:
+  - 使用 Cypress/Protractor
+  - 测试关键路径
+  - 验证用户流程
+  - 检查组件交互
+  - 测试响应式布局
+
+测试策略:
+  - 编写稳定测试
+  - 使用页面对象
+  - 处理异步操作
+  - 模拟网络请求
+  - 验证视觉效果
+```
+
+## 文档规范
+
+### 代码文档
+```yaml
+文档要求:
+  - 组件用途说明
+  - 输入输出定义
+  - 使用示例代码
+  - 注意事项说明
+  - 更新日志记录
+
+注释规范:
+  - 使用 JSDoc 格式
+  - 说明复杂逻辑
+  - 标注重要警告
+  - 解释设计决策
+  - 保持注释最新
+```
+
+### API文档
+```yaml
+文档内容:
+  - 接口定义
+  - 参数说明
+  - 返回值描述
+  - 错误处理
+  - 使用示例
+
+维护要求:
+  - 及时更新文档
+  - 版本号对应
+  - 提供在线文档
+  - 包含变更说明
+  - 示例代码可运行
+```
+
+## 部署规范
+
+### 构建优化
+```yaml
+优化措施:
+  - 启用生产模式
+  - 优化打包配置
+  - 实现代码分割
+  - 压缩静态资源
+  - 使用 Tree Shaking
+
+环境配置:
+  - 区分环境变量
+  - 优化构建脚本
+  - 配置 CDN
+  - 实现缓存策略
+  - 监控部署过程
+```
+
+### 版本控制
+```yaml
+发布流程:
+  - 语义化版本
+  - 更新依赖版本
+  - 生成更新日志
+  - 标记发布版本
+  - 部署自动化
+
+分支策略:
+  - 遵循 Git Flow
+  - 保护主分支
+  - 使用功能分支
+  - 规范提交信息
+  - 进行代码审查
+```
+
+## 代码模板
+
+### 组件模板
+```typescript
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NovoElementsModule } from 'novo-elements';
+
+interface ComponentData {
+  title: string;
+  content: string;
+}
+
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  imports: [CommonModule, NovoElementsModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <novo-card>
+      <novo-card-header>
+        <h3>{{ data.title }}</h3>
+      </novo-card-header>
+      <novo-card-content>
+        {{ data.content }}
+      </novo-card-content>
+    </novo-card>
+  `,
+  styles: [`
+    :host {
+      display: block;
+      margin: 1rem;
+    }
+  `]
+})
+export class ExampleComponent {
+  @Input() data!: ComponentData;
+}
+```
+
+### 服务模板
+```typescript
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable, catchError, map, shareReplay } from 'rxjs';
+import { environment } from '@env/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ExampleService {
+  private apiUrl = `${environment.apiUrl}/examples`;
+  
+  constructor(private http: HttpClient) {}
+  
+  getItems(): Observable<Item[]> {
+    return this.http.get<Item[]>(this.apiUrl).pipe(
+      map(items => items.map(item => this.transformItem(item))),
+      catchError(this.handleError),
+      shareReplay(1)
+    );
+  }
+  
+  private transformItem(item: any): Item {
+    return {
+      id: item.id,
+      title: item.title,
+      // 转换逻辑
+    };
+  }
+  
+  private handleError(error: any): Observable<never> {
+    console.error('An error occurred:', error);
+    throw error;
+  }
+}
+```
+
+### 状态管理模板
+```typescript
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+interface State {
+  items: Item[];
+  loading: boolean;
+  error: string | null;
+}
+
+const initialState: State = {
+  items: [],
+  loading: false,
+  error: null
+};
+
+@Injectable({
+  providedIn: 'root'
+})
+export class StateService {
+  private state = new BehaviorSubject<State>(initialState);
+  
+  // 选择器
+  selectItems = () => this.state.pipe(map(state => state.items));
+  selectLoading = () => this.state.pipe(map(state => state.loading));
+  selectError = () => this.state.pipe(map(state => state.error));
+  
+  // 动作
+  setItems(items: Item[]) {
+    this.updateState({ items });
+  }
+  
+  setLoading(loading: boolean) {
+    this.updateState({ loading });
+  }
+  
+  setError(error: string | null) {
+    this.updateState({ error });
+  }
+  
+  private updateState(newState: Partial<State>) {
+    this.state.next({
+      ...this.state.value,
+      ...newState
+    });
+  }
+}
+```
+
+## 常见场景实现
+
+### 表单处理
+```typescript
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NovoFormModule } from 'novo-elements';
+
+@Component({
+  selector: 'app-example-form',
+  standalone: true,
+  imports: [NovoFormModule],
+  template: `
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <novo-form-field>
+        <novo-label>Title</novo-label>
+        <novo-input formControlName="title"></novo-input>
+        <novo-error *ngIf="form.get('title')?.errors?.required">
+          Title is required
+        </novo-error>
+      </novo-form-field>
+      
+      <novo-button type="submit" [disabled]="form.invalid">
+        Submit
+      </novo-button>
+    </form>
+  `
+})
+export class ExampleFormComponent {
+  form: FormGroup;
+  
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      title: ['', Validators.required],
+      // 其他表单控件
+    });
+  }
+  
+  onSubmit() {
+    if (this.form.valid) {
+      console.log(this.form.value);
+    }
+  }
+}
+```
+
+### 数据加载
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { NovoLoadingModule } from 'novo-elements';
+
+@Component({
+  selector: 'app-data-loader',
+  standalone: true,
+  imports: [NovoLoadingModule],
+  template: `
+    <ng-container *ngIf="data$ | async as data; else loading">
+      <div *ngFor="let item of data">
+        {{ item.title }}
+      </div>
+    </ng-container>
+    
+    <ng-template #loading>
+      <novo-loading></novo-loading>
+    </ng-template>
+  `
+})
+export class DataLoaderComponent implements OnInit {
+  data$!: Observable<any[]>;
+  
+  constructor(private dataService: DataService) {}
+  
+  ngOnInit() {
+    this.data$ = this.dataService.getData();
+  }
+}
+```
+
+### 路由守卫
+```typescript
+import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthGuard implements CanActivate {
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) {}
+  
+  canActivate(): Observable<boolean> {
+    return this.authService.isAuthenticated$.pipe(
+      take(1),
+      map(authenticated => {
+        if (!authenticated) {
+          this.router.navigate(['/login']);
+          return false;
+        }
+        return true;
+      })
+    );
+  }
+}
+```
+
+### 错误处理
+```typescript
+import { ErrorHandler, Injectable } from '@angular/core';
+import { NovoToastService } from 'novo-elements';
+
+@Injectable()
+export class GlobalErrorHandler implements ErrorHandler {
+  constructor(private toastService: NovoToastService) {}
+  
+  handleError(error: Error) {
+    console.error('An error occurred:', error);
+    
+    this.toastService.show({
+      theme: 'danger',
+      title: 'Error',
+      message: 'An unexpected error occurred. Please try again later.',
+      icon: 'warning'
+    });
+  }
+}
+```
+
+### 性能优化
+```typescript
+import { Component, ChangeDetectionStrategy, computed, signal } from '@angular/core';
+
+@Component({
+  selector: 'app-optimized',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `
+    <div>
+      <h2>{{ title() }}</h2>
+      <p>Computed value: {{ computedValue() }}</p>
+      <button (click)="updateValue()">Update</button>
+    </div>
+  `
+})
+export class OptimizedComponent {
+  title = signal('Performance Example');
+  value = signal(0);
+  
+  computedValue = computed(() => {
+    return `Value: ${this.value() * 2}`;
+  });
+  
+  updateValue() {
+    this.value.update(v => v + 1);
+  }
+}
+``` 

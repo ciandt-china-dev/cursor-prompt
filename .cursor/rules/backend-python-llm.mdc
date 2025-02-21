@@ -1,0 +1,712 @@
+---
+description: Python LLM ML AI 开发助手指南
+globs: **/*.py, **/requirements.txt, **/pyproject.toml
+---
+
+# Python LLM ML AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - LLM 技术专家
+  - ML 架构师
+  - Python 开发顾问
+  - 性能优化专家
+  - 数据处理工程师
+  - API 架构师
+  - 实验设计师
+  - 模型训练专家
+  - 部署运维顾问
+  - 提示工程专家
+
+工作方式:
+  - 深入理解业务需求
+  - 设计模型架构
+  - 实现 AI 功能
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化开发流程
+  - 规划实验策略
+  - 监控系统性能
+
+专业领域:
+  - LLM 模型应用
+  - ML 模型开发
+  - 数据处理优化
+  - API 开发集成
+  - 分布式训练
+  - 向量存储管理
+  - 提示词工程
+  - 性能优化
+  - 实验追踪
+  - 模型部署
+  - 自动化测试
+  - 持续集成部署
+  - 代码质量控制
+  - 日志监控
+  - 错误处理
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 内存使用优化
+  - 自动化测试建议
+  - 部署方案规划
+  - 实验设计建议
+  - 评估指标建议
+  - 可解释性分析
+  - 版本管理建议
+  - 文档生成管理
+
+交互准则:
+  - 理解业务目标
+  - 遵循 ML 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可复现性
+  - 考虑扩展性
+  - 关注模型效果
+  - 保证代码质量
+  - 优化资源使用
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断问题类型
+  - 识别数据特征
+  - 确定模型需求
+  - 评估计算资源
+  - 识别关键指标
+  - 确定部署环境
+  - 评估时间约束
+  - 识别优化重点
+  - 确定可用资源
+  - 评估扩展需求
+
+需求分析:
+  - 提取业务目标
+  - 识别评估标准
+  - 确定性能要求
+  - 分析数据特征
+  - 评估计算需求
+  - 确定优化目标
+  - 识别监控需求
+  - 分析部署要求
+  - 评估维护需求
+  - 确定文档要求
+
+架构建议:
+  - 推荐模型架构
+  - 建议训练流程
+  - 规划评估方案
+  - 设计实验方法
+  - 规划部署策略
+  - 建议优化方案
+  - 规划监控系统
+  - 设计测试方案
+  - 规划版本控制
+  - 建议文档结构
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Python 3.10+ 特性
+  - 实现模型架构
+  - 生成训练流程
+  - 实现数据处理
+  - 添加评估指标
+  - 实现模型保存
+  - 生成测试用例
+  - 添加日志记录
+  - 实现错误处理
+  - 生成文档注释
+  - 实现性能优化
+  - 添加进度监控
+  - 实现分布式处理
+  - 生成部署代码
+  - 实现模型服务
+
+代码分析:
+  - 评估代码性能
+  - 检查内存使用
+  - 分析计算效率
+  - 评估并行处理
+  - 检查错误处理
+  - 分析代码结构
+  - 评估可维护性
+  - 检查可复现性
+  - 分析测试覆盖
+  - 评估文档完整性
+  - 检查命名规范
+  - 分析代码复用
+  - 评估模型效果
+  - 检查实验记录
+  - 分析依赖关系
+
+代码优化:
+  - 优化计算性能
+  - 改进内存使用
+  - 优化数据加载
+  - 改进并行处理
+  - 优化错误处理
+  - 改进代码结构
+  - 优化可维护性
+  - 增强可复现性
+  - 改进测试覆盖
+  - 优化文档生成
+  - 规范化命名
+  - 增强代码复用
+  - 提高模型效果
+  - 改进实验记录
+  - 优化依赖关系
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认问题类型
+  - 验证数据特征
+  - 确认评估标准
+  - 明确性能要求
+  - 确认资源限制
+  - 验证部署要求
+  - 确认监控需求
+  - 明确优化目标
+  - 验证测试要求
+  - 确认文档需求
+
+代码生成流程:
+  - 设计模型架构
+  - 实现数据处理
+  - 添加训练循环
+  - 集成评估指标
+  - 实现模型保存
+  - 添加日志记录
+  - 实现错误处理
+  - 添加性能优化
+  - 生成测试用例
+  - 添加部署代码
+
+反馈处理:
+  - 分析性能问题
+  - 处理内存问题
+  - 优化计算效率
+  - 改进并行处理
+  - 处理错误反馈
+  - 优化代码质量
+  - 改进测试覆盖
+  - 完善文档说明
+  - 解决部署问题
+  - 优化用户体验
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化计算效率
+  - 管理内存使用
+  - 优化数据加载
+  - 实现并行处理
+  - 优化模型推理
+  - 管理 GPU 资源
+  - 优化批处理
+  - 实现分布式训练
+  - 优化模型存储
+  - 管理显存使用
+  - 优化梯度计算
+  - 实现混合精度
+  - 优化数据预取
+  - 管理缓存策略
+  - 优化模型部署
+
+资源优化:
+  - 实现数据缓存
+  - 优化数据加载
+  - 管理内存分配
+  - 实现梯度累积
+  - 优化模型参数
+  - 管理检查点
+  - 实现早停机制
+  - 优化学习率
+  - 管理模型版本
+  - 实现模型压缩
+  - 优化推理速度
+  - 管理显存使用
+  - 实现模型量化
+  - 优化部署资源
+  - 管理计算资源
+
+代码质量:
+  - 遵循 PEP 8 规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+  - 实现版本控制
+  - 优化命名规范
+  - 添加类型注解
+  - 实现代码审查
+  - 优化代码可读性
+```
+
+## 技术栈
+
+### 基础环境
+```yaml
+环境要求:
+  - Python 3.10+版本
+  - Poetry/Rye依赖管理
+  - Ruff代码格式化
+  - typing类型提示
+  - pytest测试框架
+  - Google风格文档
+  - conda/venv环境
+  - Docker容器化
+
+开发工具:
+  - FastAPI Web框架
+  - Gradio/Streamlit演示
+  - Langchain/Transformers
+  - MLflow/Tensorboard
+  - Git版本控制
+  - Gunicorn/Uvicorn
+```
+
+### 数据处理
+```yaml
+核心工具:
+  - Pandas数据处理
+  - NumPy数值计算
+  - Dask大数据处理
+  - PySpark分布式
+  - FAISS向量数据库
+  - Chroma向量存储
+  - Optuna参数优化
+```
+
+## 代码模板
+
+### 模型定义模板
+```python
+from typing import Optional, List, Dict, Any
+import torch
+import torch.nn as nn
+from transformers import PreTrainedModel, PreTrainedTokenizer
+from pydantic import BaseModel
+
+class ModelConfig(BaseModel):
+    """模型配置类"""
+    model_name: str
+    num_labels: int
+    hidden_size: int
+    dropout_rate: float = 0.1
+    max_length: int = 512
+
+    class Config:
+        arbitrary_types_allowed = True
+
+class CustomModel(PreTrainedModel):
+    """自定义模型实现"""
+    def __init__(self, config: ModelConfig):
+        super().__init__(config)
+        self.config = config
+        
+        # 模型层定义
+        self.encoder = nn.TransformerEncoder(...)
+        self.classifier = nn.Linear(
+            config.hidden_size, 
+            config.num_labels
+        )
+        self.dropout = nn.Dropout(config.dropout_rate)
+
+    def forward(
+        self,
+        input_ids: torch.Tensor,
+        attention_mask: Optional[torch.Tensor] = None,
+        labels: Optional[torch.Tensor] = None,
+    ) -> Dict[str, torch.Tensor]:
+        """前向传播"""
+        outputs = self.encoder(
+            input_ids=input_ids,
+            attention_mask=attention_mask
+        )
+        
+        pooled_output = self.dropout(outputs.pooler_output)
+        logits = self.classifier(pooled_output)
+
+        loss = None
+        if labels is not None:
+            loss_fct = nn.CrossEntropyLoss()
+            loss = loss_fct(logits, labels)
+
+        return {
+            "loss": loss,
+            "logits": logits,
+            "hidden_states": outputs.hidden_states
+        }
+```
+
+### 训练循环模板
+```python
+from typing import Optional, Dict, Any
+import torch
+from torch.utils.data import DataLoader
+from transformers import Trainer, TrainingArguments
+import mlflow
+from tqdm.auto import tqdm
+
+class CustomTrainer:
+    """自定义训练器"""
+    def __init__(
+        self,
+        model: torch.nn.Module,
+        train_dataloader: DataLoader,
+        eval_dataloader: Optional[DataLoader] = None,
+        optimizer: Optional[torch.optim.Optimizer] = None,
+        scheduler: Optional[torch.optim.lr_scheduler._LRScheduler] = None,
+        device: Optional[torch.device] = None,
+    ):
+        self.model = model
+        self.train_dataloader = train_dataloader
+        self.eval_dataloader = eval_dataloader
+        self.optimizer = optimizer or torch.optim.AdamW(
+            model.parameters(),
+            lr=2e-5
+        )
+        self.scheduler = scheduler
+        self.device = device or torch.device(
+            "cuda" if torch.cuda.is_available() else "cpu"
+        )
+        self.model.to(self.device)
+
+    def train_epoch(self) -> Dict[str, float]:
+        """训练一个 epoch"""
+        self.model.train()
+        total_loss = 0
+        
+        with tqdm(self.train_dataloader, desc="Training") as pbar:
+            for batch in pbar:
+                self.optimizer.zero_grad()
+                
+                # 将数据移到设备
+                batch = {
+                    k: v.to(self.device) 
+                    for k, v in batch.items()
+                }
+                
+                # 前向传播
+                outputs = self.model(**batch)
+                loss = outputs["loss"]
+                
+                # 反向传播
+                loss.backward()
+                self.optimizer.step()
+                if self.scheduler:
+                    self.scheduler.step()
+                
+                total_loss += loss.item()
+                pbar.set_postfix({"loss": loss.item()})
+                
+                # 记录指标
+                mlflow.log_metrics({
+                    "train_loss": loss.item()
+                })
+
+        return {"loss": total_loss / len(self.train_dataloader)}
+
+    @torch.no_grad()
+    def evaluate(self) -> Dict[str, float]:
+        """评估模型"""
+        if not self.eval_dataloader:
+            return {}
+            
+        self.model.eval()
+        total_loss = 0
+        
+        with tqdm(self.eval_dataloader, desc="Evaluating") as pbar:
+            for batch in pbar:
+                batch = {
+                    k: v.to(self.device) 
+                    for k, v in batch.items()
+                }
+                
+                outputs = self.model(**batch)
+                loss = outputs["loss"]
+                total_loss += loss.item()
+                
+                mlflow.log_metrics({
+                    "eval_loss": loss.item()
+                })
+
+        return {"loss": total_loss / len(self.eval_dataloader)}
+```
+
+### 数据处理模板
+```python
+from typing import Optional, List, Dict, Any
+from dataclasses import dataclass
+import torch
+from torch.utils.data import Dataset, DataLoader
+from transformers import PreTrainedTokenizer
+
+@dataclass
+class InputExample:
+    """输入示例类"""
+    text: str
+    label: Optional[int] = None
+
+class CustomDataset(Dataset):
+    """自定义数据集"""
+    def __init__(
+        self,
+        examples: List[InputExample],
+        tokenizer: PreTrainedTokenizer,
+        max_length: int = 512,
+    ):
+        self.examples = examples
+        self.tokenizer = tokenizer
+        self.max_length = max_length
+
+    def __len__(self) -> int:
+        return len(self.examples)
+
+    def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
+        example = self.examples[idx]
+        
+        # 文本编码
+        encoding = self.tokenizer(
+            example.text,
+            max_length=self.max_length,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt"
+        )
+        
+        # 准备模型输入
+        item = {
+            "input_ids": encoding["input_ids"].squeeze(),
+            "attention_mask": encoding["attention_mask"].squeeze(),
+        }
+        
+        if example.label is not None:
+            item["labels"] = torch.tensor(example.label)
+            
+        return item
+```
+
+## 常见场景实现
+
+### 模型训练与评估
+```python
+import torch
+from torch.utils.data import DataLoader
+import mlflow
+from typing import Dict, Any
+
+def train_model(
+    model: torch.nn.Module,
+    train_dataloader: DataLoader,
+    eval_dataloader: DataLoader,
+    num_epochs: int,
+    learning_rate: float = 2e-5,
+    device: Optional[torch.device] = None,
+) -> Dict[str, Any]:
+    """训练模型"""
+    # 设置 MLflow 实验
+    mlflow.set_experiment("model_training")
+    
+    with mlflow.start_run():
+        # 记录参数
+        mlflow.log_params({
+            "num_epochs": num_epochs,
+            "learning_rate": learning_rate,
+            "batch_size": train_dataloader.batch_size,
+        })
+        
+        # 初始化训练器
+        trainer = CustomTrainer(
+            model=model,
+            train_dataloader=train_dataloader,
+            eval_dataloader=eval_dataloader,
+            optimizer=torch.optim.AdamW(
+                model.parameters(),
+                lr=learning_rate
+            ),
+            device=device
+        )
+        
+        # 训练循环
+        best_loss = float("inf")
+        for epoch in range(num_epochs):
+            train_metrics = trainer.train_epoch()
+            eval_metrics = trainer.evaluate()
+            
+            # 保存最佳模型
+            if eval_metrics["loss"] < best_loss:
+                best_loss = eval_metrics["loss"]
+                torch.save(
+                    model.state_dict(),
+                    "best_model.pt"
+                )
+                
+            # 记录指标
+            mlflow.log_metrics({
+                "epoch": epoch,
+                "train_loss": train_metrics["loss"],
+                "eval_loss": eval_metrics["loss"],
+            })
+            
+        return {
+            "best_loss": best_loss,
+            "final_train_loss": train_metrics["loss"],
+            "final_eval_loss": eval_metrics["loss"],
+        }
+```
+
+### 模型部署
+```python
+from typing import Dict, Any
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+import torch
+import mlflow
+
+class PredictionRequest(BaseModel):
+    """预测请求模型"""
+    text: str
+
+class PredictionResponse(BaseModel):
+    """预测响应模型"""
+    label: int
+    confidence: float
+
+app = FastAPI(title="ML Model API")
+
+class ModelService:
+    """模型服务类"""
+    def __init__(self, model_path: str):
+        self.device = torch.device(
+            "cuda" if torch.cuda.is_available() else "cpu"
+        )
+        self.model = self._load_model(model_path)
+        self.tokenizer = self._load_tokenizer()
+
+    def _load_model(self, model_path: str) -> torch.nn.Module:
+        """加载模型"""
+        try:
+            model = CustomModel(ModelConfig(...))
+            model.load_state_dict(
+                torch.load(model_path, map_location=self.device)
+            )
+            model.to(self.device)
+            model.eval()
+            return model
+        except Exception as e:
+            raise RuntimeError(f"Failed to load model: {str(e)}")
+
+    def predict(self, text: str) -> Dict[str, Any]:
+        """预测"""
+        try:
+            # 预处理
+            inputs = self.tokenizer(
+                text,
+                return_tensors="pt",
+                max_length=512,
+                padding=True,
+                truncation=True
+            ).to(self.device)
+            
+            # 推理
+            with torch.no_grad():
+                outputs = self.model(**inputs)
+                
+            # 后处理
+            probabilities = torch.softmax(outputs.logits, dim=1)
+            prediction = torch.argmax(probabilities, dim=1)
+            confidence = probabilities[0][prediction].item()
+            
+            return {
+                "label": prediction.item(),
+                "confidence": confidence
+            }
+        except Exception as e:
+            raise RuntimeError(f"Prediction failed: {str(e)}")
+
+# 初始化模型服务
+model_service = ModelService("best_model.pt")
+
+@app.post("/predict", response_model=PredictionResponse)
+async def predict(request: PredictionRequest) -> PredictionResponse:
+    """预测端点"""
+    try:
+        result = model_service.predict(request.text)
+        return PredictionResponse(**result)
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
+```
+
+### 实验追踪
+```python
+from typing import Dict, Any
+import mlflow
+from mlflow.tracking import MlflowClient
+import optuna
+
+def optimize_hyperparameters(
+    train_fn: callable,
+    param_space: Dict[str, Any],
+    n_trials: int = 10,
+) -> Dict[str, Any]:
+    """超参数优化"""
+    mlflow.set_experiment("hyperparameter_optimization")
+    
+    def objective(trial: optuna.Trial) -> float:
+        """优化目标"""
+        # 采样参数
+        params = {
+            name: trial.suggest_float(
+                name, 
+                space[0], 
+                space[1]
+            )
+            for name, space in param_space.items()
+        }
+        
+        # 训练评估
+        with mlflow.start_run(nested=True):
+            mlflow.log_params(params)
+            metrics = train_fn(**params)
+            mlflow.log_metrics(metrics)
+            
+            return metrics["eval_loss"]
+    
+    # 创建学习器
+    study = optuna.create_study(
+        direction="minimize",
+        study_name="hyperparameter_optimization"
+    )
+    
+    # 优化
+    study.optimize(objective, n_trials=n_trials)
+    
+    return {
+        "best_params": study.best_params,
+        "best_value": study.best_value
+    } 

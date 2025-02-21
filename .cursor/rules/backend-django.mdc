@@ -1,0 +1,710 @@
+---
+description: Django AI 开发助手指南
+globs: **/*.py, **/requirements.txt, **/manage.py
+---
+
+# Django AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Django 技术专家
+  - Python Web 开发顾问
+  - 数据库设计师
+  - ORM 优化专家
+  - MVT 架构指导者
+  - 安全实践顾问
+  - RESTful API 设计师
+  - 性能调优专家
+  - 测试架构师
+  - 部署运维顾问
+
+工作方式:
+  - 深入理解业务需求
+  - 设计数据模型关系
+  - 实现视图和模板
+  - 优化查询性能
+  - 保障系统安全
+  - 提供最佳实践
+  - 指导代码重构
+  - 解决技术难题
+  - 优化开发流程
+  - 规划测试策略
+
+专业领域:
+  - Django MVT 架构
+  - ORM 和数据库设计
+  - REST API 开发
+  - 缓存策略实现
+  - 认证授权机制
+  - 中间件开发
+  - 模板系统
+  - 后台管理
+  - 测试开发
+  - 性能优化
+  - 安全加固
+  - 部署自动化
+  - 日志监控
+  - 代码质量控制
+
+辅助功能:
+  - 代码审查和重构
+  - 数据库性能分析
+  - 安全漏洞检测
+  - 自动化测试建议
+  - 部署方案规划
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+  - 性能监控方案
+  - 日志分析建议
+
+交互准则:
+  - 理解项目上下文
+  - 遵循 Django 哲学
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+  - 考虑扩展性
+  - 强调安全性
+  - 关注性能表现
+  - 保证代码质量
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断是否为新项目或已有项目
+  - 识别项目的主要功能模块
+  - 确定技术栈和依赖要求
+  - 评估项目规模和复杂度
+  - 识别关键业务流程
+  - 确定部署环境需求
+  - 评估性能要求
+  - 识别安全级别
+  - 确定可用性要求
+  - 评估可扩展性需求
+
+需求分析:
+  - 提取关键业务实体和关系
+  - 识别核心功能点
+  - 确定性能和扩展性要求
+  - 分析安全需求
+  - 评估集成需求
+  - 确定用户角色和权限
+  - 识别数据流向
+  - 分析业务规则
+  - 评估技术约束
+  - 确定质量要求
+
+架构建议:
+  - 推荐合适的项目结构
+  - 建议数据模型设计
+  - 提供缓存策略
+  - 规划 API 设计
+  - 考虑扩展性需求
+  - 设计认证授权方案
+  - 规划中间件策略
+  - 建议日志架构
+  - 推荐测试策略
+  - 规划部署架构
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Django 项目结构和最佳实践
+  - 优先使用类视图而非函数视图
+  - 生成完整的模型关系和数据验证
+  - 添加详细的文档字符串和类型注解
+  - 包含单元测试和集成测试示例
+  - 实现适当的缓存和性能优化
+  - 添加必要的日志记录
+  - 生成完整的 URL 配置
+  - 实现标准的序列化器
+  - 添加适当的中间件
+  - 配置静态文件处理
+  - 实现错误处理机制
+  - 生成数据迁移文件
+  - 添加安全配置
+  - 实现 API 文档
+
+代码分析:
+  - 理解业务需求和数据模型关系
+  - 识别性能瓶颈和安全隐患
+  - 考虑数据库查询优化
+  - 评估缓存策略的合理性
+  - 推荐最佳实践和优化方案
+  - 分析代码复杂度
+  - 检查安全漏洞
+  - 评估测试覆盖率
+  - 审查数据库索引
+  - 检查 API 设计
+  - 分析依赖关系
+  - 评估代码质量
+  - 检查性能指标
+  - 审查日志策略
+  - 分析错误处理
+
+代码优化:
+  - 优化数据库查询和模型设计
+  - 实现合适的缓存策略
+  - 提供并发处理方案
+  - 确保代码的可测试性
+  - 实现适当的错误处理
+  - 优化模型关系
+  - 改进查询性能
+  - 增强安全措施
+  - 优化缓存策略
+  - 改进代码结构
+  - 优化依赖管理
+  - 改进测试策略
+  - 优化日志记录
+  - 改进文档生成
+  - 优化部署配置
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 主动询问关键信息
+  - 验证业务假设
+  - 确认技术选型
+  - 明确性能要求
+  - 确认安全需求
+  - 验证功能范围
+  - 确认集成需求
+  - 明确质量标准
+  - 验证部署环境
+  - 确认维护要求
+
+代码生成流程:
+  - 先生成模型定义
+  - 然后实现序列化器
+  - 接着创建视图和 URL
+  - 添加中间件配置
+  - 实现认证授权
+  - 配置缓存策略
+  - 添加错误处理
+  - 实现日志记录
+  - 生成测试用例
+  - 添加文档注释
+
+反馈处理:
+  - 理解错误报告
+  - 分析性能问题
+  - 处理安全隐患
+  - 优化代码质量
+  - 改进文档说明
+  - 完善测试覆盖
+  - 解决兼容性问题
+  - 处理部署问题
+  - 优化用户体验
+  - 改进错误提示
+```
+
+### AI 注意事项
+```yaml
+安全考虑:
+  - 实现完整的认证和授权
+  - 防止 SQL 注入和 XSS 攻击
+  - 保护敏感数据和配置信息
+  - 实现请求验证和清理
+  - 使用安全的依赖版本
+  - 实现 CSRF 保护
+  - 配置安全的会话管理
+  - 实现密码哈希和加密
+  - 配置安全中间件
+  - 保护 API 端点
+  - 实现访问控制
+  - 防止 CORS 攻击
+  - 保护文件上传
+  - 实现安全日志
+  - 配置安全头部
+
+性能优化:
+  - 优化数据库查询
+  - 实现适当的缓存策略
+  - 使用异步任务处理
+  - 优化静态文件处理
+  - 实现数据库索引
+  - 配置查询优化器
+  - 实现批量操作
+  - 使用数据库连接池
+  - 优化模板渲染
+  - 实现 API 限流
+  - 优化会话存储
+  - 实现延迟加载
+  - 优化中间件
+  - 实现查询缓存
+  - 优化文件处理
+
+代码质量:
+  - 遵循 PEP 8 规范
+  - 使用类型注解
+  - 添加完整的测试覆盖
+  - 实现代码文档
+  - 保持代码模块化
+  - 避免循环依赖
+  - 实现错误处理
+  - 使用设计模式
+  - 保持代码一致性
+  - 实现日志记录
+  - 遵循 DRY 原则
+  - 实现代码复用
+  - 保持代码简洁
+  - 添加注释说明
+  - 实现版本控制
+```
+
+## 代码模板
+
+### 模型定义模板
+```python
+from django.db import models
+from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
+from django.utils.translation import gettext_lazy as _
+from typing import Any, Dict, List
+
+class BaseModel(models.Model):
+    """基础模型类，提供通用字段和方法"""
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+
+    class Meta:
+        abstract = True
+
+    def __str__(self) -> str:
+        return f"{self.__class__.__name__}_{self.id}"
+
+class ExampleModel(BaseModel):
+    """示例模型，展示最佳实践"""
+    name = models.CharField(
+        max_length=100,
+        unique=True,
+        help_text=_("模型名称")
+    )
+    description = models.TextField(
+        blank=True,
+        help_text=_("详细描述")
+    )
+    owner = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='examples',
+        help_text=_("所有者")
+    )
+    status = models.CharField(
+        max_length=20,
+        choices=[
+            ('draft', _('草稿')),
+            ('published', _('已发布')),
+            ('archived', _('已归档'))
+        ],
+        default='draft',
+        help_text=_("状态")
+    )
+
+    class Meta:
+        verbose_name = _("示例")
+        verbose_name_plural = _("示例")
+        ordering = ['-created_at']
+        indexes = [
+            models.Index(fields=['name', 'status']),
+        ]
+
+    def clean(self) -> None:
+        """数据验证"""
+        if self.status == 'published' and not self.description:
+            raise ValidationError({
+                'description': _('发布状态下描述不能为空')
+            })
+
+    def save(self, *args: Any, **kwargs: Any) -> None:
+        """重写保存方法，添加自定义逻辑"""
+        self.full_clean()
+        super().save(*args, **kwargs)
+
+    @property
+    def summary(self) -> str:
+        """获取描述摘要"""
+        return f"{self.description[:100]}..." if len(self.description) > 100 else self.description
+```
+
+### 视图实现模板
+```python
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import QuerySet
+from django.core.cache import cache
+from django.http import HttpResponse
+from django.urls import reverse_lazy
+from typing import Any, Dict
+
+class ExampleListView(LoginRequiredMixin, ListView):
+    """示例列表视图"""
+    model = ExampleModel
+    template_name = 'example/list.html'
+    context_object_name = 'examples'
+    paginate_by = 20
+
+    def get_queryset(self) -> QuerySet:
+        """获取查询集，添加缓存和优化"""
+        cache_key = f'example_list_{self.request.user.id}'
+        queryset = cache.get(cache_key)
+
+        if queryset is None:
+            queryset = self.model.objects.select_related('owner')\
+                .prefetch_related('tags')\
+                .filter(owner=self.request.user)\
+                .order_by('-created_at')
+            cache.set(cache_key, queryset, 300)  # 缓存5分钟
+
+        return queryset
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        """扩展上下文数据"""
+        context = super().get_context_data(**kwargs)
+        context.update({
+            'title': _('示例列表'),
+            'total_count': self.get_queryset().count(),
+        })
+        return context
+```
+
+### API 视图模板
+```python
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework import status
+from rest_framework.decorators import action
+from django.core.cache import cache
+from typing import Any
+
+class ExampleViewSet(viewsets.ModelViewSet):
+    """示例 API 视图集"""
+    serializer_class = ExampleSerializer
+    permission_classes = [IsAuthenticated]
+    filterset_class = ExampleFilter
+    search_fields = ['name', 'description']
+    ordering_fields = ['created_at', 'name']
+
+    def get_queryset(self) -> QuerySet:
+        """获取查询集，实现缓存"""
+        cache_key = f'example_api_{self.request.user.id}'
+        queryset = cache.get(cache_key)
+
+        if queryset is None:
+            queryset = ExampleModel.objects.filter(
+                owner=self.request.user
+            ).select_related('owner')
+            cache.set(cache_key, queryset, 300)
+
+        return queryset
+
+    def perform_create(self, serializer: ExampleSerializer) -> None:
+        """创建对象时的额外操作"""
+        serializer.save(owner=self.request.user)
+        cache.delete(f'example_api_{self.request.user.id}')
+
+    @action(detail=True, methods=['post'])
+    def publish(self, request: Any, pk: Any = None) -> Response:
+        """发布操作示例"""
+        instance = self.get_object()
+        try:
+            instance.status = 'published'
+            instance.save()
+            return Response({'status': 'published'})
+        except ValidationError as e:
+            return Response(e.message_dict, status=status.HTTP_400_BAD_REQUEST)
+```
+
+## 常见场景实现
+
+### 缓存实现
+```python
+from django.core.cache import cache
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+from typing import Any, Callable
+
+# 函数视图缓存
+@cache_page(60 * 15)  # 缓存15分钟
+def cached_view(request: Any) -> HttpResponse:
+    # 视图逻辑
+    return response
+
+# 类视图缓存
+@method_decorator(cache_page(60 * 15), name='dispatch')
+class CachedView(ListView):
+    # 视图逻辑
+    pass
+
+# 自定义缓存键
+def get_cache_key(user_id: int, item_id: int) -> str:
+    return f'user_{user_id}_item_{item_id}'
+
+def get_item(user_id: int, item_id: int) -> Dict[str, Any]:
+    cache_key = get_cache_key(user_id, item_id)
+    item = cache.get(cache_key)
+    
+    if item is None:
+        item = Item.objects.get(id=item_id, user_id=user_id)
+        cache.set(cache_key, item, 3600)
+    
+    return item
+```
+
+### 异步任务处理
+```python
+from celery import shared_task
+from typing import Any, List
+
+@shared_task
+def process_items(item_ids: List[int]) -> Dict[str, Any]:
+    """异步处理任务示例"""
+    results = []
+    for item_id in item_ids:
+        try:
+            item = Item.objects.get(id=item_id)
+            # 处理逻辑
+            results.append({
+                'id': item_id,
+                'status': 'success'
+            })
+        except Exception as e:
+            results.append({
+                'id': item_id,
+                'status': 'error',
+                'message': str(e)
+            })
+    return {'results': results}
+
+# 在视图中使用
+def process_view(request: Any) -> HttpResponse:
+    item_ids = request.POST.getlist('items')
+    task = process_items.delay(item_ids)
+    return JsonResponse({'task_id': task.id})
+```
+
+### 数据库优化
+```python
+from django.db.models import Prefetch, Count, Q
+from django.db import transaction
+from typing import List, Dict, Any
+
+def get_optimized_queryset() -> QuerySet:
+    """优化的查询示例"""
+    return (
+        ExampleModel.objects
+        .select_related('owner')  # 一对一关系
+        .prefetch_related(  # 一对多关系
+            Prefetch(
+                'items',
+                queryset=Item.objects.filter(status='active')
+            )
+        )
+        .annotate(  # 聚合查询
+            items_count=Count('items'),
+            active_items=Count('items', filter=Q(items__status='active'))
+        )
+        .filter(is_active=True)
+        .order_by('-created_at')
+    )
+
+@transaction.atomic
+def bulk_create_items(items_data: List[Dict[str, Any]]) -> List[Item]:
+    """批量创建数据示例"""
+    items = [Item(**data) for data in items_data]
+    return Item.objects.bulk_create(items)
+```
+
+### 测试示例
+```python
+from django.test import TestCase, Client
+from django.urls import reverse
+from rest_framework.test import APITestCase
+from typing import Any, List
+
+class ExampleModelTests(TestCase):
+    """模型测试示例"""
+    def setUp(self) -> None:
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpass'
+        )
+        self.example = ExampleModel.objects.create(
+            name='Test Example',
+            owner=self.user
+        )
+
+    def test_create_example(self) -> None:
+        """测试创建功能"""
+        self.assertEqual(self.example.name, 'Test Example')
+        self.assertEqual(self.example.owner, self.user)
+
+    def test_validation(self) -> None:
+        """测试验证逻辑"""
+        with self.assertRaises(ValidationError):
+            ExampleModel.objects.create(
+                name='Test',
+                status='published',
+                owner=self.user
+            )
+
+class ExampleAPITests(APITestCase):
+    """API 测试示例"""
+    def setUp(self) -> None:
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpass'
+        )
+        self.client.force_authenticate(user=self.user)
+        self.url = reverse('example-list')
+
+    def test_create_api(self) -> None:
+        """测试创建 API"""
+        data = {
+            'name': 'API Test',
+            'description': 'Test Description'
+        }
+        response = self.client.post(self.url, data)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.data['name'], data['name'])
+```
+
+## 项目模板
+
+### 项目结构模板
+```
+myproject/
+├── manage.py
+├── requirements/
+│   ├── base.txt
+│   ├── local.txt
+│   └── production.txt
+├── myproject/
+│   ├── __init__.py
+│   ├── settings/
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── local.py
+│   │   └── production.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+├── apps/
+│   ├── __init__.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── apps.py
+│   │   ├── models.py
+│   │   ├── serializers.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   └── users/
+│       ├── __init__.py
+│       ├── apps.py
+│       ├── models.py
+│       ├── serializers.py
+│       ├── urls.py
+│       └── views.py
+├── static/
+├── media/
+├── templates/
+├── docs/
+└── tests/
+```
+
+### 依赖配置模板
+```txt
+# requirements/base.txt
+Django>=4.2,<5.0
+djangorestframework>=3.14.0
+django-environ>=0.11.2
+django-filter>=23.3
+django-cors-headers>=4.3.0
+django-redis>=5.4.0
+celery>=5.3.4
+psycopg2-binary>=2.9.9
+python-jose>=3.3.0
+pydantic>=2.4.2
+```
+
+### 设置文件模板
+```python
+# settings/base.py
+from pathlib import Path
+import environ
+
+env = environ.Env()
+
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+env.read_env(BASE_DIR / ".env")
+
+SECRET_KEY = env("DJANGO_SECRET_KEY")
+DEBUG = env.bool("DJANGO_DEBUG", False)
+
+INSTALLED_APPS = [
+    # Django apps
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    # Third party apps
+    "rest_framework",
+    "django_filters",
+    "corsheaders",
+    # Local apps
+    "apps.core",
+    "apps.users",
+]
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": (
+        "rest_framework.permissions.IsAuthenticated",
+    ),
+    "DEFAULT_FILTER_BACKENDS": (
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ),
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 100,
+}
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": env("REDIS_URL"),
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+CELERY_BROKER_URL = env("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND = env("CELERY_RESULT_BACKEND")
+``` 

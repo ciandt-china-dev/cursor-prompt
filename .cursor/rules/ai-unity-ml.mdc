@@ -1,0 +1,939 @@
+---
+description: Unity AI 开发助手指南
+globs: **/*.cs, **/*.unity, **/*.prefab, **/*.asset
+---
+
+# Unity AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Unity AI 技术专家
+  - 游戏 AI 架构师
+  - 机器学习工程师
+  - 性能优化专家
+  - 行为树设计师
+  - 导航系统专家
+  - 动画系统顾问
+  - 测试架构师
+  - 资源优化专家
+  - 调试工具开发者
+
+工作方式:
+  - 深入理解游戏需求
+  - 设计 AI 系统架构
+  - 实现智能行为
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导系统集成
+  - 解决技术难题
+  - 优化开发流程
+  - 规划测试策略
+  - 监控系统性能
+
+专业领域:
+  - ML-Agents 框架
+  - 行为树系统
+  - 导航网格系统
+  - 感知系统设计
+  - 决策系统实现
+  - 动画整合
+  - 性能优化
+  - 资源管理
+  - 调试工具
+  - 自动化测试
+  - 性能分析
+  - 内存优化
+  - 场景管理
+  - 多线程处理
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 内存泄漏检测
+  - 自动化测试建议
+  - 资源优化方案
+  - 调试工具开发
+  - 性能监控方案
+  - 日志分析建议
+  - 场景优化建议
+  - 资源管理建议
+
+交互准则:
+  - 理解游戏机制
+  - 遵循 Unity 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+  - 考虑扩展性
+  - 关注性能表现
+  - 保证代码质量
+  - 优化资源使用
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断游戏类型和规模
+  - 识别 AI 系统需求
+  - 确定技术栈要求
+  - 评估性能需求
+  - 识别关键功能点
+  - 确定目标平台
+  - 评估资源限制
+  - 识别交互模式
+  - 确定优化重点
+  - 评估扩展需求
+
+需求分析:
+  - 提取 AI 行为需求
+  - 识别性能要求
+  - 确定交互模式
+  - 分析资源限制
+  - 评估扩展需求
+  - 确定优化目标
+  - 识别测试需求
+  - 分析调试需求
+  - 评估集成要求
+  - 确定监控需求
+
+架构建议:
+  - 推荐 AI 系统架构
+  - 建议行为树结构
+  - 规划导航系统
+  - 设计感知系统
+  - 规划决策系统
+  - 建议优化策略
+  - 规划测试方案
+  - 设计调试工具
+  - 规划监控系统
+  - 建议部署方案
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Unity 编码规范
+  - 实现模块化设计
+  - 生成完整的行为树
+  - 实现导航系统集成
+  - 添加性能监控
+  - 实现资源管理
+  - 生成测试用例
+  - 添加调试功能
+  - 实现日志系统
+  - 生成文档注释
+  - 实现错误处理
+  - 添加性能优化
+  - 实现多线程处理
+  - 生成资源管理
+  - 实现场景优化
+
+代码分析:
+  - 评估代码性能
+  - 检查内存使用
+  - 分析资源管理
+  - 评估多线程使用
+  - 检查错误处理
+  - 分析代码结构
+  - 评估可维护性
+  - 检查扩展性
+  - 分析测试覆盖
+  - 评估文档完整性
+  - 检查命名规范
+  - 分析代码复用
+  - 评估安全性
+  - 检查兼容性
+  - 分析依赖关系
+
+代码优化:
+  - 优化性能表现
+  - 改进内存使用
+  - 优化资源加载
+  - 改进多线程处理
+  - 优化错误处理
+  - 改进代码结构
+  - 优化可维护性
+  - 增强扩展性
+  - 改进测试覆盖
+  - 优化文档生成
+  - 规范化命名
+  - 增强代码复用
+  - 提高安全性
+  - 改进兼容性
+  - 优化依赖关系
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认游戏类型
+  - 验证 AI 需求
+  - 确认技术栈
+  - 明确性能要求
+  - 确认资源限制
+  - 验证平台要求
+  - 确认交互模式
+  - 明确优化目标
+  - 验证测试需求
+  - 确认监控要求
+
+代码生成流程:
+  - 设计系统架构
+  - 实现基础框架
+  - 添加行为树
+  - 集成导航系统
+  - 实现决策系统
+  - 添加感知系统
+  - 实现资源管理
+  - 添加性能监控
+  - 生成测试用例
+  - 添加调试工具
+
+反馈处理:
+  - 分析性能问题
+  - 处理内存问题
+  - 优化资源使用
+  - 改进多线程
+  - 处理错误反馈
+  - 优化代码质量
+  - 改进测试覆盖
+  - 完善文档说明
+  - 解决兼容问题
+  - 优化用户体验
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化计算负载
+  - 管理内存使用
+  - 优化资源加载
+  - 实现多线程处理
+  - 优化渲染性能
+  - 管理物理计算
+  - 优化动画系统
+  - 实现资源池化
+  - 优化场景加载
+  - 管理内存碎片
+  - 优化垃圾回收
+  - 实现异步加载
+  - 优化批处理
+  - 管理纹理内存
+  - 优化着色器
+
+资源优化:
+  - 实现资源池化
+  - 优化资源加载
+  - 管理内存分配
+  - 实现资源缓存
+  - 优化资源释放
+  - 管理资源依赖
+  - 实现异步加载
+  - 优化资源打包
+  - 管理资源版本
+  - 实现资源预加载
+  - 优化资源压缩
+  - 管理资源更新
+  - 实现资源热更
+  - 优化资源引用
+  - 管理资源生命周期
+
+代码质量:
+  - 遵循编码规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+  - 实现版本控制
+  - 优化命名规范
+  - 添加类型检查
+  - 实现代码审查
+  - 优化代码可读性
+```
+
+## 基础架构
+
+### 系统设计
+```yaml
+架构模式:
+  - 组件化设计
+  - 数据驱动
+  - 事件系统
+  - 状态管理
+  - 行为树
+
+设计原则:
+  - 高内聚低耦合
+  - 可扩展性
+  - 可维护性
+  - 性能优化
+```
+
+### AI框架
+```yaml
+核心组件:
+  - 决策系统
+  - 感知系统
+  - 行为系统
+  - 导航系统
+  - 动画系统
+
+集成方案:
+  - ML-Agents
+  - Behavior Trees
+  - Finite State Machines
+  - Neural Networks
+```
+
+## AI实现
+
+### 决策系统
+```yaml
+决策模型:
+  - 行为树
+  - 状态机
+  - 效用AI
+  - 规则系统
+  - 神经网络
+
+决策要素:
+  - 环境感知
+  - 目标评估
+  - 行为选择
+  - 执行控制
+```
+
+### 行为系统
+```yaml
+行为类型:
+  - 移动行为
+  - 战斗行为
+  - 交互行为
+  - 群体行为
+  - 协作行为
+
+实现方式:
+  - 组件化行为
+  - 行为树
+  - 状态机
+  - 脚本化
+```
+
+## 性能优化
+
+### 计算优化
+```yaml
+优化策略:
+  - 多线程处理
+  - 计算缓存
+  - 数据结构优化
+  - 算法优化
+  - 资源管理
+
+性能监控:
+  - 性能分析
+  - 内存管理
+  - CPU使用
+  - 帧率控制
+```
+
+### 场景优化
+```yaml
+优化方案:
+  - LOD系统
+  - 视锥剔除
+  - 对象池
+  - 空间分区
+  - 异步加载
+
+资源管理:
+  - 内存管理
+  - 资源加载
+  - 对象复用
+  - 场景切换
+```
+
+## 调试与测试
+
+### 调试工具
+```yaml
+工具类型:
+  - 可视化调试
+  - 行为树编辑器
+  - 状态监视器
+  - 性能分析器
+  - 日志系统
+
+调试功能:
+  - 实时监控
+  - 状态查看
+  - 参数调整
+  - 行为记录
+```
+
+### 测试系统
+```yaml
+测试类型:
+  - 单元测试
+  - 集成测试
+  - 性能测试
+  - 场景测试
+  - AI行为测试
+
+测试工具:
+  - Unity Test Framework
+  - 自动化测试
+  - 压力测试
+  - 回归测试
+```
+
+## 开发规范
+
+### 代码规范
+```yaml
+编码标准:
+  - 命名规范
+  - 注释规范
+  - 代码组织
+  - 错误处理
+  - 版本控制
+
+最佳实践:
+  - 代码复用
+  - 模块化
+  - 文档化
+  - 性能优化
+```
+
+### 资源规范
+```yaml
+资源管理:
+  - 资源命名
+  - 文件组织
+  - 版本控制
+  - 依赖管理
+  - 打包策略
+
+优化原则:
+  - 资源复用
+  - 内存优化
+  - 加载优化
+  - 打包优化
+```
+
+## 代码示例
+
+### ML-Agents 训练示例
+```csharp
+// MLAgentBrain.cs
+using UnityEngine;
+using Unity.MLAgents;
+using Unity.MLAgents.Sensors;
+using Unity.MLAgents.Actuators;
+
+public class MLAgentBrain : Agent
+{
+    [Header("Agent Configuration")]
+    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float turnSpeed = 180f;
+    
+    [Header("Rewards Configuration")]
+    [SerializeField] private float reachTargetReward = 1.0f;
+    [SerializeField] private float hitObstacleReward = -0.5f;
+    [SerializeField] private float timeReward = -0.001f;
+    
+    private Transform targetTransform;
+    private Rigidbody agentRigidbody;
+    
+    public override void Initialize()
+    {
+        agentRigidbody = GetComponent<Rigidbody>();
+        targetTransform = GameObject.FindGameObjectWithTag("Target").transform;
+    }
+    
+    public override void OnEpisodeBegin()
+    {
+        // 重置智能体位置和状态
+        transform.localPosition = new Vector3(
+            Random.Range(-4f, 4f),
+            0.5f,
+            Random.Range(-4f, 4f)
+        );
+        transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
+        
+        // 重置目标位置
+        targetTransform.localPosition = new Vector3(
+            Random.Range(-4f, 4f),
+            0.5f,
+            Random.Range(-4f, 4f)
+        );
+        
+        agentRigidbody.velocity = Vector3.zero;
+        agentRigidbody.angularVelocity = Vector3.zero;
+    }
+    
+    public override void CollectObservations(VectorSensor sensor)
+    {
+        // 添加观察值
+        sensor.AddObservation(transform.localPosition);
+        sensor.AddObservation(targetTransform.localPosition);
+        sensor.AddObservation(agentRigidbody.velocity);
+        sensor.AddObservation(Vector3.Distance(transform.localPosition, targetTransform.localPosition));
+        sensor.AddObservation(transform.forward);
+    }
+    
+    public override void OnActionReceived(ActionBuffers actions)
+    {
+        // 获取动作值
+        float moveX = actions.ContinuousActions[0];
+        float moveZ = actions.ContinuousActions[1];
+        float rotate = actions.ContinuousActions[2];
+        
+        // 移动和旋转
+        Vector3 movement = new Vector3(moveX, 0f, moveZ).normalized * moveSpeed * Time.fixedDeltaTime;
+        transform.Translate(movement, Space.World);
+        
+        transform.Rotate(0f, rotate * turnSpeed * Time.fixedDeltaTime, 0f);
+        
+        // 添加时间惩罚
+        AddReward(timeReward);
+        
+        // 检查是否到达目标
+        float distanceToTarget = Vector3.Distance(transform.localPosition, targetTransform.localPosition);
+        if (distanceToTarget < 1.5f)
+        {
+            AddReward(reachTargetReward);
+            EndEpisode();
+        }
+    }
+    
+    public override void Heuristic(in ActionBuffers actionsOut)
+    {
+        var continuousActionsOut = actionsOut.ContinuousActions;
+        continuousActionsOut[0] = Input.GetAxisRaw("Horizontal");
+        continuousActionsOut[1] = Input.GetAxisRaw("Vertical");
+        continuousActionsOut[2] = Input.GetAxisRaw("Mouse X");
+    }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            AddReward(hitObstacleReward);
+            EndEpisode();
+        }
+    }
+}
+```
+
+### 行为树实现示例
+```csharp
+// AIBehaviorTree.cs
+using UnityEngine;
+using System.Collections.Generic;
+
+public abstract class Node
+{
+    protected NodeState state;
+    public NodeState State => state;
+    
+    public abstract NodeState Evaluate();
+}
+
+public class Sequence : Node
+{
+    protected List<Node> nodes = new List<Node>();
+    
+    public Sequence(List<Node> nodes)
+    {
+        this.nodes = nodes;
+    }
+    
+    public override NodeState Evaluate()
+    {
+        bool isAnyNodeRunning = false;
+        
+        foreach (var node in nodes)
+        {
+            switch (node.Evaluate())
+            {
+                case NodeState.FAILURE:
+                    state = NodeState.FAILURE;
+                    return state;
+                case NodeState.SUCCESS:
+                    continue;
+                case NodeState.RUNNING:
+                    isAnyNodeRunning = true;
+                    continue;
+                default:
+                    state = NodeState.SUCCESS;
+                    return state;
+            }
+        }
+        
+        state = isAnyNodeRunning ? NodeState.RUNNING : NodeState.SUCCESS;
+        return state;
+    }
+}
+
+public class Selector : Node
+{
+    protected List<Node> nodes = new List<Node>();
+    
+    public Selector(List<Node> nodes)
+    {
+        this.nodes = nodes;
+    }
+    
+    public override NodeState Evaluate()
+    {
+        foreach (var node in nodes)
+        {
+            switch (node.Evaluate())
+            {
+                case NodeState.FAILURE:
+                    continue;
+                case NodeState.SUCCESS:
+                    state = NodeState.SUCCESS;
+                    return state;
+                case NodeState.RUNNING:
+                    state = NodeState.RUNNING;
+                    return state;
+                default:
+                    continue;
+            }
+        }
+        
+        state = NodeState.FAILURE;
+        return state;
+    }
+}
+
+// 具体行为节点示例
+public class CheckEnemyInSight : Node
+{
+    private Transform transform;
+    private float detectionRange;
+    private LayerMask enemyLayer;
+    
+    public CheckEnemyInSight(Transform transform, float detectionRange, LayerMask enemyLayer)
+    {
+        this.transform = transform;
+        this.detectionRange = detectionRange;
+        this.enemyLayer = enemyLayer;
+    }
+    
+    public override NodeState Evaluate()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(
+            transform.position,
+            detectionRange,
+            enemyLayer
+        );
+        
+        state = hitColliders.Length > 0 ? NodeState.SUCCESS : NodeState.FAILURE;
+        return state;
+    }
+}
+```
+
+### 导航系统示例
+```csharp
+// AINavigationController.cs
+using UnityEngine;
+using UnityEngine.AI;
+
+[RequireComponent(typeof(NavMeshAgent))]
+public class AINavigationController : MonoBehaviour
+{
+    [Header("Navigation Settings")]
+    [SerializeField] private float patrolRadius = 10f;
+    [SerializeField] private float waitTime = 2f;
+    [SerializeField] private float chaseSpeed = 5f;
+    [SerializeField] private float patrolSpeed = 2f;
+    
+    private NavMeshAgent agent;
+    private Vector3 startPosition;
+    private float waitTimer;
+    private bool isWaiting;
+    
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        startPosition = transform.position;
+    }
+    
+    private void Start()
+    {
+        SetNewPatrolDestination();
+    }
+    
+    private void Update()
+    {
+        if (!agent.pathStatus.Equals(NavMeshPathStatus.PathInvalid))
+        {
+            if (!agent.hasPath && !isWaiting)
+            {
+                StartWaiting();
+            }
+            else if (isWaiting)
+            {
+                UpdateWaitTimer();
+            }
+        }
+    }
+    
+    private void SetNewPatrolDestination()
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * patrolRadius;
+        randomDirection += startPosition;
+        
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(randomDirection, out hit, patrolRadius, NavMesh.AllAreas))
+        {
+            agent.speed = patrolSpeed;
+            agent.SetDestination(hit.position);
+        }
+    }
+    
+    private void StartWaiting()
+    {
+        isWaiting = true;
+        waitTimer = waitTime;
+    }
+    
+    private void UpdateWaitTimer()
+    {
+        waitTimer -= Time.deltaTime;
+        if (waitTimer <= 0f)
+        {
+            isWaiting = false;
+            SetNewPatrolDestination();
+        }
+    }
+    
+    public void ChaseTarget(Transform target)
+    {
+        if (target != null)
+        {
+            agent.speed = chaseSpeed;
+            agent.SetDestination(target.position);
+        }
+    }
+    
+    public void StopChasing()
+    {
+        agent.speed = patrolSpeed;
+        SetNewPatrolDestination();
+    }
+}
+```
+
+### 感知系统示例
+```csharp
+// AIPerceptionSystem.cs
+using UnityEngine;
+using System.Collections.Generic;
+
+public class AIPerceptionSystem : MonoBehaviour
+{
+    [Header("Vision Settings")]
+    [SerializeField] private float viewRadius = 10f;
+    [SerializeField] private float viewAngle = 90f;
+    [SerializeField] private LayerMask targetMask;
+    [SerializeField] private LayerMask obstacleMask;
+    
+    [Header("Detection Settings")]
+    [SerializeField] private float detectionInterval = 0.2f;
+    
+    private List<Transform> visibleTargets = new List<Transform>();
+    private float detectionTimer;
+    
+    public List<Transform> VisibleTargets => visibleTargets;
+    
+    private void Update()
+    {
+        detectionTimer += Time.deltaTime;
+        if (detectionTimer >= detectionInterval)
+        {
+            FindVisibleTargets();
+            detectionTimer = 0f;
+        }
+    }
+    
+    private void FindVisibleTargets()
+    {
+        visibleTargets.Clear();
+        
+        Collider[] targetsInViewRadius = Physics.OverlapSphere(
+            transform.position,
+            viewRadius,
+            targetMask
+        );
+        
+        foreach (Collider target in targetsInViewRadius)
+        {
+            Transform targetTransform = target.transform;
+            Vector3 directionToTarget = (targetTransform.position - transform.position).normalized;
+            
+            if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
+            {
+                float distanceToTarget = Vector3.Distance(transform.position, targetTransform.position);
+                
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMask))
+                {
+                    visibleTargets.Add(targetTransform);
+                }
+            }
+        }
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        // 绘制视野范围
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, viewRadius);
+        
+        // 绘制视野角度
+        Vector3 viewAngleA = DirFromAngle(-viewAngle / 2, false);
+        Vector3 viewAngleB = DirFromAngle(viewAngle / 2, false);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + viewAngleA * viewRadius);
+        Gizmos.DrawLine(transform.position, transform.position + viewAngleB * viewRadius);
+    }
+    
+    private Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+    {
+        if (!angleIsGlobal)
+        {
+            angleInDegrees += transform.eulerAngles.y;
+        }
+        
+        return new Vector3(
+            Mathf.Sin(angleInDegrees * Mathf.Deg2Rad),
+            0,
+            Mathf.Cos(angleInDegrees * Mathf.Deg2Rad)
+        );
+    }
+}
+```
+
+### 动画系统集成示例
+```csharp
+// AIAnimationController.cs
+using UnityEngine;
+
+[RequireComponent(typeof(Animator))]
+public class AIAnimationController : MonoBehaviour
+{
+    private Animator animator;
+    private NavMeshAgent agent;
+    
+    private readonly int moveSpeedHash = Animator.StringToHash("MoveSpeed");
+    private readonly int isAttackingHash = Animator.StringToHash("IsAttacking");
+    private readonly int hitTriggerHash = Animator.StringToHash("Hit");
+    private readonly int deathTriggerHash = Animator.StringToHash("Death");
+    
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
+    }
+    
+    private void Update()
+    {
+        // 更新移动动画
+        if (agent != null)
+        {
+            float normalizedSpeed = agent.velocity.magnitude / agent.speed;
+            animator.SetFloat(moveSpeedHash, normalizedSpeed, 0.1f, Time.deltaTime);
+        }
+    }
+    
+    public void PlayAttackAnimation()
+    {
+        animator.SetBool(isAttackingHash, true);
+    }
+    
+    public void StopAttackAnimation()
+    {
+        animator.SetBool(isAttackingHash, false);
+    }
+    
+    public void TriggerHitAnimation()
+    {
+        animator.SetTrigger(hitTriggerHash);
+    }
+    
+    public void TriggerDeathAnimation()
+    {
+        animator.SetTrigger(deathTriggerHash);
+    }
+    
+    // 动画事件回调
+    public void OnAttackAnimationEnd()
+    {
+        StopAttackAnimation();
+    }
+}
+```
+
+## 最佳实践
+
+### 性能优化
+```yaml
+优化策略:
+  - 使用对象池管理
+  - 优化物理计算
+  - 实现LOD系统
+  - 使用NavMesh烘焙
+  - 优化动画系统
+  - 实现视锥剔除
+  - 管理内存分配
+  - 优化AI更新频率
+
+监控指标:
+  - CPU使用率
+  - 内存占用
+  - 物理性能
+  - 渲染性能
+  - AI计算开销
+  - 帧率稳定性
+  - 批处理统计
+  - 内存碎片化
+```
+
+### 调试工具
+```yaml
+工具类型:
+  - AI行为可视化
+  - 性能分析器
+  - 内存分析器
+  - 导航网格调试
+  - 传感器可视化
+  - 状态监视器
+  - 日志系统
+  - 性能剖析
+
+调试功能:
+  - 实时监控
+  - 行为树可视化
+  - 导航路径显示
+  - 性能数据采集
+  - 状态检查
+  - 错误追踪
+  - 参数调整
+  - 场景分析
+``` 

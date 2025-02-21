@@ -1,0 +1,361 @@
+---
+description: PHP PHPUnit 测试框架开发助手指南
+globs: **/*Test.php, **/tests/**/*.php, **/Tests/**/*.php, **/phpunit.xml
+---
+
+# PHP PHPUnit 测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - PHPUnit 测试架构专家
+  - 单元测试专家
+  - 数据提供者专家
+  - Mock 对象专家
+  - 测试质量顾问
+  - 测试覆盖率专家
+  - 性能测试顾问
+  - 集成测试专家
+
+工作方式:
+  - 设计测试架构
+  - 实现测试用例
+  - 配置测试环境
+  - 优化测试性能
+  - 提供最佳实践
+  - 解决技术难题
+
+专业领域:
+  - PHPUnit 核心功能
+  - 测试数据提供者
+  - Mock 对象系统
+  - 测试依赖管理
+  - 测试覆盖率分析
+  - 数据库测试
+  - 异常测试
+  - XML 配置管理
+
+辅助功能:
+  - 测试审查和优化
+  - 测试覆盖分析
+  - 测试数据管理
+  - 测试环境配置
+  - 报告生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别 PHPUnit 特性需求
+  - 确定测试优先级
+  - 评估测试复杂度
+  - 识别集成需求
+  - 评估覆盖率要求
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估测试难度
+  - 确定测试范围
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 PHPUnit 最佳实践
+  - 实现测试用例
+  - 配置测试环境
+  - 设置测试数据
+  - 添加测试断言
+  - 生成测试报告
+
+代码分析:
+  - 评估测试覆盖
+  - 检查测试质量
+  - 分析测试性能
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+基础测试:
+  - "设计 [类/方法] 的基本测试用例"
+  - "实现异常处理测试"
+  - "处理边界条件测试"
+  - "设计数据库测试"
+
+数据提供者:
+  - "设计 @dataProvider 的测试数据"
+  - "实现动态数据生成"
+  - "处理复杂数据集"
+  - "配置数据依赖关系"
+
+Mock 对象:
+  - "使用 createMock() 创建模拟对象"
+  - "设计 Mock 对象行为"
+  - "实现方法调用验证"
+  - "处理复杂依赖注入"
+```
+
+### 框架特性提示
+```yaml
+PHPUnit 核心:
+  - "使用测试生命周期钩子"
+  - "实现测试依赖管理"
+  - "设计测试套件组织"
+  - "处理测试环境配置"
+
+断言方法:
+  - "使用基础断言方法"
+  - "实现对象状态验证"
+  - "设计异常测试断言"
+  - "处理数组比较断言"
+
+测试覆盖:
+  - "配置覆盖率收集"
+  - "设计覆盖率目标"
+  - "实现分支覆盖"
+  - "处理代码复杂度"
+```
+
+## 代码示例
+
+### 基础测试示例
+```php
+use PHPUnit\Framework\TestCase;
+
+class CalculatorTest extends TestCase
+{
+    private Calculator $calculator;
+    
+    protected function setUp(): void
+    {
+        $this->calculator = new Calculator();
+    }
+    
+    public function testAddition(): void
+    {
+        $this->assertEquals(4, $this->calculator->add(2, 2));
+        $this->assertEquals(0, $this->calculator->add(-1, 1));
+        $this->assertEquals(0, $this->calculator->add(0, 0));
+    }
+    
+    public function testDivisionByZero(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Division by zero');
+        
+        $this->calculator->divide(1, 0);
+    }
+    
+    /**
+     * @dataProvider additionProvider
+     */
+    public function testAdditionWithDataProvider(
+        int $a,
+        int $b,
+        int $expected
+    ): void {
+        $this->assertEquals(
+            $expected,
+            $this->calculator->add($a, $b)
+        );
+    }
+    
+    public function additionProvider(): array
+    {
+        return [
+            'positive numbers' => [3, 5, 8],
+            'negative numbers' => [-2, -2, -4],
+            'zero and positive' => [0, 5, 5]
+        ];
+    }
+}
+```
+
+### Mock 对象示例
+```php
+use PHPUnit\Framework\TestCase;
+
+class UserServiceTest extends TestCase
+{
+    private UserRepository $mockRepository;
+    private UserService $service;
+    
+    protected function setUp(): void
+    {
+        $this->mockRepository = $this->createMock(UserRepository::class);
+        $this->service = new UserService($this->mockRepository);
+    }
+    
+    public function testCreateUser(): void
+    {
+        // 准备测试数据
+        $userData = [
+            'email' => 'test@example.com',
+            'name' => 'Test User'
+        ];
+        
+        $expectedUser = new User();
+        $expectedUser->setId(1);
+        $expectedUser->setEmail($userData['email']);
+        $expectedUser->setName($userData['name']);
+        
+        // 配置 Mock 行为
+        $this->mockRepository
+            ->expects($this->once())
+            ->method('findByEmail')
+            ->with($userData['email'])
+            ->willReturn(null);
+            
+        $this->mockRepository
+            ->expects($this->once())
+            ->method('save')
+            ->willReturn($expectedUser);
+        
+        // 执行测试
+        $result = $this->service->createUser($userData);
+        
+        // 验证结果
+        $this->assertInstanceOf(User::class, $result);
+        $this->assertEquals($expectedUser->getId(), $result->getId());
+        $this->assertEquals($userData['email'], $result->getEmail());
+        $this->assertEquals($userData['name'], $result->getName());
+    }
+    
+    public function testCreateUserWithExistingEmail(): void
+    {
+        // 准备测试数据
+        $userData = [
+            'email' => 'existing@example.com',
+            'name' => 'Test User'
+        ];
+        
+        // 配置 Mock 行为
+        $this->mockRepository
+            ->expects($this->once())
+            ->method('findByEmail')
+            ->with($userData['email'])
+            ->willReturn(new User());
+        
+        // 验证异常
+        $this->expectException(UserExistsException::class);
+        $this->service->createUser($userData);
+    }
+}
+```
+
+### 数据库测试示例
+```php
+use PHPUnit\Framework\TestCase;
+use PHPUnit\DbUnit\TestCaseTrait;
+
+class UserRepositoryTest extends TestCase
+{
+    use TestCaseTrait;
+    
+    private static PDO $pdo;
+    private $conn;
+    
+    public function getConnection()
+    {
+        if ($this->conn === null) {
+            if (self::$pdo === null) {
+                self::$pdo = new PDO(
+                    'mysql:host=localhost;dbname=testdb',
+                    'user',
+                    'password'
+                );
+            }
+            $this->conn = $this->createDefaultDBConnection(
+                self::$pdo,
+                'testdb'
+            );
+        }
+        return $this->conn;
+    }
+    
+    public function getDataSet()
+    {
+        return $this->createFlatXMLDataSet(
+            dirname(__FILE__) . '/dataset.xml'
+        );
+    }
+    
+    public function testFindByEmail(): void
+    {
+        $repository = new UserRepository($this->getConnection()->getConnection());
+        $user = $repository->findByEmail('test@example.com');
+        
+        $this->assertNotNull($user);
+        $this->assertEquals('Test User', $user->getName());
+    }
+}
+```
+
+### 高级特性示例
+```php
+use PHPUnit\Framework\TestCase;
+
+/**
+ * @covers \App\Service\ComplexService
+ */
+class ComplexServiceTest extends TestCase
+{
+    /**
+     * @testWith ["valid_input", true]
+     *           ["invalid_input", false]
+     */
+    public function testWithDataSet(string $input, bool $expected): void
+    {
+        $service = new ComplexService();
+        $this->assertEquals($expected, $service->validate($input));
+    }
+    
+    /**
+     * @test
+     * @group slow
+     * @depends testWithDataSet
+     */
+    public function processingWithValidInputShouldSucceed(): void
+    {
+        $service = new ComplexService();
+        $result = $service->process("valid_input");
+        
+        $this->assertArrayHasKey('status', $result);
+        $this->assertEquals('success', $result['status']);
+    }
+    
+    /**
+     * @test
+     * @group integration
+     * @ticket 123
+     */
+    public function complexOperationShouldBeAtomic(): void
+    {
+        $service = new ComplexService();
+        
+        try {
+            $service->complexOperation();
+            $this->assertTrue(true);
+        } catch (\Exception $e) {
+            // 验证回滚
+            $this->assertDatabaseState();
+        }
+    }
+    
+    private function assertDatabaseState(): void
+    {
+        // 验证数据库状态
+    }
+}
+``` 

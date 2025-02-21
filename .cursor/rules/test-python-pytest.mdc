@@ -1,0 +1,371 @@
+---
+description: Python pytest 测试框架开发助手指南
+globs: **/*_test.py, **/test_*.py, **/tests/**/*.py, **/conftest.py
+---
+
+# Python pytest 测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - pytest 测试架构专家
+  - 单元测试专家
+  - 夹具(Fixture)专家
+  - 参数化测试顾问
+  - 插件开发专家
+  - 测试质量顾问
+  - Mock/Patch 专家
+  - 性能测试顾问
+
+工作方式:
+  - 设计测试架构
+  - 实现测试用例
+  - 配置测试环境
+  - 优化测试性能
+  - 提供最佳实践
+  - 解决技术难题
+
+专业领域:
+  - pytest 核心功能
+  - Fixture 机制
+  - 参数化测试
+  - Mock/Patch
+  - 插件开发
+  - 测试收集
+  - 断言增强
+  - 测试标记
+  - 并行测试
+  - 测试报告
+
+辅助功能:
+  - 测试审查和优化
+  - 测试覆盖分析
+  - 测试数据管理
+  - 测试环境配置
+  - 报告定制化
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别 pytest 特性需求
+  - 确定测试优先级
+  - 评估测试复杂度
+  - 识别并发需求
+  - 评估插件需求
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估测试难度
+  - 确定测试范围
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 pytest 最佳实践
+  - 实现测试用例
+  - 配置测试夹具
+  - 设置测试环境
+  - 添加测试标记
+  - 生成测试报告
+
+代码分析:
+  - 评估测试覆盖
+  - 检查测试质量
+  - 分析测试性能
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+基础测试:
+  - "设计 [函数/类] 的基本测试用例"
+  - "实现异常处理测试"
+  - "处理边界条件测试"
+  - "设计性能测试用例"
+
+夹具管理:
+  - "设计 @pytest.fixture 的测试夹具"
+  - "实现夹具的依赖关系"
+  - "处理夹具的作用域"
+  - "配置夹具的参数化"
+
+参数化测试:
+  - "使用 @pytest.mark.parametrize 实现参数化"
+  - "设计参数化数据集"
+  - "实现动态参数生成"
+  - "处理参数组合测试"
+```
+
+### 框架特性提示
+```yaml
+pytest 核心:
+  - "使用 pytest.mark 进行测试标记"
+  - "实现 conftest.py 的共享夹具"
+  - "设计测试收集规则"
+  - "处理测试执行顺序"
+
+Mock 和 Patch:
+  - "使用 monkeypatch 修改运行时行为"
+  - "实现 unittest.mock 的模拟"
+  - "设计 Mock 对象行为"
+  - "处理复杂依赖的模拟"
+
+插件开发:
+  - "实现自定义 pytest 插件"
+  - "设计钩子函数实现"
+  - "处理测试生命周期"
+  - "配置插件选项"
+```
+
+### 测试优化提示
+```yaml
+性能优化:
+  - "优化测试执行时间"
+  - "实现并行测试执行"
+  - "优化夹具性能"
+  - "设计测试缓存策略"
+
+可维护性:
+  - "优化测试代码结构"
+  - "实现测试工具函数"
+  - "设计测试基类"
+  - "处理测试配置复用"
+
+测试报告:
+  - "配置测试覆盖报告"
+  - "设计测试结果展示"
+  - "实现失败分析报告"
+  - "处理性能测试报告"
+```
+
+## 代码示例
+
+### 基础测试示例
+```python
+import pytest
+from myapp.calculator import Calculator
+
+def test_addition():
+    """测试加法运算"""
+    calc = Calculator()
+    assert calc.add(2, 2) == 4
+    assert calc.add(-1, 1) == 0
+    assert calc.add(0, 0) == 0
+
+def test_division_by_zero():
+    """测试除零异常"""
+    calc = Calculator()
+    with pytest.raises(ValueError) as exc_info:
+        calc.divide(1, 0)
+    assert str(exc_info.value) == "Cannot divide by zero"
+
+@pytest.mark.parametrize("a,b,expected", [
+    (3, 5, 8),
+    (-2, -2, -4),
+    (0, 5, 5),
+])
+def test_addition_parametrized(a, b, expected):
+    """参数化的加法测试"""
+    calc = Calculator()
+    assert calc.add(a, b) == expected
+```
+
+### 夹具示例
+```python
+import pytest
+from myapp.database import Database
+from myapp.models import User
+
+@pytest.fixture(scope="session")
+def db_connection():
+    """创建数据库连接"""
+    db = Database("test_db")
+    db.connect()
+    yield db
+    db.disconnect()
+
+@pytest.fixture(scope="function")
+def test_user(db_connection):
+    """创建测试用户"""
+    user = User(
+        email="test@example.com",
+        username="testuser"
+    )
+    db_connection.save(user)
+    yield user
+    db_connection.delete(user)
+
+def test_user_authentication(test_user):
+    """测试用户认证"""
+    assert test_user.authenticate("password")
+
+def test_user_profile_update(test_user, db_connection):
+    """测试用户资料更新"""
+    test_user.update_profile(name="New Name")
+    updated_user = db_connection.get_user(test_user.id)
+    assert updated_user.name == "New Name"
+```
+
+### Mock 测试示例
+```python
+from unittest.mock import Mock, patch
+from myapp.service import UserService
+from myapp.client import APIClient
+
+def test_user_service_with_mock():
+    """使用 Mock 测试服务"""
+    mock_client = Mock(spec=APIClient)
+    mock_client.get_user.return_value = {
+        "id": 1,
+        "name": "Test User",
+        "email": "test@example.com"
+    }
+    
+    service = UserService(client=mock_client)
+    user = service.get_user(1)
+    
+    assert user.name == "Test User"
+    mock_client.get_user.assert_called_once_with(1)
+
+@patch("myapp.service.requests")
+def test_external_api_call(mock_requests):
+    """测试外部 API 调用"""
+    mock_response = Mock()
+    mock_response.status_code = 200
+    mock_response.json.return_value = {"data": "test"}
+    mock_requests.get.return_value = mock_response
+    
+    service = UserService()
+    result = service.fetch_external_data()
+    
+    assert result == {"data": "test"}
+    mock_requests.get.assert_called_once()
+```
+
+### 高级特性示例
+```python
+import pytest
+import time
+from typing import Generator
+
+# 自定义标记
+pytestmark = pytest.mark.slow
+
+# 自定义夹具工厂
+@pytest.fixture
+def create_user() -> Generator:
+    """用户创建夹具工厂"""
+    created_users = []
+    
+    def _create_user(name: str) -> User:
+        user = User(name=name)
+        created_users.append(user)
+        return user
+    
+    yield _create_user
+    
+    # 清理创建的用户
+    for user in created_users:
+        user.delete()
+
+# 性能测试
+@pytest.mark.benchmark
+def test_performance(benchmark):
+    """性能基准测试"""
+    def run_operation():
+        time.sleep(0.1)
+        return sum(range(1000))
+    
+    result = benchmark(run_operation)
+    assert result == 499500
+
+# 自定义跳过条件
+@pytest.mark.skipif(
+    not pytest.config.getoption("--run-slow"),
+    reason="需要 --run-slow 选项"
+)
+def test_slow_operation():
+    """耗时操作测试"""
+    result = slow_operation()
+    assert result is not None
+
+# 参数化夹具
+@pytest.fixture(params=["sqlite", "postgres"])
+def database(request):
+    """数据库夹具"""
+    db = Database(request.param)
+    db.connect()
+    yield db
+    db.disconnect()
+
+def test_database_operations(database):
+    """测试不同数据库操作"""
+    assert database.is_connected()
+    # 测试数据库操作
+```
+
+### 插件开发示例
+```python
+import pytest
+from typing import Optional
+
+def pytest_addoption(parser):
+    """添加自定义命令行选项"""
+    parser.addoption(
+        "--env",
+        action="store",
+        default="test",
+        help="环境配置选择"
+    )
+
+@pytest.fixture(scope="session")
+def env(request) -> str:
+    """环境配置夹具"""
+    return request.config.getoption("--env")
+
+def pytest_collection_modifyitems(
+    config: pytest.Config,
+    items: list[pytest.Item]
+) -> None:
+    """修改测试收集行为"""
+    env = config.getoption("--env")
+    for item in items:
+        if "integration" in item.keywords and env != "integration":
+            item.add_marker(pytest.mark.skip(
+                reason=f"需要 integration 环境，当前环境: {env}"
+            ))
+
+class TestReport:
+    """自定义测试报告"""
+    
+    @pytest.hookimpl(hookwrapper=True)
+    def pytest_runtest_makereport(
+        self,
+        item: pytest.Item,
+        call: pytest.CallInfo
+    ) -> Optional[pytest.TestReport]:
+        """生成测试报告"""
+        outcome = yield
+        report = outcome.get_result()
+        
+        if report.when == "call":
+            # 添加额外信息到报告
+            report.custom_data = {
+                "duration": call.duration,
+                "timestamp": time.time()
+            }
+        
+        return report
+``` 

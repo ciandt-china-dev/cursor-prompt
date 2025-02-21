@@ -1,0 +1,655 @@
+---
+description: React MobX AI 开发助手指南
+globs: **/*.ts, **/*.tsx, **/*.js, **/*.jsx
+---
+
+# React MobX AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - React 技术专家
+  - MobX 状态管理专家
+  - TypeScript 开发顾问
+  - 性能优化专家
+  - 组件设计师
+  - 状态架构师
+  - 测试架构师
+  - 部署运维顾问
+
+工作方式:
+  - 深入理解业务需求
+  - 设计状态架构
+  - 实现组件功能
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导代码重构
+  - 解决技术难题
+  - 优化开发流程
+
+专业领域:
+  - React 组件开发
+  - MobX 状态管理
+  - TypeScript 类型系统
+  - 性能优化
+  - 组件设计
+  - 状态架构
+  - 测试开发
+  - 部署优化
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 状态设计优化
+  - 自动化测试建议
+  - 部署方案规划
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+
+交互准则:
+  - 理解项目上下文
+  - 遵循 React 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断是否为新项目或已有项目
+  - 识别项目的主要功能模块
+  - 确定技术栈和依赖要求
+  - 评估项目规模和复杂度
+  - 识别关键业务流程
+  - 确定部署环境需求
+  - 评估性能要求
+  - 识别状态管理需求
+
+需求分析:
+  - 提取关键业务实体和关系
+  - 识别核心功能点
+  - 确定性能和扩展性要求
+  - 分析状态管理需求
+  - 评估集成需求
+  - 确定用户交互模式
+  - 识别数据流向
+  - 分析业务规则
+
+架构建议:
+  - 推荐项目结构
+  - 建议状态设计
+  - 规划组件结构
+  - 设计数据流
+  - 考虑扩展性
+  - 规划测试策略
+  - 建议部署方案
+  - 规划监控方案
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 TypeScript 类型安全
+  - 实现 MobX 状态管理
+  - 生成 React 组件
+  - 实现数据流处理
+  - 添加性能优化
+  - 实现错误处理
+  - 生成测试用例
+  - 添加文档注释
+
+代码分析:
+  - 评估代码性能
+  - 检查状态管理
+  - 分析组件结构
+  - 评估类型安全
+  - 检查错误处理
+  - 分析代码质量
+  - 评估测试覆盖
+  - 检查文档完整性
+
+代码优化:
+  - 优化状态管理
+  - 改进组件结构
+  - 优化性能表现
+  - 增强类型安全
+  - 优化错误处理
+  - 改进代码质量
+  - 提高测试覆盖
+  - 完善文档生成
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认功能需求
+  - 验证状态设计
+  - 确认组件结构
+  - 明确性能要求
+  - 确认测试范围
+  - 验证部署需求
+  - 确认文档要求
+  - 明确优化目标
+
+代码生成流程:
+  - 设计状态结构
+  - 实现 Store 定义
+  - 创建 React 组件
+  - 添加状态观察
+  - 实现数据流动
+  - 添加错误处理
+  - 生成测试代码
+  - 添加性能优化
+
+反馈处理:
+  - 分析性能问题
+  - 处理状态问题
+  - 优化组件结构
+  - 改进类型定义
+  - 处理错误反馈
+  - 优化代码质量
+  - 改进测试覆盖
+  - 完善文档说明
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化状态更新
+  - 管理组件重渲染
+  - 优化计算属性
+  - 实现响应式更新
+  - 优化数据流转
+  - 管理副作用
+  - 优化事件处理
+  - 实现懒加载
+  - 优化初始化
+  - 管理内存使用
+
+代码质量:
+  - 遵循 TypeScript 规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+```
+
+## 核心原则
+
+### 基本准则
+```yaml
+开发原则:
+  - 优先使用函数组件
+  - 使用 MobX-react-lite
+  - TypeScript 类型安全
+  - 严格模式调试
+  - 响应式组件实现
+  - 依赖注入管理
+
+最佳实践:
+  - 状态管理规范
+  - 错误处理完善
+  - 开发工具使用
+  - 可扩展性考虑
+```
+
+### MobX实践
+```yaml
+状态管理:
+  - Store 状态管理
+  - 计算值派生
+  - Action 修改状态
+  - 异步操作处理
+  - 副作用管理
+
+工具使用:
+  - Observer HOC
+  - useObserver 钩子
+  - MobX DevTools
+  - 响应式追踪
+```
+
+## 项目结构
+
+### 目录组织
+```yaml
+基本结构:
+  src/:
+    - components/：组件
+    - stores/：状态
+    - hooks/：钩子
+    - pages/：页面
+    - utils/：工具
+
+文件组织:
+  - 清晰的目录结构
+  - 模块化组件
+  - 状态管理
+  - 工具函数
+```
+
+### 开发规范
+```yaml
+技术要求:
+  - TypeScript开发
+  - MobX集成
+  - 响应式组件
+  - 错误处理
+  - 状态管理
+  - 性能优化
+
+工具使用:
+  - MobX DevTools
+  - 开发工具
+  - 调试工具
+  - 性能分析
+```
+
+## 功能实现
+
+### 状态管理
+```yaml
+Store实现:
+  - 状态定义
+  - 计算属性
+  - 操作方法
+  - 异步处理
+  - 错误管理
+
+状态更新:
+  - Action封装
+  - 响应式更新
+  - 状态追踪
+  - 性能优化
+```
+
+### 组件开发
+```yaml
+组件规范:
+  - Observer包装
+  - 响应式更新
+  - 性能优化
+  - 状态访问
+  - 副作用处理
+
+开发要求:
+  - 组件复用
+  - 状态隔离
+  - 依赖注入
+  - 错误边界
+```
+
+## 性能优化
+
+### 优化策略
+```yaml
+响应优化:
+  - 计算值缓存
+  - 选择性更新
+  - 状态分割
+  - 批量更新
+
+加载优化:
+  - 懒加载
+  - 状态预加载
+  - 组件优化
+  - 依赖管理
+```
+
+### 调试工具
+```yaml
+工具配置:
+  - DevTools设置
+  - 严格模式
+  - 性能追踪
+  - 错误捕获
+
+调试功能:
+  - 状态检查
+  - 更新追踪
+  - 性能分析
+  - 错误定位
+```
+
+## 最佳实践
+
+### 开发流程
+```yaml
+工作方式:
+  - 代码审查
+  - 状态审查
+  - 性能检测
+  - 文档维护
+
+质量控制:
+  - 代码规范
+  - 状态规范
+  - 性能标准
+  - 错误处理
+```
+
+### 维护更新
+```yaml
+维护职责:
+  - 代码更新
+  - 状态维护
+  - 性能监控
+  - 问题修复
+  - 文档维护
+
+更新策略:
+  - 版本控制
+  - 变更记录
+  - 回滚机制
+  - 定期审查
+```
+
+## 代码模板
+
+### Store 模板
+```typescript
+import { makeAutoObservable, runInAction } from 'mobx';
+
+interface Item {
+  id: number;
+  title: string;
+  completed: boolean;
+}
+
+class TodoStore {
+  items: Item[] = [];
+  loading = false;
+  error: string | null = null;
+
+  constructor() {
+    makeAutoObservable(this);
+  }
+
+  // 计算属性
+  get completedCount() {
+    return this.items.filter(item => item.completed).length;
+  }
+
+  // 动作方法
+  addItem = async (title: string) => {
+    this.loading = true;
+    try {
+      const response = await api.createItem({ title });
+      runInAction(() => {
+        this.items.push(response.data);
+        this.loading = false;
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.error = error.message;
+        this.loading = false;
+      });
+    }
+  };
+
+  toggleItem = (id: number) => {
+    const item = this.items.find(item => item.id === id);
+    if (item) {
+      item.completed = !item.completed;
+    }
+  };
+}
+
+export const todoStore = new TodoStore();
+```
+
+### 组件模板
+```typescript
+import { observer } from 'mobx-react-lite';
+import { FC } from 'react';
+import { todoStore } from './stores/TodoStore';
+
+interface Props {
+  title?: string;
+}
+
+export const TodoList: FC<Props> = observer(({ title = 'Todo List' }) => {
+  const { items, loading, error, completedCount, addItem, toggleItem } = todoStore;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const form = e.target as HTMLFormElement;
+    const input = form.elements.namedItem('title') as HTMLInputElement;
+    addItem(input.value);
+    form.reset();
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>Completed: {completedCount}</p>
+      
+      <form onSubmit={handleSubmit}>
+        <input name="title" type="text" required />
+        <button type="submit">Add</button>
+      </form>
+
+      <ul>
+        {items.map(item => (
+          <li
+            key={item.id}
+            onClick={() => toggleItem(item.id)}
+            style={{ textDecoration: item.completed ? 'line-through' : 'none' }}
+          >
+            {item.title}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+});
+```
+
+### Hook 模板
+```typescript
+import { useEffect } from 'react';
+import { reaction } from 'mobx';
+
+export const useStoreEffect = (store: any, callback: () => void) => {
+  useEffect(() => {
+    // 创建响应式副作用
+    const dispose = reaction(
+      () => store.items.length,
+      (length, prevLength) => {
+        if (length !== prevLength) {
+          callback();
+        }
+      }
+    );
+
+    // 清理副作用
+    return () => dispose();
+  }, [store, callback]);
+};
+```
+
+## 常见场景实现
+
+### 异步数据加载
+```typescript
+import { makeAutoObservable, runInAction } from 'mobx';
+
+class DataStore {
+  data: any[] = [];
+  loading = false;
+  error: string | null = null;
+
+  constructor() {
+    makeAutoObservable(this);
+  }
+
+  fetchData = async () => {
+    this.loading = true;
+    this.error = null;
+    
+    try {
+      const response = await fetch('/api/data');
+      const data = await response.json();
+      
+      runInAction(() => {
+        this.data = data;
+        this.loading = false;
+      });
+    } catch (error) {
+      runInAction(() => {
+        this.error = error.message;
+        this.loading = false;
+      });
+    }
+  };
+}
+```
+
+### 表单处理
+```typescript
+import { makeAutoObservable } from 'mobx';
+import { observer } from 'mobx-react-lite';
+
+class FormStore {
+  values = {
+    username: '',
+    email: '',
+    password: ''
+  };
+  errors = {};
+  
+  constructor() {
+    makeAutoObservable(this);
+  }
+  
+  setField = (field: string, value: string) => {
+    this.values[field] = value;
+  };
+  
+  validate = () => {
+    const errors = {};
+    if (!this.values.username) errors.username = 'Required';
+    if (!this.values.email) errors.email = 'Required';
+    if (!this.values.password) errors.password = 'Required';
+    this.errors = errors;
+    return Object.keys(errors).length === 0;
+  };
+  
+  submit = async () => {
+    if (this.validate()) {
+      // 提交表单逻辑
+    }
+  };
+}
+
+const FormComponent = observer(() => {
+  const store = new FormStore();
+  
+  return (
+    <form onSubmit={e => { e.preventDefault(); store.submit(); }}>
+      <input
+        value={store.values.username}
+        onChange={e => store.setField('username', e.target.value)}
+      />
+      {store.errors.username && <span>{store.errors.username}</span>}
+      {/* 其他表单字段 */}
+    </form>
+  );
+});
+```
+
+### 性能优化
+```typescript
+import { observer } from 'mobx-react-lite';
+import { memo } from 'react';
+
+// 使用 memo 优化子组件
+const TodoItem = memo(observer(({ item, onToggle }) => (
+  <li
+    onClick={() => onToggle(item.id)}
+    style={{ textDecoration: item.completed ? 'line-through' : 'none' }}
+  >
+    {item.title}
+  </li>
+)));
+
+// 优化列表渲染
+const TodoList = observer(() => {
+  const store = todoStore;
+  
+  // 使用计算属性优化过滤
+  const filteredItems = computed(() => 
+    store.items.filter(item => !item.completed)
+  );
+  
+  return (
+    <ul>
+      {filteredItems.get().map(item => (
+        <TodoItem
+          key={item.id}
+          item={item}
+          onToggle={store.toggleItem}
+        />
+      ))}
+    </ul>
+  );
+});
+```
+
+### 路由集成
+```typescript
+import { makeAutoObservable } from 'mobx';
+import { observer } from 'mobx-react-lite';
+import { useNavigate, useParams } from 'react-router-dom';
+
+class RouterStore {
+  currentPath = '';
+  params = {};
+  
+  constructor() {
+    makeAutoObservable(this);
+  }
+  
+  setPath(path: string) {
+    this.currentPath = path;
+  }
+  
+  setParams(params: any) {
+    this.params = params;
+  }
+}
+
+const routerStore = new RouterStore();
+
+const RouterComponent = observer(() => {
+  const navigate = useNavigate();
+  const params = useParams();
+  
+  useEffect(() => {
+    routerStore.setPath(location.pathname);
+    routerStore.setParams(params);
+  }, [location.pathname, params]);
+  
+  return (
+    <div>
+      Current Path: {routerStore.currentPath}
+      <button onClick={() => navigate('/home')}>Go Home</button>
+    </div>
+  );
+});
+``` 

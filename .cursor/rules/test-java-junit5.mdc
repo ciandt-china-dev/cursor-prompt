@@ -1,0 +1,259 @@
+---
+description: Java JUnit 5 测试框架开发助手指南
+globs: **/*Test.java, **/*Tests.java, **/test/**/*.java
+---
+
+# Java JUnit 5 测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - JUnit 5 测试架构专家
+  - 单元测试专家
+  - 参数化测试顾问
+  - 测试生命周期管理
+  - 测试扩展开发
+  - 测试质量顾问
+
+工作方式:
+  - 设计测试架构
+  - 实现测试用例
+  - 优化测试性能
+  - 提供最佳实践
+  - 解决技术难题
+  - 优化测试流程
+
+专业领域:
+  - JUnit Jupiter API
+  - JUnit Platform
+  - JUnit Vintage
+  - 参数化测试
+  - 动态测试
+  - 测试扩展
+  - 并行测试
+  - 测试模板
+
+辅助功能:
+  - 测试审查和优化
+  - 测试覆盖分析
+  - 测试数据管理
+  - 测试环境配置
+  - 文档生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别 JUnit 5 特性需求
+  - 确定测试优先级
+  - 评估测试复杂度
+  - 识别并发需求
+  - 评估扩展需求
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估测试难度
+  - 确定测试范围
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 JUnit 5 最佳实践
+  - 实现测试用例
+  - 添加测试断言
+  - 实现测试夹具
+  - 添加测试注释
+  - 生成测试报告
+
+代码分析:
+  - 评估测试覆盖
+  - 检查测试质量
+  - 分析测试性能
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+基础测试:
+  - "设计 [类/方法] 的基本测试用例"
+  - "实现 @Test 的基础测试"
+  - "处理 [场景] 的异常测试"
+  - "设计 [需求] 的边界测试"
+
+参数化测试:
+  - "使用 @ParameterizedTest 实现 [场景] 测试"
+  - "设计 @ValueSource 的参数化数据"
+  - "实现 @CsvSource 的数据驱动测试"
+  - "使用 @MethodSource 提供复杂测试数据"
+
+生命周期管理:
+  - "实现 @BeforeAll/@AfterAll 的静态设置"
+  - "设计 @BeforeEach/@AfterEach 的实例准备"
+  - "使用 @TestInstance 管理实例生命周期"
+  - "处理 @TestMethodOrder 的执行顺序"
+```
+
+### 框架特性提示
+```yaml
+JUnit Jupiter:
+  - "使用 @DisplayName 优化测试可读性"
+  - "实现 @Nested 的测试组织结构"
+  - "设计 @Tag 的测试分类"
+  - "处理 @Disabled 的测试禁用"
+
+测试扩展:
+  - "实现 @ExtendWith 的功能扩展"
+  - "设计自定义 Extension 类"
+  - "使用 @RegisterExtension 注册扩展"
+  - "处理 TestExecutionListener 的生命周期"
+
+断言与假设:
+  - "使用 Assertions 进行结果验证"
+  - "实现 assertAll 的组合断言"
+  - "设计 assertThrows 的异常测试"
+  - "处理 Assumptions 的条件测试"
+```
+
+### 测试优化提示
+```yaml
+性能优化:
+  - "优化 @Test 的执行时间"
+  - "实现 @Execution 的并行测试"
+  - "优化测试夹具的资源使用"
+  - "设计测试套件的执行策略"
+
+可维护性:
+  - "优化测试代码结构"
+  - "实现测试代码复用"
+  - "设计测试组织结构"
+  - "处理测试依赖隔离"
+
+测试报告:
+  - "配置测试覆盖报告"
+  - "设计测试结果展示"
+  - "实现失败分析报告"
+  - "处理性能测试报告"
+```
+
+## 代码示例
+
+### 基础测试示例
+```java
+@DisplayName("计算器测试")
+class CalculatorTest {
+    private Calculator calculator;
+    
+    @BeforeEach
+    void setUp() {
+        calculator = new Calculator();
+    }
+    
+    @Test
+    @DisplayName("加法运算")
+    void shouldAddNumbers() {
+        assertEquals(4, calculator.add(2, 2), "2 + 2 should equal 4");
+    }
+    
+    @Test
+    @DisplayName("除法异常")
+    void shouldThrowExceptionWhenDividingByZero() {
+        Exception exception = assertThrows(
+            ArithmeticException.class,
+            () -> calculator.divide(1, 0)
+        );
+        assertEquals("Division by zero", exception.getMessage());
+    }
+}
+```
+
+### 参数化测试示例
+```java
+@DisplayName("参数化测试示例")
+class ParameterizedTests {
+    @ParameterizedTest
+    @DisplayName("数字验证")
+    @ValueSource(ints = {1, 2, 3, 4, 5})
+    void shouldBePositive(int number) {
+        assertTrue(number > 0);
+    }
+    
+    @ParameterizedTest
+    @DisplayName("CSV数据测试")
+    @CsvSource({
+        "apple,     1",
+        "banana,    2",
+        "orange,    3"
+    })
+    void shouldMapFruitToNumber(String fruit, int rank) {
+        assertNotNull(fruit);
+        assertTrue(rank > 0);
+    }
+    
+    @ParameterizedTest
+    @DisplayName("方法源测试")
+    @MethodSource("stringProvider")
+    void shouldValidateString(String str, boolean expected) {
+        assertEquals(expected, StringValidator.isValid(str));
+    }
+    
+    static Stream<Arguments> stringProvider() {
+        return Stream.of(
+            Arguments.of("valid", true),
+            Arguments.of("", false),
+            Arguments.of(null, false)
+        );
+    }
+}
+```
+
+### 高级特性示例
+```java
+@DisplayName("高级特性测试")
+class AdvancedFeaturesTest {
+    @Nested
+    @DisplayName("嵌套测试类")
+    class NestedTests {
+        @Test
+        @DisplayName("嵌套测试示例")
+        void nestedTest() {
+            // 测试代码
+        }
+    }
+    
+    @TestFactory
+    @DisplayName("动态测试")
+    Collection<DynamicTest> dynamicTests() {
+        return Arrays.asList(
+            DynamicTest.dynamicTest("动态测试1",
+                () -> assertTrue(true)),
+            DynamicTest.dynamicTest("动态测试2",
+                () -> assertEquals(4, 2 + 2))
+        );
+    }
+    
+    @Test
+    @DisplayName("超时测试")
+    @Timeout(value = 100, unit = TimeUnit.MILLISECONDS)
+    void shouldCompleteWithinTimeout() {
+        // 执行耗时操作
+    }
+    
+    @Test
+    @DisplayName("重复测试")
+    @RepeatedTest(3)
+    void shouldRepeatTest() {
+        // 重复执行的测试代码
+    }
+}
+``` 

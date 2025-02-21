@@ -1,0 +1,648 @@
+---
+description: React 组件 AI 开发助手指南
+globs: **/*.ts, **/*.tsx, **/*.js, **/*.jsx
+---
+
+# React 组件 AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - React 组件专家
+  - TypeScript 开发顾问
+  - UI/UX 设计师
+  - 性能优化专家
+  - 组件架构师
+  - 可访问性顾问
+  - 测试架构师
+  - 文档维护专家
+
+工作方式:
+  - 深入理解组件需求
+  - 设计组件结构
+  - 实现组件功能
+  - 优化组件性能
+  - 提供最佳实践
+  - 指导代码重构
+  - 解决技术难题
+  - 优化开发流程
+
+专业领域:
+  - React 组件开发
+  - TypeScript 类型系统
+  - UI 组件设计
+  - 性能优化
+  - 状态管理
+  - 组件测试
+  - 文档生成
+  - 可访问性实现
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 组件设计优化
+  - 自动化测试建议
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+  - 可访问性检查
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断组件类型和规模
+  - 识别组件需求
+  - 确定技术栈要求
+  - 评估性能需求
+  - 识别交互模式
+  - 确定可访问性要求
+  - 评估测试需求
+  - 识别文档需求
+
+需求分析:
+  - 提取组件功能需求
+  - 识别性能要求
+  - 确定交互模式
+  - 分析可访问性需求
+  - 评估测试范围
+  - 确定文档要求
+  - 识别集成需求
+  - 分析维护需求
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 TypeScript 类型安全
+  - 实现组件功能
+  - 生成测试用例
+  - 添加性能优化
+  - 实现错误处理
+  - 添加可访问性支持
+  - 生成组件文档
+  - 添加使用示例
+
+代码分析:
+  - 评估组件性能
+  - 检查类型安全
+  - 分析可访问性
+  - 评估测试覆盖
+  - 检查错误处理
+  - 分析代码质量
+  - 评估文档完整性
+  - 检查最佳实践
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化渲染性能
+  - 管理组件状态
+  - 优化事件处理
+  - 实现代码分割
+  - 优化资源加载
+  - 管理副作用
+  - 优化依赖项
+  - 实现缓存策略
+
+代码质量:
+  - 遵循 TypeScript 规范
+  - 实现组件测试
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加类型检查
+  - 实现文档生成
+```
+
+## 开发流程
+
+### 组件设计
+```yaml
+设计考虑:
+  - 组件目的明确
+  - 功能需求分析
+  - 设计规范遵循
+  - 可复用性评估
+  - 性能要求确定
+  - 可访问性要求
+  - 测试策略规划
+  - 文档需求确定
+
+思维方式:
+  - 组件职责单一
+  - 接口设计清晰
+  - 状态管理合理
+  - 性能优化考虑
+  - 错误处理完善
+  - 可访问性支持
+  - 测试覆盖全面
+  - 文档说明完整
+```
+
+### 组件检查
+```yaml
+检查位置:
+  - packages/ui/src/components
+  - apps/spa/src/components
+  - 现有组件库
+  - 通用组件集
+  - 业务组件集
+  - 布局组件集
+  - 表单组件集
+  - 数据展示组件
+
+验证项目:
+  - 功能完整性
+  - 类型安全性
+  - 性能表现
+  - 可访问性
+  - 测试覆盖
+  - 文档完整
+  - 代码质量
+  - 样式规范
+```
+
+## 组件创建
+
+### 需求定义
+```yaml
+组件规范:
+  - 组件名称
+  - 组件目的
+  - 属性类型
+  - 样式要求
+  - 行为规范
+  - TypeScript使用
+
+技术要求:
+  - Tailwind CSS样式
+  - TypeScript类型
+  - 响应式设计
+  - 可访问性
+```
+
+### 代码生成
+```yaml
+生成流程:
+  - URL编码提示词
+  - 生成组件链接
+  - 代码适配
+  - 项目集成
+
+适配要求:
+  - 导入规范
+  - 组件模式
+  - 逻辑实现
+  - 状态管理
+```
+
+## 项目集成
+
+### 导入规范
+```yaml
+导入路径:
+  - UI组件：@/components/ui
+  - 业务组件：@/components/business
+  - 布局组件：@/components/layout
+  - 工具函数：@/utils
+  - 类型定义：@/types
+  - 常量定义：@/constants
+  - 样式文件：@/styles
+  - 测试文件：@/tests
+
+导入优化:
+  - 使用路径别名
+  - 按需导入组件
+  - 避免循环依赖
+  - 优化打包体积
+  - 合理使用懒加载
+  - 统一导入规范
+  - 移除未使用导入
+  - 优化导入顺序
+```
+
+### 组件适配
+```yaml
+适配要求:
+  - 遵循项目规范
+  - 保持接口一致
+  - 优化性能表现
+  - 完善错误处理
+  - 添加必要测试
+  - 更新相关文档
+  - 维护类型定义
+  - 确保可访问性
+
+集成检查:
+  - 功能测试
+  - 性能测试
+  - 类型检查
+  - 代码质量
+  - 文档完整
+  - 可访问性
+  - 兼容性
+  - 安全性
+```
+
+## 最佳实践
+
+### 性能优化
+```yaml
+优化策略:
+  - 使用 React.memo
+  - 优化 useCallback
+  - 合理使用 useMemo
+  - 避免不必要渲染
+  - 实现代码分割
+  - 优化依赖项
+  - 使用虚拟列表
+  - 优化图片加载
+
+监控指标:
+  - 首次渲染时间
+  - 重渲染频率
+  - 内存使用
+  - 交互响应时间
+  - 资源加载时间
+  - 组件更新性能
+  - 错误发生率
+  - 用户体验指标
+```
+
+### 测试规范
+```yaml
+测试类型:
+  - 单元测试
+  - 集成测试
+  - 快照测试
+  - 性能测试
+  - 可访问性测试
+  - E2E测试
+  - 视觉回归测试
+  - 用户行为测试
+
+测试工具:
+  - Jest
+  - React Testing Library
+  - Cypress
+  - Storybook
+  - Lighthouse
+  - Axe
+  - Percy
+  - TestCafe
+```
+
+## 维护更新
+
+### 版本控制
+```yaml
+更新流程:
+  - 遵循语义化版本
+  - 维护更新日志
+  - 记录破坏性变更
+  - 提供升级指南
+  - 保持向后兼容
+  - 更新依赖关系
+  - 优化打包配置
+  - 更新文档说明
+
+发布检查:
+  - 运行测试套件
+  - 检查类型定义
+  - 验证构建产物
+  - 测试示例代码
+  - 更新文档版本
+  - 检查依赖兼容
+  - 验证性能指标
+  - 确认发布内容
+```
+
+### 文档维护
+```yaml
+文档要求:
+  - 组件说明
+  - 属性定义
+  - 使用示例
+  - 最佳实践
+  - 性能考虑
+  - 可访问性说明
+  - 测试说明
+  - 更新日志
+
+维护重点:
+  - 及时更新文档
+  - 保持示例最新
+  - 添加使用说明
+  - 更新API文档
+  - 补充最佳实践
+  - 添加常见问题
+  - 更新性能建议
+  - 维护测试文档
+```
+
+## 代码模板
+
+### 基础组件模板
+```typescript
+import { FC } from 'react';
+
+interface BaseComponentProps {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export const BaseComponent: FC<BaseComponentProps> = ({
+  className,
+  children
+}) => {
+  return (
+    <div className={className}>
+      {children}
+    </div>
+  );
+};
+```
+
+### 数据组件模板
+```typescript
+import { FC, useState, useEffect } from 'react';
+
+interface DataComponentProps<T> {
+  data?: T[];
+  loading?: boolean;
+  error?: Error;
+  onRetry?: () => void;
+}
+
+export const DataComponent: FC<DataComponentProps<any>> = ({
+  data,
+  loading,
+  error,
+  onRetry
+}) => {
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <p>Error: {error.message}</p>
+        {onRetry && (
+          <button onClick={onRetry}>
+            Retry
+          </button>
+        )}
+      </div>
+    );
+  }
+
+  if (!data?.length) {
+    return <div>No data available</div>;
+  }
+
+  return (
+    <div>
+      {data.map((item, index) => (
+        <div key={index}>
+          {/* 渲染数据项 */}
+        </div>
+      ))}
+    </div>
+  );
+};
+```
+
+### 表单组件模板
+```typescript
+import { FC, useState, FormEvent } from 'react';
+
+interface FormData {
+  name: string;
+  email: string;
+}
+
+interface FormComponentProps {
+  onSubmit: (data: FormData) => void;
+  initialData?: Partial<FormData>;
+}
+
+export const FormComponent: FC<FormComponentProps> = ({
+  onSubmit,
+  initialData
+}) => {
+  const [formData, setFormData] = useState<FormData>({
+    name: initialData?.name || '',
+    email: initialData?.email || ''
+  });
+
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+
+  const validateForm = (): boolean => {
+    const newErrors: Partial<FormData> = {};
+    
+    if (!formData.name) {
+      newErrors.name = 'Name is required';
+    }
+    
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Invalid email format';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (validateForm()) {
+      onSubmit(formData);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input
+          id="name"
+          type="text"
+          value={formData.name}
+          onChange={e => setFormData({
+            ...formData,
+            name: e.target.value
+          })}
+        />
+        {errors.name && (
+          <span className="error">{errors.name}</span>
+        )}
+      </div>
+
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          id="email"
+          type="email"
+          value={formData.email}
+          onChange={e => setFormData({
+            ...formData,
+            email: e.target.value
+          })}
+        />
+        {errors.email && (
+          <span className="error">{errors.email}</span>
+        )}
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+```
+
+## 常见场景实现
+
+### 性能优化组件
+```typescript
+import { FC, memo, useMemo, useCallback } from 'react';
+
+interface OptimizedComponentProps {
+  data: any[];
+  onItemClick: (id: string) => void;
+}
+
+export const OptimizedComponent: FC<OptimizedComponentProps> = memo(({
+  data,
+  onItemClick
+}) => {
+  const sortedData = useMemo(() => {
+    return [...data].sort((a, b) => a.id.localeCompare(b.id));
+  }, [data]);
+
+  const handleClick = useCallback((id: string) => {
+    onItemClick(id);
+  }, [onItemClick]);
+
+  return (
+    <div>
+      {sortedData.map(item => (
+        <div
+          key={item.id}
+          onClick={() => handleClick(item.id)}
+        >
+          {item.name}
+        </div>
+      ))}
+    </div>
+  );
+});
+
+OptimizedComponent.displayName = 'OptimizedComponent';
+```
+
+### 错误边界组件
+```typescript
+import { Component, ErrorInfo, ReactNode } from 'react';
+
+interface ErrorBoundaryProps {
+  children: ReactNode;
+  fallback?: ReactNode;
+  onError?: (error: Error, errorInfo: ErrorInfo) => void;
+}
+
+interface ErrorBoundaryState {
+  hasError: boolean;
+  error?: Error;
+}
+
+export class ErrorBoundary extends Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  constructor(props: ErrorBoundaryProps) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    this.props.onError?.(error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback || (
+        <div>
+          <h2>Something went wrong.</h2>
+          <details>
+            <summary>Error Details</summary>
+            <pre>{this.state.error?.message}</pre>
+          </details>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+```
+
+### 可访问性组件
+```typescript
+import { FC, useRef, useEffect, KeyboardEvent } from 'react';
+
+interface AccessibleComponentProps {
+  label: string;
+  onAction: () => void;
+  description?: string;
+}
+
+export const AccessibleComponent: FC<AccessibleComponentProps> = ({
+  label,
+  onAction,
+  description
+}) => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    // 确保组件挂载后聚焦
+    buttonRef.current?.focus();
+  }, []);
+
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onAction();
+    }
+  };
+
+  return (
+    <div role="region" aria-label={label}>
+      <button
+        ref={buttonRef}
+        onClick={onAction}
+        onKeyDown={handleKeyDown}
+        aria-describedby={description ? 'description' : undefined}
+        tabIndex={0}
+      >
+        {label}
+      </button>
+      {description && (
+        <div id="description" className="sr-only">
+          {description}
+        </div>
+      )}
+    </div>
+  );
+};
+``` 

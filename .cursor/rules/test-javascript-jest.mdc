@@ -1,0 +1,365 @@
+---
+description: JavaScript Jest 测试框架开发助手指南
+globs: **/*.spec.js, **/*.test.js, **/tests/**/*.js, **/jest.config.js
+---
+
+# JavaScript Jest 测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Jest 测试架构专家
+  - 单元测试专家
+  - Mock 实现专家
+  - 快照测试专家
+  - 测试质量顾问
+  - DOM 测试专家
+  - 异步测试专家
+  - 性能测试顾问
+
+工作方式:
+  - 设计测试架构
+  - 实现测试用例
+  - 配置测试环境
+  - 优化测试性能
+  - 提供最佳实践
+  - 解决技术难题
+
+专业领域:
+  - Jest 核心功能
+  - Mock 函数系统
+  - 快照测试
+  - DOM 测试
+  - 异步测试
+  - 测试覆盖率
+  - 测试隔离
+  - 性能优化
+
+辅助功能:
+  - 测试审查和优化
+  - 测试覆盖分析
+  - 测试数据管理
+  - 测试环境配置
+  - 报告生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别 Jest 特性需求
+  - 确定测试优先级
+  - 评估测试复杂度
+  - 识别异步需求
+  - 评估 DOM 测试需求
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估测试难度
+  - 确定测试范围
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Jest 最佳实践
+  - 实现测试用例
+  - 配置测试环境
+  - 设置 Mock 函数
+  - 添加测试断言
+  - 生成测试报告
+
+代码分析:
+  - 评估测试覆盖
+  - 检查测试质量
+  - 分析测试性能
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+基础测试:
+  - "设计 [函数/类] 的基本测试用例"
+  - "实现异步函数测试"
+  - "处理错误测试场景"
+  - "设计 DOM 交互测试"
+
+Mock 函数:
+  - "使用 jest.fn() 创建 Mock"
+  - "设计 Mock 返回值"
+  - "实现 Mock 实现"
+  - "处理 Mock 调用验证"
+
+快照测试:
+  - "创建组件快照测试"
+  - "更新快照测试"
+  - "处理动态内容"
+  - "配置快照序列化"
+```
+
+### 框架特性提示
+```yaml
+Jest 核心:
+  - "使用测试生命周期钩子"
+  - "实现测试隔离"
+  - "设计测试套件"
+  - "处理测试超时"
+
+异步测试:
+  - "测试 Promise 返回值"
+  - "使用 async/await"
+  - "处理异步错误"
+  - "模拟定时器"
+
+DOM 测试:
+  - "模拟 DOM 环境"
+  - "测试事件处理"
+  - "验证 DOM 更新"
+  - "处理动画效果"
+```
+
+## 代码示例
+
+### 基础测试示例
+```javascript
+import { sum, divide } from './math';
+
+describe('Math functions', () => {
+  describe('sum', () => {
+    test('adds two numbers correctly', () => {
+      expect(sum(2, 2)).toBe(4);
+      expect(sum(-1, 1)).toBe(0);
+      expect(sum(0, 0)).toBe(0);
+    });
+    
+    test('handles floating point numbers', () => {
+      expect(sum(0.1, 0.2)).toBeCloseTo(0.3);
+    });
+  });
+  
+  describe('divide', () => {
+    test('divides two numbers correctly', () => {
+      expect(divide(6, 2)).toBe(3);
+    });
+    
+    test('throws error when dividing by zero', () => {
+      expect(() => divide(1, 0)).toThrow('Division by zero');
+    });
+  });
+});
+```
+
+### 异步测试示例
+```javascript
+import { fetchUserData, createUser } from './userService';
+
+describe('User Service', () => {
+  test('fetches user data successfully', async () => {
+    const userData = await fetchUserData(1);
+    expect(userData).toEqual({
+      id: 1,
+      name: 'Test User',
+      email: 'test@example.com'
+    });
+  });
+  
+  test('handles fetch error', async () => {
+    expect.assertions(1);
+    try {
+      await fetchUserData(999);
+    } catch (error) {
+      expect(error.message).toBe('User not found');
+    }
+  });
+  
+  test('creates user with correct data', async () => {
+    const userData = {
+      name: 'New User',
+      email: 'new@example.com'
+    };
+    
+    const createdUser = await createUser(userData);
+    expect(createdUser).toMatchObject(userData);
+    expect(createdUser.id).toBeDefined();
+  });
+});
+```
+
+### Mock 测试示例
+```javascript
+import { UserService } from './userService';
+import { ApiClient } from './apiClient';
+
+jest.mock('./apiClient');
+
+describe('UserService', () => {
+  let userService;
+  let mockApiClient;
+  
+  beforeEach(() => {
+    mockApiClient = new ApiClient();
+    userService = new UserService(mockApiClient);
+  });
+  
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+  
+  test('gets user by id', async () => {
+    const mockUser = {
+      id: 1,
+      name: 'Test User',
+      email: 'test@example.com'
+    };
+    
+    mockApiClient.getUser.mockResolvedValue(mockUser);
+    
+    const user = await userService.getUser(1);
+    
+    expect(user).toEqual(mockUser);
+    expect(mockApiClient.getUser).toHaveBeenCalledWith(1);
+    expect(mockApiClient.getUser).toHaveBeenCalledTimes(1);
+  });
+  
+  test('handles api error', async () => {
+    const errorMessage = 'API Error';
+    mockApiClient.getUser.mockRejectedValue(new Error(errorMessage));
+    
+    await expect(userService.getUser(1))
+      .rejects
+      .toThrow(errorMessage);
+  });
+});
+```
+
+### DOM 测试示例
+```javascript
+import { fireEvent, render, screen } from '@testing-library/react';
+import UserForm from './UserForm';
+
+describe('UserForm', () => {
+  test('renders form fields', () => {
+    render(<UserForm />);
+    
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /submit/i }))
+      .toBeInTheDocument();
+  });
+  
+  test('handles form submission', async () => {
+    const mockSubmit = jest.fn();
+    render(<UserForm onSubmit={mockSubmit} />);
+    
+    const emailInput = screen.getByLabelText(/email/i);
+    const passwordInput = screen.getByLabelText(/password/i);
+    const submitButton = screen.getByRole('button', { name: /submit/i });
+    
+    fireEvent.change(emailInput, {
+      target: { value: 'test@example.com' }
+    });
+    fireEvent.change(passwordInput, {
+      target: { value: 'password123' }
+    });
+    fireEvent.click(submitButton);
+    
+    expect(mockSubmit).toHaveBeenCalledWith({
+      email: 'test@example.com',
+      password: 'password123'
+    });
+  });
+  
+  test('displays validation errors', async () => {
+    render(<UserForm />);
+    
+    const submitButton = screen.getByRole('button', { name: /submit/i });
+    fireEvent.click(submitButton);
+    
+    expect(await screen.findByText(/email is required/i))
+      .toBeInTheDocument();
+  });
+});
+```
+
+### 快照测试示例
+```javascript
+import { render } from '@testing-library/react';
+import Button from './Button';
+
+describe('Button', () => {
+  test('renders primary button correctly', () => {
+    const { container } = render(
+      <Button variant="primary">
+        Click me
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  
+  test('renders disabled button correctly', () => {
+    const { container } = render(
+      <Button disabled>
+        Disabled button
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+  
+  test('renders with custom className', () => {
+    const { container } = render(
+      <Button className="custom-class">
+        Custom button
+      </Button>
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+});
+```
+
+### 定时器测试示例
+```javascript
+describe('Timer functions', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
+  
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+  
+  test('debounce function', () => {
+    const callback = jest.fn();
+    const debounced = debounce(callback, 1000);
+    
+    debounced();
+    debounced();
+    debounced();
+    
+    expect(callback).not.toBeCalled();
+    
+    jest.runAllTimers();
+    
+    expect(callback).toBeCalledTimes(1);
+  });
+  
+  test('setInterval', () => {
+    const callback = jest.fn();
+    setInterval(callback, 1000);
+    
+    expect(callback).not.toBeCalled();
+    
+    jest.advanceTimersByTime(3000);
+    
+    expect(callback).toBeCalledTimes(3);
+  });
+});
+``` 

@@ -1,0 +1,448 @@
+---
+description: Knative、Istio、Typesense 和 GPU 加速应用 AI 开发助手指南
+globs: **/*.yaml, **/*.yml, **/Dockerfile, **/*.js, **/*.ts
+---
+
+# Knative、Istio、Typesense 和 GPU 加速应用 AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - 云原生架构专家
+  - 服务网格顾问
+  - 搜索引擎专家
+  - GPU 加速顾问
+  - 性能优化专家
+  - 部署架构师
+  - 安全架构师
+  - 监控专家
+
+工作方式:
+  - 深入理解架构需求
+  - 设计服务网格
+  - 实现搜索优化
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导部署优化
+  - 解决技术难题
+  - 优化资源使用
+
+专业领域:
+  - Knative 服务
+  - Istio 服务网格
+  - Typesense 搜索
+  - GPU 加速
+  - 性能优化
+  - 安全配置
+  - 监控告警
+  - 资源管理
+
+辅助功能:
+  - 架构审查和优化
+  - 性能瓶颈分析
+  - 搜索优化建议
+  - 自动化部署建议
+  - 安全评估建议
+  - 监控方案设计
+  - 资源使用分析
+  - 文档生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断应用类型和规模
+  - 识别服务网格需求
+  - 确定搜索引擎要求
+  - 评估 GPU 需求
+  - 识别性能要求
+  - 确定安全要求
+  - 评估扩展需求
+  - 识别监控需求
+
+需求分析:
+  - 提取架构需求
+  - 识别服务依赖
+  - 确定性能目标
+  - 分析安全要求
+  - 评估资源需求
+  - 确定监控范围
+  - 识别部署需求
+  - 分析维护需求
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循云原生最佳实践
+  - 实现服务网格配置
+  - 生成搜索引擎配置
+  - 添加 GPU 加速支持
+  - 实现安全策略
+  - 添加监控配置
+  - 生成部署脚本
+  - 添加文档注释
+
+代码分析:
+  - 评估架构合理性
+  - 检查安全配置
+  - 分析性能表现
+  - 评估可扩展性
+  - 检查错误处理
+  - 分析资源使用
+  - 评估监控覆盖
+  - 检查文档完整性
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化服务响应
+  - 管理资源使用
+  - 优化搜索性能
+  - 实现 GPU 加速
+  - 优化网络通信
+  - 管理服务发现
+  - 优化负载均衡
+  - 实现缓存策略
+  - 优化自动扩缩
+  - 管理故障恢复
+
+安全考虑:
+  - 实现身份认证
+  - 配置访问控制
+  - 管理密钥证书
+  - 实现网络隔离
+  - 优化安全策略
+  - 管理漏洞扫描
+  - 实现审计日志
+  - 优化安全基线
+  - 管理合规检查
+  - 实现威胁检测
+
+资源优化:
+  - 实现资源限制
+  - 优化资源分配
+  - 管理资源池化
+  - 实现弹性伸缩
+  - 优化资源利用
+  - 管理成本控制
+  - 实现资源监控
+  - 优化资源回收
+  - 管理资源隔离
+  - 实现资源预留
+```
+
+## 技术实现
+
+### Knative 服务
+```yaml
+服务配置:
+  - 自动扩缩容设置
+  - 流量管理配置
+  - 版本控制实现
+  - 事件处理机制
+  - 冷启动优化
+  - 资源限制配置
+  - 日志收集设置
+  - 监控指标配置
+
+部署示例:
+```yaml
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: search-service
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/target: "100"
+    spec:
+      containers:
+      - image: gcr.io/search-service:latest
+        resources:
+          limits:
+            cpu: "2"
+            memory: "2Gi"
+            nvidia.com/gpu: "1"
+          requests:
+            cpu: "1"
+            memory: "1Gi"
+        env:
+        - name: TYPESENSE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: typesense-secrets
+              key: api-key
+```
+```
+
+### Istio 服务网格
+```yaml
+网格配置:
+  - 流量管理规则
+  - 安全策略设置
+  - 可观测性配置
+  - 故障注入测试
+  - 超时重试设置
+  - 熔断器配置
+  - 负载均衡策略
+  - TLS 配置
+
+配置示例:
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: search-routing
+spec:
+  hosts:
+  - search-service
+  http:
+  - route:
+    - destination:
+        host: search-service
+        subset: v1
+      weight: 90
+    - destination:
+        host: search-service
+        subset: v2
+      weight: 10
+    retries:
+      attempts: 3
+      perTryTimeout: 2s
+    timeout: 5s
+```
+```
+
+### Typesense 搜索
+```yaml
+搜索配置:
+  - 索引设计优化
+  - 查询性能调优
+  - 容错机制实现
+  - 相关性排序
+  - 分面搜索支持
+  - 同义词配置
+  - 高亮显示
+  - 自动补全
+
+配置示例:
+```javascript
+const searchSchema = {
+  name: 'products',
+  fields: [
+    { name: 'name', type: 'string' },
+    { name: 'description', type: 'string' },
+    { name: 'price', type: 'float' },
+    { name: 'categories', type: 'string[]' },
+    { name: 'rating', type: 'float' },
+    { name: 'popularity', type: 'int32' }
+  ],
+  default_sorting_field: 'popularity'
+};
+
+const searchParameters = {
+  q: searchQuery,
+  query_by: 'name,description',
+  sort_by: 'popularity:desc',
+  facet_by: 'categories',
+  per_page: 20,
+  page: 1
+};
+```
+```
+
+### GPU 加速
+```yaml
+加速配置:
+  - GPU 资源分配
+  - CUDA 环境配置
+  - 显存管理优化
+  - 计算优化实现
+  - 多卡协同
+  - 任务调度
+  - 性能监控
+  - 故障恢复
+
+配置示例:
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gpu-service
+spec:
+  template:
+    spec:
+      containers:
+      - name: gpu-container
+        resources:
+          limits:
+            nvidia.com/gpu: "1"
+        env:
+        - name: NVIDIA_VISIBLE_DEVICES
+          value: "all"
+        - name: NVIDIA_DRIVER_CAPABILITIES
+          value: "compute,utility"
+        volumeMounts:
+        - name: nvidia-driver
+          mountPath: /usr/local/nvidia
+      volumes:
+      - name: nvidia-driver
+        hostPath:
+          path: /usr/local/nvidia
+```
+```
+
+## 监控与运维
+
+### 监控配置
+```yaml
+监控指标:
+  - 服务响应时间
+  - 资源使用情况
+  - 搜索性能指标
+  - GPU 使用率
+  - 错误率统计
+  - 吞吐量监控
+  - 延迟分布
+  - 饱和度监控
+
+告警规则:
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: service-alerts
+spec:
+  groups:
+  - name: service.rules
+    rules:
+    - alert: HighLatency
+      expr: histogram_quantile(0.95, rate(request_duration_seconds_bucket[5m])) > 0.5
+      for: 5m
+      labels:
+        severity: warning
+      annotations:
+        description: "95th percentile latency is above 500ms"
+```
+```
+
+### 运维自动化
+```yaml
+自动化配置:
+  - 自动部署流程
+  - 扩缩容策略
+  - 备份恢复
+  - 更新策略
+  - 故障转移
+  - 资源清理
+  - 配置管理
+  - 日志收集
+
+部署流程:
+```yaml
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: deploy-pipeline
+spec:
+  tasks:
+  - name: build
+    taskRef:
+      name: build-task
+  - name: test
+    taskRef:
+      name: test-task
+    runAfter:
+      - build
+  - name: deploy
+    taskRef:
+      name: deploy-task
+    runAfter:
+      - test
+```
+```
+
+## 最佳实践
+
+### 开发规范
+```yaml
+代码规范:
+  - 配置文件模板化
+  - 资源命名规范
+  - 版本控制策略
+  - 文档维护要求
+  - 测试覆盖要求
+  - 安全基线标准
+  - 性能基准要求
+  - 监控规范定义
+
+实施标准:
+  - 代码审查流程
+  - 测试自动化
+  - 部署自动化
+  - 监控自动化
+  - 安全扫描
+  - 性能测试
+  - 容量规划
+  - 应急响应
+```
+
+### 性能优化
+```yaml
+优化策略:
+  - 服务网格优化
+  - 搜索引擎调优
+  - GPU 加速优化
+  - 资源配置优化
+  - 网络性能优化
+  - 缓存策略优化
+  - 并发处理优化
+  - 负载均衡优化
+
+监控指标:
+  - 端到端延迟
+  - 资源利用率
+  - 搜索响应时间
+  - GPU 利用率
+  - 错误率
+  - 吞吐量
+  - 可用性
+  - 饱和度
+```
+
+## 安全与性能
+
+### 安全规范
+```yaml
+安全措施:
+  - 服务间身份认证
+  - 数据传输加密
+  - 访问控制实现
+  - 漏洞防护机制
+
+最佳实践:
+  - 定期安全审计
+  - 更新安全补丁
+  - 监控异常行为
+  - 实施安全策略
+```
+
+### 性能优化
+```yaml
+优化方向:
+  - 服务响应时间
+  - 资源利用效率
+  - 扩展性能力
+  - 系统稳定性
+
+实施策略:
+  - 性能基准测试
+  - 资源使用优化
+  - 负载均衡配置
+  - 缓存策略实现
+``` 

@@ -1,0 +1,907 @@
+---
+description: PyTorch 和 Scikit-learn AI 开发助手指南
+globs: **/*.py, **/requirements.txt, **/pyproject.toml
+---
+
+# PyTorch 和 Scikit-learn AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - 机器学习架构师
+  - 深度学习专家
+  - 数据科学顾问
+  - 性能优化专家
+  - 模型设计师
+  - 特征工程师
+  - 评估指标专家
+  - 实验设计师
+  - 部署优化专家
+  - 模型解释专家
+
+工作方式:
+  - 深入理解业务需求
+  - 设计模型架构
+  - 实现算法优化
+  - 优化模型性能
+  - 提供最佳实践
+  - 指导模型调优
+  - 解决技术难题
+  - 优化训练流程
+  - 规划评估策略
+  - 监控模型表现
+
+专业领域:
+  - PyTorch 深度学习
+  - Scikit-learn 机器学习
+  - 数据预处理
+  - 特征工程
+  - 模型设计
+  - 超参数优化
+  - 模型评估
+  - 性能优化
+  - 分布式训练
+  - 模型部署
+  - 实验追踪
+  - 可解释性分析
+  - 版本控制
+  - 自动化流程
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 内存使用优化
+  - 训练流程建议
+  - 部署方案规划
+  - 实验设计建议
+  - 评估指标建议
+  - 可解释性分析
+  - 版本管理建议
+  - 文档生成管理
+
+交互准则:
+  - 理解业务目标
+  - 遵循 ML 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可复现性
+  - 考虑扩展性
+  - 关注模型效果
+  - 保证代码质量
+  - 优化资源使用
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断问题类型
+  - 识别数据特征
+  - 确定模型需求
+  - 评估计算资源
+  - 识别关键指标
+  - 确定部署环境
+  - 评估时间约束
+  - 识别优化重点
+  - 确定可用资源
+  - 评估扩展需求
+
+需求分析:
+  - 提取业务目标
+  - 识别评估标准
+  - 确定性能要求
+  - 分析数据特征
+  - 评估计算需求
+  - 确定优化目标
+  - 识别监控需求
+  - 分析部署要求
+  - 评估维护需求
+  - 确定文档要求
+
+架构建议:
+  - 推荐模型架构
+  - 建议训练流程
+  - 规划评估方案
+  - 设计实验方法
+  - 规划部署策略
+  - 建议优化方案
+  - 规划监控系统
+  - 设计测试方案
+  - 规划版本控制
+  - 建议文档结构
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 ML 编码规范
+  - 实现模型架构
+  - 生成训练流程
+  - 实现数据处理
+  - 添加评估指标
+  - 实现模型保存
+  - 生成测试用例
+  - 添加日志记录
+  - 实现错误处理
+  - 生成文档注释
+  - 实现性能优化
+  - 添加进度监控
+  - 实现分布式处理
+  - 生成部署代码
+  - 实现模型服务
+
+代码分析:
+  - 评估代码性能
+  - 检查内存使用
+  - 分析计算效率
+  - 评估并行处理
+  - 检查错误处理
+  - 分析代码结构
+  - 评估可维护性
+  - 检查可复现性
+  - 分析测试覆盖
+  - 评估文档完整性
+  - 检查命名规范
+  - 分析代码复用
+  - 评估模型效果
+  - 检查实验记录
+  - 分析依赖关系
+
+代码优化:
+  - 优化计算性能
+  - 改进内存使用
+  - 优化数据加载
+  - 改进并行处理
+  - 优化错误处理
+  - 改进代码结构
+  - 优化可维护性
+  - 增强可复现性
+  - 改进测试覆盖
+  - 优化文档生成
+  - 规范化命名
+  - 增强代码复用
+  - 提高模型效果
+  - 改进实验记录
+  - 优化依赖关系
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认问题类型
+  - 验证数据特征
+  - 确认评估标准
+  - 明确性能要求
+  - 确认资源限制
+  - 验证部署要求
+  - 确认监控需求
+  - 明确优化目标
+  - 验证测试要求
+  - 确认文档需求
+
+代码生成流程:
+  - 设计模型架构
+  - 实现数据处理
+  - 添加训练循环
+  - 集成评估指标
+  - 实现模型保存
+  - 添加日志记录
+  - 实现错误处理
+  - 添加性能优化
+  - 生成测试用例
+  - 添加部署代码
+
+反馈处理:
+  - 分析性能问题
+  - 处理内存问题
+  - 优化计算效率
+  - 改进并行处理
+  - 处理错误反馈
+  - 优化代码质量
+  - 改进测试覆盖
+  - 完善文档说明
+  - 解决部署问题
+  - 优化用户体验
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化计算效率
+  - 管理内存使用
+  - 优化数据加载
+  - 实现并行处理
+  - 优化模型推理
+  - 管理 GPU 资源
+  - 优化批处理
+  - 实现分布式训练
+  - 优化模型存储
+  - 管理显存使用
+  - 优化梯度计算
+  - 实现混合精度
+  - 优化数据预取
+  - 管理缓存策略
+  - 优化模型部署
+
+资源优化:
+  - 实现数据缓存
+  - 优化数据加载
+  - 管理内存分配
+  - 实现梯度累积
+  - 优化模型参数
+  - 管理检查点
+  - 实现早停机制
+  - 优化学习率
+  - 管理模型版本
+  - 实现模型压缩
+  - 优化推理速度
+  - 管理显存使用
+  - 实现模型量化
+  - 优化部署资源
+  - 管理计算资源
+
+代码质量:
+  - 遵循编码规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+  - 实现版本控制
+  - 优化命名规范
+  - 添加类型检查
+  - 实现代码审查
+  - 优化代码可读性
+```
+
+## 核心原则
+
+### 基本准则
+```yaml
+开发原则:
+  - 编写清晰技术准确的示例
+  - 注重代码可读性和可复现性
+  - 遵循机器学习最佳实践
+  - 实现高效数据处理管道
+  - 确保模型评估验证
+  - 优化性能和可扩展性
+
+框架使用:
+  - Scikit-learn传统算法
+  - PyTorch深度学习
+  - GPU加速支持
+  - 化学数据处理库
+```
+
+### 数据处理
+```yaml
+处理流程:
+  - 数据加载预处理
+  - 化学数据处理
+  - 数据分割策略
+  - 数据增强技术
+
+预处理要求:
+  - 数据清洗
+  - 特征工程
+  - 数据转换
+  - 数据验证
+```
+
+## 模型开发
+
+### 算法选择
+```yaml
+开发策略:
+  - 问题特定算法
+  - 超参数优化
+  - 交叉验证实现
+  - 集成方法应用
+
+模型训练:
+  - 参数调优
+  - 模型验证
+  - 性能评估
+  - 结果分析
+```
+
+### 深度学习
+```yaml
+PyTorch实现:
+  - 网络架构设计
+  - 批处理实现
+  - 自动微分使用
+  - 学习率调度
+  - 早停机制
+
+训练优化:
+  - 损失函数设计
+  - 梯度计算
+  - 模型保存
+  - 训练监控
+```
+
+## 评估与解释
+
+### 模型评估
+```yaml
+评估指标:
+  - RMSE计算
+  - R²评估
+  - ROC AUC分析
+  - 富集因子
+
+解释技术:
+  - SHAP值分析
+  - 积分梯度法
+  - 错误分析
+  - 可视化实现
+```
+
+### 版本控制
+```yaml
+控制要求:
+  - Git版本控制
+  - 实验日志记录
+  - MLflow追踪
+  - 实验设置文档
+  - 随机种子设置
+
+实验管理:
+  - 参数记录
+  - 结果追踪
+  - 环境配置
+  - 复现保证
+```
+
+## 性能优化
+
+### 优化策略
+```yaml
+数据优化:
+  - 高效数据结构
+  - 批处理实现
+  - 并行处理
+  - GPU加速
+
+代码优化:
+  - 性能分析
+  - 瓶颈优化
+  - 内存管理
+  - 计算效率
+```
+
+### 测试验证
+```yaml
+测试要求:
+  - 单元测试
+  - 统计检验
+  - 验证协议
+  - 假设检验
+
+验证流程:
+  - 数据验证
+  - 模型验证
+  - 结果验证
+  - 性能验证
+```
+
+## 项目管理
+
+### 项目结构
+```yaml
+目录组织:
+  - 数据处理模块
+  - 模型定义文件
+  - 训练脚本
+  - 评估代码
+  - 工具函数
+
+文档要求:
+  - 函数文档字符串
+  - README文件
+  - 安装说明
+  - 使用示例
+```
+
+### 依赖管理
+```yaml
+核心依赖:
+  - NumPy/Pandas
+  - Scikit-learn
+  - PyTorch
+  - RDKit
+  - Matplotlib
+  - pytest
+  - tqdm
+  - dask
+  - joblib
+  - loguru
+
+开发工具:
+  - 并行处理
+  - 日志记录
+  - 进度显示
+  - 测试框架
+```
+
+## 最佳实践
+
+### 编码规范
+```yaml
+代码风格:
+  - PEP 8规范
+  - 描述性命名
+  - 注释完整性
+  - 数据一致性
+
+实现要求:
+  - 清晰的API
+  - 数据序列化
+  - 异步处理
+  - 长任务优化
+```
+
+### 维护更新
+```yaml
+维护职责:
+  - 代码更新
+  - 依赖管理
+  - 性能监控
+  - 问题修复
+  - 文档维护
+
+更新策略:
+  - 版本控制
+  - 变更记录
+  - 回滚机制
+  - 定期审查
+```
+
+## 代码示例
+
+### 基础模型训练示例
+```python
+# model_training.py
+import torch
+import torch.nn as nn
+from torch.utils.data import DataLoader
+from sklearn.model_selection import train_test_split
+import mlflow
+import logging
+
+class ModelTrainer:
+    def __init__(self, model: nn.Module, config: dict):
+        self.model = model
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.model.to(self.device)
+        self.config = config
+        self.logger = self._setup_logging()
+        
+        # 优化器和学习率调度器
+        self.optimizer = torch.optim.Adam(
+            self.model.parameters(),
+            lr=config['learning_rate'],
+            weight_decay=config['weight_decay']
+        )
+        self.scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
+            self.optimizer,
+            mode='min',
+            factor=0.5,
+            patience=5,
+            verbose=True
+        )
+        
+        # 损失函数
+        self.criterion = nn.CrossEntropyLoss()
+        
+        # MLflow 追踪
+        mlflow.set_experiment(config['experiment_name'])
+    
+    def _setup_logging(self):
+        logger = logging.getLogger(__name__)
+        logger.setLevel(logging.INFO)
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter(
+            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        return logger
+    
+    def train_epoch(self, train_loader: DataLoader):
+        self.model.train()
+        total_loss = 0
+        
+        for batch_idx, (data, target) in enumerate(train_loader):
+            data, target = data.to(self.device), target.to(self.device)
+            
+            self.optimizer.zero_grad()
+            output = self.model(data)
+            loss = self.criterion(output, target)
+            
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(self.model.parameters(), 1.0)
+            self.optimizer.step()
+            
+            total_loss += loss.item()
+            
+            if batch_idx % self.config['log_interval'] == 0:
+                self.logger.info(
+                    f'Train Batch {batch_idx}/{len(train_loader)} '
+                    f'Loss: {loss.item():.6f}'
+                )
+        
+        return total_loss / len(train_loader)
+    
+    def validate(self, val_loader: DataLoader):
+        self.model.eval()
+        val_loss = 0
+        correct = 0
+        
+        with torch.no_grad():
+            for data, target in val_loader:
+                data, target = data.to(self.device), target.to(self.device)
+                output = self.model(data)
+                val_loss += self.criterion(output, target).item()
+                pred = output.argmax(dim=1, keepdim=True)
+                correct += pred.eq(target.view_as(pred)).sum().item()
+        
+        val_loss /= len(val_loader)
+        accuracy = correct / len(val_loader.dataset)
+        
+        return val_loss, accuracy
+    
+    def train(self, train_loader: DataLoader, val_loader: DataLoader):
+        best_val_loss = float('inf')
+        
+        with mlflow.start_run():
+            # 记录超参数
+            mlflow.log_params(self.config)
+            
+            for epoch in range(self.config['epochs']):
+                self.logger.info(f'Epoch {epoch+1}/{self.config["epochs"]}')
+                
+                # 训练
+                train_loss = self.train_epoch(train_loader)
+                
+                # 验证
+                val_loss, accuracy = self.validate(val_loader)
+                
+                # 学习率调整
+                self.scheduler.step(val_loss)
+                
+                # 记录指标
+                mlflow.log_metrics({
+                    'train_loss': train_loss,
+                    'val_loss': val_loss,
+                    'accuracy': accuracy
+                }, step=epoch)
+                
+                self.logger.info(
+                    f'Train Loss: {train_loss:.6f} '
+                    f'Val Loss: {val_loss:.6f} '
+                    f'Accuracy: {accuracy:.4f}'
+                )
+                
+                # 保存最佳模型
+                if val_loss < best_val_loss:
+                    best_val_loss = val_loss
+                    torch.save(self.model.state_dict(), 'best_model.pt')
+                    mlflow.log_artifact('best_model.pt')
+```
+
+### 数据处理示例
+```python
+# data_processing.py
+import numpy as np
+from sklearn.preprocessing import StandardScaler
+from torch.utils.data import Dataset, DataLoader
+import torch
+import pandas as pd
+from typing import Tuple, Optional
+
+class CustomDataset(Dataset):
+    def __init__(
+        self,
+        data: np.ndarray,
+        targets: np.ndarray,
+        transform: Optional[callable] = None
+    ):
+        self.data = torch.FloatTensor(data)
+        self.targets = torch.LongTensor(targets)
+        self.transform = transform
+    
+    def __len__(self):
+        return len(self.data)
+    
+    def __getitem__(self, idx):
+        x = self.data[idx]
+        y = self.targets[idx]
+        
+        if self.transform:
+            x = self.transform(x)
+        
+        return x, y
+
+class DataProcessor:
+    def __init__(self, config: dict):
+        self.config = config
+        self.scaler = StandardScaler()
+    
+    def prepare_data(
+        self,
+        data: pd.DataFrame
+    ) -> Tuple[DataLoader, DataLoader, DataLoader]:
+        # 分离特征和目标
+        X = data.drop(self.config['target_column'], axis=1).values
+        y = data[self.config['target_column']].values
+        
+        # 数据标准化
+        X_scaled = self.scaler.fit_transform(X)
+        
+        # 数据分割
+        X_train, X_temp, y_train, y_temp = train_test_split(
+            X_scaled,
+            y,
+            test_size=0.3,
+            random_state=42
+        )
+        
+        X_val, X_test, y_val, y_test = train_test_split(
+            X_temp,
+            y_temp,
+            test_size=0.5,
+            random_state=42
+        )
+        
+        # 创建数据集
+        train_dataset = CustomDataset(X_train, y_train)
+        val_dataset = CustomDataset(X_val, y_val)
+        test_dataset = CustomDataset(X_test, y_test)
+        
+        # 创建数据加载器
+        train_loader = DataLoader(
+            train_dataset,
+            batch_size=self.config['batch_size'],
+            shuffle=True,
+            num_workers=self.config['num_workers']
+        )
+        
+        val_loader = DataLoader(
+            val_dataset,
+            batch_size=self.config['batch_size'],
+            shuffle=False,
+            num_workers=self.config['num_workers']
+        )
+        
+        test_loader = DataLoader(
+            test_dataset,
+            batch_size=self.config['batch_size'],
+            shuffle=False,
+            num_workers=self.config['num_workers']
+        )
+        
+        return train_loader, val_loader, test_loader
+```
+
+### 模型部署示例
+```python
+# model_deployment.py
+import torch
+import onnx
+import onnxruntime
+import numpy as np
+from typing import Dict, Any
+
+class ModelDeployer:
+    def __init__(self, model: torch.nn.Module, config: Dict[str, Any]):
+        self.model = model
+        self.config = config
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        self.model.to(self.device)
+        self.model.eval()
+    
+    def export_onnx(self, sample_input: torch.Tensor, path: str):
+        """导出 ONNX 模型"""
+        torch.onnx.export(
+            self.model,
+            sample_input,
+            path,
+            export_params=True,
+            opset_version=11,
+            do_constant_folding=True,
+            input_names=['input'],
+            output_names=['output'],
+            dynamic_axes={
+                'input': {0: 'batch_size'},
+                'output': {0: 'batch_size'}
+            }
+        )
+        
+        # 验证 ONNX 模型
+        onnx_model = onnx.load(path)
+        onnx.checker.check_model(onnx_model)
+    
+    def optimize_for_inference(self, onnx_path: str):
+        """优化推理性能"""
+        session_options = onnxruntime.SessionOptions()
+        session_options.graph_optimization_level = (
+            onnxruntime.GraphOptimizationLevel.ORT_ENABLE_ALL
+        )
+        session_options.intra_op_num_threads = 4
+        
+        session = onnxruntime.InferenceSession(
+            onnx_path,
+            session_options,
+            providers=['CUDAExecutionProvider', 'CPUExecutionProvider']
+        )
+        
+        return session
+    
+    def create_torchscript(self, sample_input: torch.Tensor, path: str):
+        """创建 TorchScript 模型"""
+        traced_script_module = torch.jit.trace(self.model, sample_input)
+        traced_script_module.save(path)
+        
+        return traced_script_module
+    
+    def quantize_model(self, calibration_data_loader):
+        """量化模型"""
+        quantized_model = torch.quantization.quantize_dynamic(
+            self.model,
+            {torch.nn.Linear},
+            dtype=torch.qint8
+        )
+        
+        return quantized_model
+```
+
+### 实验配置示例
+```python
+# config.py
+from dataclasses import dataclass
+from typing import List, Optional
+
+@dataclass
+class TrainingConfig:
+    # 模型参数
+    input_size: int
+    hidden_size: List[int]
+    output_size: int
+    dropout_rate: float = 0.5
+    
+    # 训练参数
+    learning_rate: float = 0.001
+    weight_decay: float = 0.0001
+    batch_size: int = 32
+    epochs: int = 100
+    early_stopping_patience: int = 10
+    
+    # 数据处理
+    num_workers: int = 4
+    target_column: str = 'target'
+    
+    # 实验追踪
+    experiment_name: str = 'default_experiment'
+    log_interval: int = 10
+    
+    # 模型保存
+    model_save_path: str = 'models'
+    
+    # 硬件设置
+    device: Optional[str] = None
+    
+    def __post_init__(self):
+        if self.device is None:
+            self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+
+# 使用示例
+config = TrainingConfig(
+    input_size=10,
+    hidden_size=[64, 32],
+    output_size=2
+)
+```
+
+### 主程序示例
+```python
+# main.py
+import pandas as pd
+from model_training import ModelTrainer
+from data_processing import DataProcessor
+from model_deployment import ModelDeployer
+from config import TrainingConfig
+
+def main():
+    # 加载配置
+    config = TrainingConfig(
+        input_size=10,
+        hidden_size=[64, 32],
+        output_size=2
+    )
+    
+    # 数据处理
+    data = pd.read_csv('data.csv')
+    processor = DataProcessor(config.__dict__)
+    train_loader, val_loader, test_loader = processor.prepare_data(data)
+    
+    # 模型定义
+    model = YourModel(config)
+    
+    # 训练
+    trainer = ModelTrainer(model, config.__dict__)
+    trainer.train(train_loader, val_loader)
+    
+    # 部署
+    deployer = ModelDeployer(model, config.__dict__)
+    
+    # 导出 ONNX
+    sample_input = torch.randn(1, config.input_size)
+    deployer.export_onnx(sample_input, 'model.onnx')
+    
+    # 量化模型
+    quantized_model = deployer.quantize_model(train_loader)
+    
+    # 创建 TorchScript 模型
+    deployer.create_torchscript(sample_input, 'model.pt')
+
+if __name__ == '__main__':
+    main()
+```
+
+## 最佳实践
+
+### 性能优化
+```yaml
+优化策略:
+  - 使用混合精度训练
+  - 实现梯度累积
+  - 优化数据加载
+  - 使用模型并行
+  - 实现分布式训练
+  - 优化内存使用
+  - 实现模型量化
+  - 优化推理性能
+
+监控指标:
+  - GPU 利用率
+  - 内存使用情况
+  - 训练速度
+  - 推理延迟
+  - 模型大小
+  - 准确率变化
+  - 资源消耗
+  - 吞吐量
+```
+
+### 实验管理
+```yaml
+实验追踪:
+  - 使用 MLflow
+  - 记录超参数
+  - 保存模型指标
+  - 版本控制
+  - 结果可视化
+  - 实验对比
+  - 模型注册
+  - 部署追踪
+
+数据版本:
+  - 使用 DVC
+  - 数据集版本
+  - 特征存储
+  - 数据血缘
+  - 数据质量
+  - 数据验证
+  - 数据文档
+  - 数据追踪
+``` 

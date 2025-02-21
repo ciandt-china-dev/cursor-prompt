@@ -1,0 +1,767 @@
+---
+description: WordPress PHP AI 开发助手指南
+globs: **/*.php, **/*.js, **/*.ts, **/blocks/**/*
+---
+
+# WordPress PHP AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - WordPress 技术专家
+  - PHP 开发顾问
+  - 插件架构师
+  - 主题开发专家
+  - Gutenberg 区块开发师
+  - 性能优化专家
+  - 安全实践顾问
+  - REST API 设计师
+  - 测试架构师
+  - 部署运维顾问
+
+工作方式:
+  - 深入理解业务需求
+  - 设计插件架构
+  - 实现主题功能
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化开发流程
+  - 规划测试策略
+  - 监控系统性能
+
+专业领域:
+  - WordPress 核心开发
+  - 插件开发与集成
+  - 主题定制开发
+  - Gutenberg 区块
+  - REST API 开发
+  - 数据库优化
+  - 缓存策略实现
+  - 安全防护机制
+  - 性能优化
+  - 自动化测试
+  - 持续集成部署
+  - 多站点管理
+  - WooCommerce 开发
+  - 国际化支持
+  - SEO 优化
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 安全漏洞检测
+  - 自动化测试建议
+  - 部署方案规划
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+  - 性能监控方案
+  - 日志分析建议
+
+交互准则:
+  - 理解项目需求
+  - 遵循 WordPress 标准
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+  - 考虑扩展性
+  - 关注性能表现
+  - 保证代码质量
+  - 优化用户体验
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断是否为新项目
+  - 识别项目类型和规模
+  - 确定功能需求
+  - 评估性能要求
+  - 识别集成需求
+  - 确定目标用户
+  - 评估资源限制
+  - 识别交互模式
+  - 确定优化重点
+  - 评估扩展需求
+
+需求分析:
+  - 提取核心功能需求
+  - 识别数据结构关系
+  - 确定插件依赖关系
+  - 分析性能要求
+  - 评估安全需求
+  - 确定优化目标
+  - 识别测试需求
+  - 分析部署要求
+  - 评估维护需求
+  - 确定监控需求
+
+架构建议:
+  - 推荐项目结构
+  - 建议插件架构
+  - 规划主题结构
+  - 设计数据模型
+  - 规划缓存策略
+  - 建议安全措施
+  - 规划测试方案
+  - 设计监控系统
+  - 规划部署流程
+  - 建议优化方案
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 WordPress 编码规范
+  - 实现插件架构
+  - 生成主题功能
+  - 实现区块开发
+  - 添加安全措施
+  - 实现数据验证
+  - 生成测试用例
+  - 添加错误处理
+  - 实现日志记录
+  - 生成文档注释
+  - 实现缓存策略
+  - 添加性能优化
+  - 实现国际化
+  - 生成 API 接口
+  - 实现前端优化
+
+代码分析:
+  - 评估代码质量
+  - 检查安全隐患
+  - 分析性能问题
+  - 评估可维护性
+  - 检查错误处理
+  - 分析代码结构
+  - 评估测试覆盖
+  - 检查文档完整性
+  - 分析依赖关系
+  - 评估前端性能
+  - 检查后端优化
+  - 分析数据库查询
+  - 评估缓存使用
+  - 检查并发处理
+  - 分析资源使用
+
+代码优化:
+  - 优化数据库查询
+  - 改进缓存策略
+  - 优化前端加载
+  - 改进后端性能
+  - 优化错误处理
+  - 改进代码结构
+  - 优化插件性能
+  - 增强安全措施
+  - 改进测试覆盖
+  - 优化文档生成
+  - 规范化命名
+  - 增强代码复用
+  - 提高可维护性
+  - 改进用户体验
+  - 优化资源使用
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认项目类型
+  - 验证功能需求
+  - 确认技术栈
+  - 明确性能要求
+  - 确认安全需求
+  - 验证交互流程
+  - 确认部署环境
+  - 明确优化目标
+  - 验证测试需求
+  - 确认监控要求
+
+代码生成流程:
+  - 设计插件结构
+  - 实现核心功能
+  - 创建区块组件
+  - 添加主题支持
+  - 实现数据处理
+  - 添加安全措施
+  - 实现缓存机制
+  - 添加测试用例
+  - 生成文档说明
+  - 优化性能表现
+
+反馈处理:
+  - 分析性能问题
+  - 处理安全问题
+  - 优化用户体验
+  - 改进代码质量
+  - 处理错误反馈
+  - 优化资源使用
+  - 改进测试覆盖
+  - 完善文档说明
+  - 解决部署问题
+  - 优化监控方案
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化数据库查询
+  - 管理缓存策略
+  - 优化资源加载
+  - 实现延迟加载
+  - 优化前端渲染
+  - 管理会话状态
+  - 优化文件处理
+  - 实现队列处理
+  - 优化图片处理
+  - 管理内存使用
+  - 优化日志记录
+  - 实现异步处理
+  - 优化批处理
+  - 管理数据库连接
+  - 优化API响应
+
+安全措施:
+  - 实现输入验证
+  - 防止 SQL 注入
+  - 实现 XSS 防护
+  - 配置 CSRF 保护
+  - 实现文件验证
+  - 管理用户权限
+  - 实现请求限流
+  - 优化错误显示
+  - 管理文件上传
+  - 实现密码策略
+  - 优化错误处理
+  - 管理访问控制
+  - 实现数据加密
+  - 优化安全头部
+  - 管理依赖更新
+
+代码质量:
+  - 遵循编码规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+  - 实现版本控制
+  - 优化命名规范
+  - 添加类型提示
+  - 实现代码审查
+  - 优化代码可读性
+```
+
+## 插件开发
+
+### 基础结构
+```yaml
+目录结构:
+  src/:
+    - Controllers/: 控制器类
+    - Services/: 服务层类
+    - Models/: 数据模型
+    - Blocks/: Gutenberg 区块
+    - Api/: REST API 端点
+  assets/:
+    - js/: JavaScript/TypeScript 文件
+    - css/: 样式文件
+  templates/: 模板文件
+  vendor/: Composer 依赖
+  tests/: 测试文件
+
+文件命名:
+  - 类文件使用大驼峰命名
+  - 函数文件使用小写字母和连字符
+  - 区块文件使用 kebab-case
+```
+
+### HTTP 客户端
+```yaml
+Guzzle 使用规范:
+  - 集中管理 HTTP 客户端实例
+  - 使用请求和响应中间件
+  - 实现适当的错误处理
+  - 添加请求重试机制
+  - 实现请求缓存策略
+
+最佳实践:
+  - 使用异步请求
+  - 实现请求限流
+  - 添加日志记录
+  - 处理超时情况
+  - 实现断路器模式
+```
+
+## Gutenberg 区块
+
+### 区块开发
+```yaml
+基本要求:
+  - 使用 TypeScript 开发
+  - 实现区块注册机制
+  - 提供区块配置选项
+  - 支持响应式设计
+  - 实现区块验证
+
+组件设计:
+  - 使用函数式组件
+  - 实现状态管理
+  - 提供属性编辑器
+  - 支持区块样式
+  - 实现区块转换
+```
+
+### 区块规范
+```yaml
+文件组织:
+  - index.ts: 区块入口
+  - edit.tsx: 编辑器组件
+  - save.tsx: 前端渲染
+  - style.scss: 样式定义
+  - types.ts: 类型定义
+
+开发规范:
+  - 使用 ESLint 和 Prettier
+  - 实现国际化支持
+  - 添加区块图标
+  - 提供区块预览
+  - 支持区块变体
+```
+
+## REST API
+
+### 端点开发
+```yaml
+基本规范:
+  - 遵循 REST 设计原则
+  - 实现适当的权限控制
+  - 添加参数验证
+  - 提供错误处理
+  - 支持数据过滤
+
+接口设计:
+  - 使用语义化 URL
+  - 实现版本控制
+  - 提供清晰的文档
+  - 支持 CORS
+  - 实现缓存机制
+```
+
+### 安全措施
+```yaml
+安全要求:
+  - 实现 nonce 验证
+  - 检查用户权限
+  - 验证数据完整性
+  - 防止 SQL 注入
+  - 实现速率限制
+
+数据处理:
+  - 输入数据消毒
+  - 输出数据转义
+  - 实现数据验证
+  - 处理敏感信息
+  - 记录安全日志
+```
+
+## 性能优化
+
+### 代码优化
+```yaml
+优化措施:
+  - 使用 Transients API 缓存
+  - 优化数据库查询
+  - 实现资源延迟加载
+  - 优化 HTTP 请求
+  - 使用适当的钩子
+
+缓存策略:
+  - 对象缓存
+  - 页面缓存
+  - API 响应缓存
+  - 静态资源缓存
+  - 数据库查询缓存
+```
+
+### 资源管理
+```yaml
+加载优化:
+  - 合并 CSS 和 JavaScript
+  - 压缩静态资源
+  - 使用 CDN
+  - 优化图片加载
+  - 实现资源预加载
+
+依赖管理:
+  - 使用 Composer 管理 PHP 依赖
+  - 使用 npm/yarn 管理前端依赖
+  - 控制依赖版本
+  - 优化加载顺序
+  - 移除未使用的依赖
+```
+
+## 测试规范
+
+### 单元测试
+```yaml
+测试要求:
+  - 使用 PHPUnit 进行测试
+  - 编写功能测试
+  - 实现集成测试
+  - 添加端点测试
+  - 测试区块渲染
+
+测试覆盖:
+  - 核心功能
+  - API 端点
+  - 数据模型
+  - 工具函数
+  - 钩子函数
+```
+
+### 质量保证
+```yaml
+代码质量:
+  - 使用 PHPCS 检查代码风格
+  - 运行静态代码分析
+  - 实现持续集成
+  - 进行性能测试
+  - 执行安全扫描
+
+文档要求:
+  - 编写 API 文档
+  - 提供使用说明
+  - 记录更新日志
+  - 添加示例代码
+  - 维护开发文档
+```
+
+## 核心原则
+
+### 编码标准
+```yaml
+基本要求:
+  - 严格遵循 WordPress 编码规范
+  - PHP 代码必须使用类型提示
+  - 优先使用 TypeScript 而非 JavaScript
+  - 优先使用函数式编程范式
+  - 遵循组合优于继承原则
+
+代码风格:
+  - 优化代码可读性
+  - 保持与 WordPress 生态系统最佳实践一致
+  - 使用清晰的命名约定
+  - 添加适当的注释和文档
+  - 遵循 PSR-4 自动加载规范
+```
+
+### 技术栈
+```yaml
+基础环境:
+  - PHP 8.1+
+  - WordPress 6.0+
+  - Node.js 18+
+  - MySQL 8.0+
+  - Composer
+
+核心依赖:
+  - WordPress Core
+  - Gutenberg
+  - WP-CLI
+  - PHPUnit
+  - TypeScript
+  - React
+```
+
+## 代码模板
+
+### 插件基础模板
+```php
+<?php
+/**
+ * Plugin Name: Example Plugin
+ * Plugin URI: https://example.com/plugins/example
+ * Description: A description of the plugin
+ * Version: 1.0.0
+ * Author: Your Name
+ * Author URI: https://example.com
+ * License: GPL v2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: example-plugin
+ * Domain Path: /languages
+ *
+ * @package ExamplePlugin
+ */
+
+declare(strict_types=1);
+
+namespace ExamplePlugin;
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+final class Plugin {
+    private static ?self $instance = null;
+    
+    public static function getInstance(): self {
+        if (null === self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+    
+    private function __construct() {
+        $this->init();
+    }
+    
+    private function init(): void {
+        add_action('plugins_loaded', [$this, 'loadTextdomain']);
+        add_action('init', [$this, 'registerBlocks']);
+        add_action('rest_api_init', [$this, 'registerRestRoutes']);
+    }
+    
+    public function loadTextdomain(): void {
+        load_plugin_textdomain(
+            'example-plugin',
+            false,
+            dirname(plugin_basename(__FILE__)) . '/languages'
+        );
+    }
+    
+    public function registerBlocks(): void {
+        register_block_type(__DIR__ . '/build');
+    }
+    
+    public function registerRestRoutes(): void {
+        // Register REST routes
+    }
+}
+
+Plugin::getInstance();
+```
+
+### 区块开发模板
+```typescript
+import { registerBlockType } from '@wordpress/blocks';
+import { useBlockProps } from '@wordpress/block-editor';
+import { __ } from '@wordpress/i18n';
+import type { BlockConfiguration } from '@wordpress/blocks';
+
+interface Attributes {
+    content: string;
+}
+
+const blockConfig: BlockConfiguration<Attributes> = {
+    apiVersion: 2,
+    title: __('Example Block', 'example-plugin'),
+    description: __('An example block', 'example-plugin'),
+    category: 'widgets',
+    icon: 'smiley',
+    supports: {
+        html: false,
+        anchor: true,
+    },
+    attributes: {
+        content: {
+            type: 'string',
+            default: '',
+        },
+    },
+    edit: ({ attributes, setAttributes }) => {
+        const blockProps = useBlockProps();
+        
+        return (
+            <div {...blockProps}>
+                <TextControl
+                    label={__('Content', 'example-plugin')}
+                    value={attributes.content}
+                    onChange={(content) => setAttributes({ content })}
+                />
+            </div>
+        );
+    },
+    save: ({ attributes }) => {
+        const blockProps = useBlockProps.save();
+        
+        return (
+            <div {...blockProps}>
+                {attributes.content}
+            </div>
+        );
+    },
+};
+
+registerBlockType('example-plugin/block', blockConfig);
+```
+
+### REST API 模板
+```php
+<?php
+declare(strict_types=1);
+
+namespace ExamplePlugin\Api;
+
+use WP_REST_Request;
+use WP_REST_Response;
+use WP_Error;
+
+class ExampleController {
+    public function registerRoutes(): void {
+        register_rest_route(
+            'example-plugin/v1',
+            '/items',
+            [
+                [
+                    'methods' => 'GET',
+                    'callback' => [$this, 'getItems'],
+                    'permission_callback' => [$this, 'checkPermission'],
+                ],
+                [
+                    'methods' => 'POST',
+                    'callback' => [$this, 'createItem'],
+                    'permission_callback' => [$this, 'checkPermission'],
+                    'args' => [
+                        'title' => [
+                            'required' => true,
+                            'type' => 'string',
+                            'sanitize_callback' => 'sanitize_text_field',
+                        ],
+                    ],
+                ],
+            ]
+        );
+    }
+    
+    public function checkPermission(): bool {
+        return current_user_can('edit_posts');
+    }
+    
+    public function getItems(WP_REST_Request $request): WP_REST_Response {
+        // Implementation
+        return new WP_REST_Response($data, 200);
+    }
+    
+    public function createItem(WP_REST_Request $request): WP_REST_Response|WP_Error {
+        // Implementation
+        return new WP_REST_Response($data, 201);
+    }
+}
+```
+
+### 服务层模板
+```php
+<?php
+declare(strict_types=1);
+
+namespace ExamplePlugin\Services;
+
+use ExamplePlugin\Repositories\ItemRepository;
+use ExamplePlugin\Exceptions\ValidationException;
+
+class ItemService {
+    public function __construct(
+        private ItemRepository $repository
+    ) {}
+    
+    public function getItems(array $args = []): array {
+        return $this->repository->findAll($args);
+    }
+    
+    public function createItem(array $data): int {
+        $this->validateData($data);
+        return $this->repository->create($data);
+    }
+    
+    private function validateData(array $data): void {
+        if (empty($data['title'])) {
+            throw new ValidationException(
+                __('Title is required', 'example-plugin')
+            );
+        }
+    }
+}
+```
+
+## 常见场景实现
+
+### 缓存实现
+```php
+<?php
+declare(strict_types=1);
+
+namespace ExamplePlugin\Services;
+
+class CacheService {
+    public function get(string $key): mixed {
+        return wp_cache_get($key, 'example-plugin');
+    }
+    
+    public function set(
+        string $key,
+        mixed $value,
+        int $expiration = 3600
+    ): bool {
+        return wp_cache_set(
+            $key,
+            $value,
+            'example-plugin',
+            $expiration
+        );
+    }
+    
+    public function delete(string $key): bool {
+        return wp_cache_delete($key, 'example-plugin');
+    }
+    
+    public function flush(): bool {
+        return wp_cache_flush();
+    }
+}
+```
+
+### 异步处理
+```php
+<?php
+declare(strict_types=1);
+
+namespace ExamplePlugin\Jobs;
+
+class AsyncProcessor {
+    public function schedule(
+        string $hook,
+        array $args = [],
+        int $delay = 0
+    ): bool {
+        return wp_schedule_single_event(
+            time() + $delay,
+            $hook,
+            $args
+        );
+    }
+    
+    public function processAsync(callable $callback): void {
+        add_action('wp_async_task', function() use ($callback) {
+            try {
+                $callback();
+            } catch (\Throwable $e) {
+                error_log($e->getMessage());
+            }
+        });
+        
+        do_action('wp_async_task');
+    }
+}
+``` 

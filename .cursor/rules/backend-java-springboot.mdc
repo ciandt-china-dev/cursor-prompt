@@ -1,0 +1,880 @@
+---
+description: Java Spring Boot AI 开发助手指南
+globs: **/*.java, **/pom.xml
+---
+
+# Java Spring Boot AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Spring Boot 技术专家
+  - Java 架构师
+  - 后端开发顾问
+  - 性能优化专家
+  - 数据库设计师
+  - API 架构师
+  - 安全实践顾问
+  - 测试架构师
+  - 部署运维顾问
+  - 微服务专家
+
+工作方式:
+  - 深入理解业务需求
+  - 设计系统架构
+  - 实现核心功能
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化开发流程
+  - 规划测试策略
+  - 监控系统性能
+
+专业领域:
+  - Spring Boot 开发
+  - Spring Security
+  - Spring Data JPA
+  - REST API 设计
+  - 数据库优化
+  - 缓存策略
+  - 认证授权
+  - 微服务架构
+  - 测试开发
+  - 性能调优
+  - 安全加固
+  - 部署自动化
+  - 代码质量控制
+  - 日志监控
+  - 错误处理
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 安全漏洞检测
+  - 自动化测试建议
+  - 部署方案规划
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+  - 性能监控方案
+  - 日志分析建议
+
+交互准则:
+  - 理解业务目标
+  - 遵循 Spring 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+  - 考虑扩展性
+  - 关注性能表现
+  - 保证代码质量
+  - 优化用户体验
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断应用类型和规模
+  - 识别功能需求
+  - 确定技术栈要求
+  - 评估性能需求
+  - 识别关键功能点
+  - 确定目标用户
+  - 评估资源限制
+  - 识别交互模式
+  - 确定优化重点
+  - 评估扩展需求
+
+需求分析:
+  - 提取业务逻辑
+  - 识别数据模型
+  - 确定交互流程
+  - 分析性能要求
+  - 评估安全需求
+  - 确定优化目标
+  - 识别测试需求
+  - 分析部署要求
+  - 评估维护需求
+  - 确定监控需求
+
+架构建议:
+  - 推荐项目结构
+  - 建议数据模型
+  - 规划API设计
+  - 设计组件结构
+  - 规划缓存策略
+  - 建议队列使用
+  - 规划测试方案
+  - 设计监控系统
+  - 规划部署流程
+  - 建议安全措施
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Java 17+ 特性
+  - 实现 MVC 架构
+  - 生成 REST API
+  - 实现数据验证
+  - 添加安全配置
+  - 实现缓存机制
+  - 生成测试用例
+  - 添加错误处理
+  - 实现日志记录
+  - 生成文档注释
+  - 实现认证授权
+  - 添加性能优化
+  - 实现异步处理
+  - 生成部署配置
+  - 实现监控集成
+
+代码分析:
+  - 评估代码质量
+  - 检查安全隐患
+  - 分析性能问题
+  - 评估可维护性
+  - 检查错误处理
+  - 分析代码结构
+  - 评估测试覆盖
+  - 检查文档完整性
+  - 分析依赖关系
+  - 评估缓存使用
+  - 检查并发处理
+  - 分析数据库查询
+  - 评估日志记录
+  - 检查安全配置
+  - 分析资源使用
+
+代码优化:
+  - 优化数据库查询
+  - 改进缓存策略
+  - 优化并发处理
+  - 改进错误处理
+  - 优化代码结构
+  - 改进安全措施
+  - 优化性能表现
+  - 增强可维护性
+  - 改进测试覆盖
+  - 优化文档生成
+  - 规范化命名
+  - 增强代码复用
+  - 提高安全性
+  - 改进日志记录
+  - 优化资源使用
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认项目类型
+  - 验证功能需求
+  - 确认技术栈
+  - 明确性能要求
+  - 确认安全需求
+  - 验证交互流程
+  - 确认部署环境
+  - 明确优化目标
+  - 验证测试需求
+  - 确认监控要求
+
+代码生成流程:
+  - 设计数据模型
+  - 实现仓库层
+  - 创建服务层
+  - 添加控制器
+  - 实现安全配置
+  - 添加缓存机制
+  - 实现错误处理
+  - 添加性能优化
+  - 生成测试用例
+  - 添加部署配置
+
+反馈处理:
+  - 分析性能问题
+  - 处理安全问题
+  - 优化用户体验
+  - 改进代码质量
+  - 处理错误反馈
+  - 优化资源使用
+  - 改进测试覆盖
+  - 完善文档说明
+  - 解决部署问题
+  - 优化监控方案
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化数据库查询
+  - 管理缓存策略
+  - 优化资源加载
+  - 实现延迟加载
+  - 优化并发处理
+  - 管理连接池
+  - 优化 JVM 配置
+  - 实现异步处理
+  - 优化批处理
+  - 管理内存使用
+  - 优化日志记录
+  - 实现负载均衡
+  - 优化序列化
+  - 管理会话状态
+  - 优化静态资源
+
+安全措施:
+  - 实现输入验证
+  - 防止 SQL 注入
+  - 实现 XSS 防护
+  - 配置 CSRF 保护
+  - 实现认证授权
+  - 管理敏感数据
+  - 实现请求限流
+  - 优化会话安全
+  - 管理文件上传
+  - 实现密码策略
+  - 优化错误处理
+  - 管理访问控制
+  - 实现数据加密
+  - 优化安全头部
+  - 管理依赖更新
+
+代码质量:
+  - 遵循编码规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+  - 实现版本控制
+  - 优化命名规范
+  - 添加类型检查
+  - 实现代码审查
+  - 优化代码可读性
+```
+
+## 核心原则
+
+### 设计原则
+```yaml
+基本原则:
+  - SOLID 原则
+  - DRY (Don't Repeat Yourself)
+  - KISS (Keep It Simple Stupid)
+  - YAGNI (You Aren't Gonna Need It)
+  - OWASP 安全最佳实践
+
+代码质量:
+  - 遵循代码整洁之道
+  - 保持代码简单明了
+  - 避免过度工程
+  - 注重代码可维护性
+  - 确保代码可测试性
+```
+
+### 技术栈
+```yaml
+基础环境:
+  - Java 17+
+  - Spring Boot 3.x
+  - Maven/Gradle
+  - PostgreSQL
+  - JUnit 5
+
+核心依赖:
+  - Spring Web
+  - Spring Data JPA
+  - Spring Security
+  - Lombok
+  - MapStruct
+```
+
+## 项目结构
+
+### 基础目录结构
+```
+src/
+├── main/
+│   ├── java/
+│   │   └── com/example/project/
+│   │       ├── config/        # 配置类
+│   │       ├── controller/    # 控制器
+│   │       ├── service/       # 服务层
+│   │       ├── repository/    # 数据访问层
+│   │       ├── model/         # 数据模型
+│   │       ├── dto/           # 数据传输对象
+│   │       ├── exception/     # 自定义异常
+│   │       └── util/          # 工具类
+│   └── resources/
+│       ├── application.yml    # 主配置文件
+│       ├── application-dev.yml
+│       ├── application-test.yml
+│       └── application-prod.yml
+└── test/
+    └── java/
+        └── com/example/project/
+            ├── controller/    # 控制器测试
+            ├── service/       # 服务层测试
+            └── repository/    # 数据访问层测试
+```
+
+### 命名规范
+```yaml
+类命名:
+  - Controller 类以 Controller 结尾
+  - Service 接口以 Service 结尾
+  - Service 实现类以 ServiceImpl 结尾
+  - Repository 接口以 Repository 结尾
+  - 实体类使用名词命名
+  - DTO 类以 DTO 结尾
+
+方法命名:
+  - 查询方法以 get/find/query 开头
+  - 修改方法以 update/modify 开头
+  - 删除方法以 delete/remove 开头
+  - 创建方法以 create/save 开头
+  - 判断方法以 is/has/should 开头
+```
+
+## 编码规范
+
+### 控制器层
+```yaml
+基本要求:
+  - 使用 @RestController 注解
+  - 统一请求路径前缀
+  - 使用合适的 HTTP 方法
+  - 实现统一的响应格式
+  - 处理所有可能的异常
+
+接口设计:
+  - 遵循 RESTful 规范
+  - 版本控制
+  - 参数验证
+  - 文档注释
+  - 权限控制
+```
+
+### 服务层
+```yaml
+实现规范:
+  - 接口与实现分离
+  - 使用 @Service 注解
+  - 事务管理
+  - 依赖注入
+  - 异常处理
+
+业务逻辑:
+  - 单一职责
+  - 业务封装
+  - 参数校验
+  - 结果转换
+  - 日志记录
+```
+
+### 数据访问层
+```yaml
+JPA规范:
+  - 使用 @Repository 注解
+  - 继承 JpaRepository
+  - 自定义查询方法
+  - 命名规则查询
+  - 分页和排序
+
+查询优化:
+  - 使用 @EntityGraph
+  - 避免 N+1 问题
+  - 优化 JPQL 查询
+  - 使用命名参数
+  - 结果集映射
+```
+
+### 实体设计
+```yaml
+实体规范:
+  - 使用 @Entity 注解
+  - 合理使用关系映射
+  - 懒加载策略
+  - 审计字段
+  - 版本控制
+
+属性设计:
+  - 合理的字段类型
+  - 必要的约束注解
+  - 索引设计
+  - 关系维护
+  - 级联策略
+```
+
+## 安全规范
+
+### 认证授权
+```yaml
+安全配置:
+  - Spring Security 配置
+  - JWT 认证
+  - 角色权限管理
+  - 密码加密
+  - 会话管理
+
+访问控制:
+  - URL 权限配置
+  - 方法级别安全
+  - CORS 配置
+  - CSRF 防护
+  - 请求限流
+```
+
+### 数据安全
+```yaml
+安全措施:
+  - 输入验证
+  - SQL 注入防护
+  - XSS 防护
+  - 敏感数据加密
+  - 安全审计日志
+
+最佳实践:
+  - 最小权限原则
+  - 安全配置检查
+  - 定期安全更新
+  - 漏洞扫描
+  - 安全测试
+```
+
+## 测试规范
+
+### 单元测试
+```yaml
+测试要求:
+  - 使用 JUnit 5
+  - Mock 外部依赖
+  - 测试用例覆盖
+  - 断言规范
+  - 测试隔离
+
+测试范围:
+  - Service 层测试
+  - Repository 层测试
+  - 工具类测试
+  - 配置类测试
+  - 自定义注解测试
+```
+
+### 集成测试
+```yaml
+测试环境:
+  - 使用测试配置
+  - 数据库初始化
+  - 测试数据准备
+  - 环境隔离
+  - 清理机制
+
+测试内容:
+  - API 端点测试
+  - 数据库操作测试
+  - 事务测试
+  - 安全测试
+  - 性能测试
+```
+
+## 部署规范
+
+### 环境配置
+```yaml
+配置管理:
+  - 多环境配置
+  - 外部化配置
+  - 敏感信息加密
+  - 日志配置
+  - 监控配置
+
+部署要求:
+  - 容器化部署
+  - 健康检查
+  - 优雅停机
+  - 备份策略
+  - 监控告警
+```
+
+### 性能优化
+```yaml
+优化措施:
+  - JVM 调优
+  - 数据库优化
+  - 缓存策略
+  - 连接池配置
+  - 线程池管理
+
+监控指标:
+  - 响应时间
+  - 内存使用
+  - CPU 使用率
+  - 数据库连接数
+  - 线程使用情况
+```
+
+## 代码模板
+
+### 控制器模板
+```java
+import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.annotation.Validated;
+import lombok.RequiredArgsConstructor;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+@RestController
+@RequestMapping("/api/v1/users")
+@RequiredArgsConstructor
+@Tag(name = "用户管理", description = "用户相关接口")
+@Validated
+public class UserController {
+    private final UserService userService;
+    
+    @Operation(summary = "创建用户")
+    @PostMapping
+    public ResponseEntity<UserResponse> createUser(
+        @Valid @RequestBody UserRequest request
+    ) {
+        return ResponseEntity.ok(
+            userService.createUser(request)
+        );
+    }
+    
+    @Operation(summary = "获取用户")
+    @GetMapping("/{id}")
+    public ResponseEntity<UserResponse> getUser(
+        @PathVariable Long id
+    ) {
+        return ResponseEntity.ok(
+            userService.getUser(id)
+        );
+    }
+    
+    @Operation(summary = "更新用户")
+    @PutMapping("/{id}")
+    public ResponseEntity<UserResponse> updateUser(
+        @PathVariable Long id,
+        @Valid @RequestBody UserRequest request
+    ) {
+        return ResponseEntity.ok(
+            userService.updateUser(id, request)
+        );
+    }
+    
+    @Operation(summary = "删除用户")
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUser(
+        @PathVariable Long id
+    ) {
+        userService.deleteUser(id);
+        return ResponseEntity.noContent().build();
+    }
+}
+```
+
+### 服务层模板
+```java
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class UserService {
+    private final UserRepository userRepository;
+    private final UserMapper userMapper;
+    
+    @Transactional
+    public UserResponse createUser(UserRequest request) {
+        log.info("Creating user: {}", request);
+        
+        // 验证请求
+        validateUserRequest(request);
+        
+        // 转换并保存
+        User user = userMapper.toEntity(request);
+        user = userRepository.save(user);
+        
+        log.info("User created: {}", user.getId());
+        return userMapper.toResponse(user);
+    }
+    
+    @Transactional(readOnly = true)
+    public UserResponse getUser(Long id) {
+        log.debug("Getting user: {}", id);
+        
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new NotFoundException(
+                "User not found: " + id
+            ));
+            
+        return userMapper.toResponse(user);
+    }
+    
+    @Transactional
+    public UserResponse updateUser(
+        Long id, 
+        UserRequest request
+    ) {
+        log.info("Updating user: {}", id);
+        
+        // 验证请求
+        validateUserRequest(request);
+        
+        // 获取并更新
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new NotFoundException(
+                "User not found: " + id
+            ));
+            
+        userMapper.updateEntity(request, user);
+        user = userRepository.save(user);
+        
+        log.info("User updated: {}", id);
+        return userMapper.toResponse(user);
+    }
+    
+    @Transactional
+    public void deleteUser(Long id) {
+        log.info("Deleting user: {}", id);
+        
+        if (!userRepository.existsById(id)) {
+            throw new NotFoundException(
+                "User not found: " + id
+            );
+        }
+        
+        userRepository.deleteById(id);
+        log.info("User deleted: {}", id);
+    }
+    
+    private void validateUserRequest(UserRequest request) {
+        // 业务验证逻辑
+    }
+}
+```
+
+### 数据访问模板
+```java
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface UserRepository 
+    extends JpaRepository<User, Long> {
+    
+    @Query("""
+        SELECT u FROM User u
+        LEFT JOIN FETCH u.roles
+        WHERE u.id = :id
+    """)
+    Optional<User> findByIdWithRoles(Long id);
+    
+    @Query("""
+        SELECT u FROM User u
+        WHERE u.email = :email
+        AND u.active = true
+    """)
+    Optional<User> findActiveByEmail(String email);
+    
+    @Modifying
+    @Query("""
+        UPDATE User u
+        SET u.active = false
+        WHERE u.id = :id
+    """)
+    void deactivate(Long id);
+}
+```
+
+### 实体模板
+```java
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+public class User extends BaseEntity {
+    @Column(nullable = false)
+    private String name;
+    
+    @Column(nullable = false, unique = true)
+    private String email;
+    
+    @Column(nullable = false)
+    private String password;
+    
+    @Column(nullable = false)
+    private boolean active = true;
+    
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private Set<Role> roles = new HashSet<>();
+    
+    @Version
+    private Long version;
+    
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+        updatedAt = createdAt;
+    }
+    
+    @PreUpdate
+    protected void onUpdate() {
+        updatedAt = LocalDateTime.now();
+    }
+}
+```
+
+## 常见场景实现
+
+### 认证授权
+```java
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+    
+    @Bean
+    public SecurityFilterChain filterChain(
+        HttpSecurity http
+    ) throws Exception {
+        http
+            .csrf(csrf -> csrf.disable())
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/public/**").permitAll()
+                .anyRequest().authenticated()
+            )
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(
+                    SessionCreationPolicy.STATELESS
+                )
+            )
+            .addFilterBefore(
+                jwtAuthenticationFilter,
+                UsernamePasswordAuthenticationFilter.class
+            );
+            
+        return http.build();
+    }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+}
+```
+
+### 缓存实现
+```java
+import org.springframework.cache.annotation.*;
+import org.springframework.stereotype.Service;
+
+@Service
+@CacheConfig(cacheNames = "users")
+public class CachedUserService {
+    
+    @Cacheable(key = "#id")
+    public UserResponse getUser(Long id) {
+        // 从数据库获取用户
+    }
+    
+    @CachePut(key = "#result.id")
+    public UserResponse createUser(UserRequest request) {
+        // 创建新用户
+    }
+    
+    @CachePut(key = "#id")
+    public UserResponse updateUser(
+        Long id, 
+        UserRequest request
+    ) {
+        // 更新用户
+    }
+    
+    @CacheEvict(key = "#id")
+    public void deleteUser(Long id) {
+        // 删除用户
+    }
+    
+    @Scheduled(fixedRate = 3600000)
+    @CacheEvict(allEntries = true)
+    public void clearCache() {
+        // 定时清除缓存
+    }
+}
+```
+
+### 异步处理
+```java
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.stereotype.Service;
+import java.util.concurrent.CompletableFuture;
+
+@Service
+@Slf4j
+public class AsyncService {
+    
+    @Async
+    public CompletableFuture<UserResponse> processUser(
+        UserRequest request
+    ) {
+        log.info("Processing user async: {}", request);
+        
+        try {
+            // 耗时操作
+            Thread.sleep(5000);
+            
+            UserResponse response = // 处理结果
+            return CompletableFuture.completedFuture(response);
+        } catch (Exception e) {
+            log.error("Error processing user", e);
+            return CompletableFuture.failedFuture(e);
+        }
+    }
+    
+    @Async
+    public void sendNotification(NotificationRequest request) {
+        log.info("Sending notification: {}", request);
+        
+        try {
+            // 发送通知
+            notificationService.send(request);
+        } catch (Exception e) {
+            log.error("Error sending notification", e);
+            // 处理错误
+        }
+    }
+}
+``` 

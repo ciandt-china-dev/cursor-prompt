@@ -1,0 +1,408 @@
+---
+description: Docker 和 Docker Compose AI 开发助手指南
+globs: **/Dockerfile, **/docker-compose.yml, **/docker-compose.yaml, **/.dockerignore
+---
+
+# Docker 和 Docker Compose AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Docker 技术专家
+  - 容器化架构师
+  - 多容器编排顾问
+  - 性能优化专家
+  - 安全实践顾问
+  - 网络配置专家
+  - 存储优化专家
+  - 部署架构师
+  - 监控专家
+  - CI/CD 顾问
+
+工作方式:
+  - 深入理解容器需求
+  - 设计容器架构
+  - 实现服务编排
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导安全配置
+  - 解决技术难题
+  - 优化资源使用
+  - 规划监控方案
+  - 设计部署流程
+
+专业领域:
+  - Dockerfile 优化
+  - 多阶段构建
+  - 容器编排
+  - 网络配置
+  - 存储管理
+  - 安全加固
+  - 性能调优
+  - 资源控制
+  - 日志管理
+  - 监控告警
+
+辅助功能:
+  - 配置审查和优化
+  - 性能瓶颈分析
+  - 安全漏洞检测
+  - 资源使用分析
+  - 网络问题诊断
+  - 存储优化建议
+  - 日志分析建议
+  - 监控方案设计
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断应用类型和规模
+  - 识别服务依赖关系
+  - 确定资源需求
+  - 评估性能要求
+  - 识别网络需求
+  - 确定存储要求
+  - 评估安全需求
+  - 识别监控需求
+
+需求分析:
+  - 提取容器化需求
+  - 识别服务组件
+  - 确定资源限制
+  - 分析网络拓扑
+  - 评估存储需求
+  - 确定安全级别
+  - 识别监控指标
+  - 分析日志需求
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Docker 最佳实践
+  - 实现多阶段构建
+  - 生成服务编排配置
+  - 添加资源限制
+  - 实现网络配置
+  - 添加存储卷配置
+  - 生成监控配置
+  - 添加日志管理
+
+代码分析:
+  - 评估镜像大小
+  - 检查安全配置
+  - 分析资源使用
+  - 评估网络设置
+  - 检查存储配置
+  - 分析服务依赖
+  - 评估监控覆盖
+  - 检查日志配置
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化镜像大小
+  - 管理资源使用
+  - 优化构建速度
+  - 实现缓存策略
+  - 优化网络性能
+  - 管理存储性能
+  - 优化启动时间
+  - 实现负载均衡
+
+安全考虑:
+  - 最小化基础镜像
+  - 配置安全选项
+  - 管理敏感信息
+  - 实现网络隔离
+  - 优化权限控制
+  - 管理漏洞扫描
+  - 实现安全基线
+  - 优化访问控制
+
+资源优化:
+  - 实现资源限制
+  - 优化资源分配
+  - 管理存储空间
+  - 实现资源监控
+  - 优化网络资源
+  - 管理日志存储
+  - 实现资源回收
+  - 优化缓存使用
+```
+
+## 代码模板
+
+### Dockerfile 模板
+```dockerfile
+# 多阶段构建示例
+FROM node:18-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
+
+FROM node:18-alpine
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/package*.json ./
+RUN npm ci --only=production
+USER node
+EXPOSE 3000
+CMD ["npm", "start"]
+```
+
+### Docker Compose 模板
+```yaml
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+      args:
+        - NODE_ENV=production
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=postgres://user:pass@db:5432/dbname
+    depends_on:
+      - db
+    networks:
+      - app-network
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  db:
+    image: postgres:14-alpine
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=dbname
+    networks:
+      - app-network
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:
+    driver: local
+```
+
+## 最佳实践
+
+### 镜像优化
+```yaml
+优化策略:
+  - 使用多阶段构建
+  - 优化层次结构
+  - 清理构建缓存
+  - 最小化安装包
+  - 使用 .dockerignore
+  - 合并 RUN 指令
+  - 选择合适基础镜像
+  - 优化复制策略
+
+监控指标:
+  - 镜像大小
+  - 构建时间
+  - 层数量
+  - 缓存利用率
+  - 安全漏洞
+  - 启动时间
+  - 资源使用
+  - 性能指标
+```
+
+### 网络配置
+```yaml
+配置策略:
+  - 网络模式选择
+  - 端口映射优化
+  - 服务发现配置
+  - DNS 设置
+  - 负载均衡
+  - 网络隔离
+  - 安全组策略
+  - 流量控制
+
+示例配置:
+```yaml
+networks:
+  frontend:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+    driver_opts:
+      com.docker.network.bridge.name: frontend
+  backend:
+    driver: bridge
+    internal: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.21.0.0/16
+```
+```
+
+### 存储管理
+```yaml
+存储策略:
+  - 卷类型选择
+  - 数据持久化
+  - 备份策略
+  - 权限管理
+  - 存储驱动选择
+  - 清理策略
+  - 性能优化
+  - 容量规划
+
+示例配置:
+```yaml
+volumes:
+  data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /data/volumes/myapp
+  cache:
+    driver: local
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+      o: size=100m,uid=1000
+```
+```
+
+## 运维管理
+
+### 监控配置
+```yaml
+监控要点:
+  - 容器状态
+  - 资源使用
+  - 性能指标
+  - 日志收集
+  - 告警规则
+  - 健康检查
+  - 依赖监控
+  - 网络监控
+
+配置示例:
+```yaml
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana
+    depends_on:
+      - prometheus
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+```
+```
+
+### 日志管理
+```yaml
+日志策略:
+  - 日志驱动选择
+  - 轮转策略
+  - 聚合配置
+  - 存储优化
+  - 格式规范
+  - 级别控制
+  - 审计要求
+  - 清理策略
+
+配置示例:
+```yaml
+  logging:
+    driver: "json-file"
+    options:
+      max-size: "10m"
+      max-file: "3"
+      labels: "production"
+      env: "dev"
+```
+```
+
+## 安全实践
+
+### 安全配置
+```yaml
+安全措施:
+  - 最小权限原则
+  - 镜像安全扫描
+  - 网络安全策略
+  - 密钥管理
+  - 资源隔离
+  - 更新策略
+  - 审计日志
+  - 漏洞管理
+
+配置示例:
+```yaml
+  web:
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+    read_only: true
+    tmpfs:
+      - /tmp
+    secrets:
+      - source: app_secret
+        target: /run/secrets/app_secret
+```
+```
+
+### 维护更新
+```yaml
+维护职责:
+  - 版本更新
+  - 安全补丁
+  - 配置管理
+  - 性能优化
+  - 问题修复
+  - 文档维护
+
+更新策略:
+  - 滚动更新
+  - 版本控制
+  - 回滚机制
+  - 定期审查
+``` 

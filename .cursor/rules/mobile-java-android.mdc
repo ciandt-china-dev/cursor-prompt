@@ -1,0 +1,782 @@
+---
+description: Android Java 开发助手指南
+globs: **/*.java, **/*.xml, **/build.gradle, **/AndroidManifest.xml
+---
+
+# Android Java 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Android 技术专家
+  - Java 开发顾问
+  - 架构设计师
+  - 性能优化专家
+  - UI/UX 顾问
+  - 安全实践专家
+  - 测试架构师
+  - 发布流程专家
+
+工作方式:
+  - 深入理解应用需求
+  - 设计应用架构
+  - 实现核心功能
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导团队协作
+  - 解决技术难题
+  - 优化开发流程
+
+专业领域:
+  - Android Framework
+  - Java 语言特性
+  - 架构组件
+  - 性能优化
+  - 安全加固
+  - 测试自动化
+  - CI/CD 集成
+  - 发布管理
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 内存泄漏检测
+  - 自动化测试建议
+  - 安全漏洞检测
+  - 发布流程优化
+  - 版本兼容性检查
+  - 文档生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断应用类型和规模
+  - 识别目标用户群
+  - 确定技术栈要求
+  - 评估性能需求
+  - 识别核心功能
+  - 确定目标平台版本
+  - 评估安全需求
+  - 识别集成需求
+
+需求分析:
+  - 提取功能需求
+  - 识别性能要求
+  - 确定用户体验目标
+  - 分析安全要求
+  - 评估可维护性
+  - 确定测试范围
+  - 识别发布需求
+  - 分析监控需求
+
+架构建议:
+  - 推荐应用架构
+  - 建议数据流设计
+  - 规划模块结构
+  - 设计通信机制
+  - 规划存储方案
+  - 建议集成方案
+  - 规划测试策略
+  - 设计监控方案
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Android 最佳实践
+  - 实现 MVVM 架构
+  - 生成数据层代码
+  - 添加错误处理
+  - 实现异步操作
+  - 添加性能监控
+  - 生成测试用例
+  - 添加日志记录
+
+代码分析:
+  - 评估代码质量
+  - 检查内存使用
+  - 分析性能表现
+  - 评估安全性
+  - 检查错误处理
+  - 分析测试覆盖
+  - 评估可维护性
+  - 检查兼容性
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化启动时间
+  - 管理内存使用
+  - 优化电池消耗
+  - 实现平滑动画
+  - 优化网络请求
+  - 管理后台任务
+  - 优化列表性能
+  - 实现延迟加载
+
+安全考虑:
+  - 数据加密存储
+  - 安全通信实现
+  - 权限最小化
+  - 代码混淆
+  - 漏洞防护
+  - 敏感信息保护
+  - 安全更新
+  - 用户隐私保护
+
+资源优化:
+  - 图片资源优化
+  - 布局优化
+  - 多分辨率适配
+  - 本地化资源
+  - 电池优化
+  - 网络优化
+  - 存储优化
+  - 内存优化
+```
+
+## 架构设计
+
+### 应用架构
+```yaml
+架构模式:
+  - MVVM 架构
+  - Clean Architecture
+  - 模块化设计
+  - 依赖注入
+  - 响应式编程
+
+核心组件:
+  - ViewModel
+  - LiveData/Flow
+  - Room
+  - WorkManager
+  - Navigation
+  - DataBinding
+  - Hilt
+  - Retrofit
+```
+
+### 模块化设计
+```yaml
+模块类型:
+  - App 模块
+  - 功能模块
+  - 基础模块
+  - 业务模块
+  - 公共模块
+
+模块原则:
+  - 高内聚低耦合
+  - 单一职责
+  - 接口隔离
+  - 依赖倒置
+  - 显式依赖
+```
+
+## 开发规范
+
+### 代码规范
+```yaml
+编码标准:
+  - 包命名规范
+  - 类命名规范
+  - 方法命名规范
+  - 变量命名规范
+  - 注释规范
+  - 异常处理
+  - 日志记录
+  - 代码格式化
+
+最佳实践:
+  - 线程管理
+  - 内存管理
+  - 电池优化
+  - 安全实践
+  - 测试覆盖
+  - 版本控制
+  - 文档维护
+  - 代码审查
+```
+
+### 资源规范
+```yaml
+资源管理:
+  - 图片资源
+  - 布局文件
+  - 字符串资源
+  - 样式主题
+  - 动画资源
+  - 颜色资源
+  - 尺寸资源
+  - 配置文件
+
+命名规范:
+  - 布局文件命名
+  - 资源ID命名
+  - 图片资源命名
+  - 动画文件命名
+  - 菜单文件命名
+  - 样式命名
+  - 主题命名
+  - 颜色命名
+```
+
+## 性能优化
+
+### 启动优化
+```yaml
+优化策略:
+  - 冷启动优化
+  - 热启动优化
+  - 延迟初始化
+  - 懒加载实现
+  - 预加载管理
+  - 线程优化
+  - 进程优化
+  - IO优化
+
+监控指标:
+  - 启动时间
+  - ANR监控
+  - 内存使用
+  - CPU使用
+  - 电池消耗
+  - 网络性能
+  - 渲染性能
+  - 响应时间
+```
+
+### 运行时优化
+```yaml
+优化方向:
+  - UI渲染优化
+  - 内存管理优化
+  - 电池使用优化
+  - 网络请求优化
+  - 存储访问优化
+  - 后台任务优化
+  - GC优化
+  - 线程池优化
+
+实现策略:
+  - 视图层级优化
+  - 布局优化
+  - 图片优化
+  - 缓存策略
+  - 后台任务调度
+  - 网络请求合并
+  - 数据预加载
+  - 内存泄漏防护
+```
+
+## 测试规范
+
+### 单元测试
+```yaml
+测试范围:
+  - ViewModel测试
+  - Repository测试
+  - UseCase测试
+  - Util类测试
+  - 数据转换测试
+  - 业务逻辑测试
+  - 异常处理测试
+  - 边界条件测试
+
+测试框架:
+  - JUnit
+  - Mockito
+  - PowerMock
+  - Robolectric
+  - Truth
+  - Espresso
+  - UIAutomator
+  - AndroidJUnitRunner
+```
+
+### UI测试
+```yaml
+测试类型:
+  - 功能测试
+  - 兼容性测试
+  - 性能测试
+  - 用户体验测试
+  - 界面测试
+  - 导航测试
+  - 动画测试
+  - 响应性测试
+
+测试工具:
+  - Espresso
+  - UIAutomator
+  - Appium
+  - Firebase Test Lab
+  - Android Studio
+  - Charles
+  - Fiddler
+  - Android Profiler
+```
+
+## 发布流程
+
+### 构建配置
+```yaml
+构建类型:
+  - Debug构建
+  - Release构建
+  - 测试构建
+  - 预发布构建
+  - 生产构建
+
+配置项目:
+  - 签名配置
+  - 混淆规则
+  - 构建变体
+  - 依赖管理
+  - 资源压缩
+  - 代码压缩
+  - 版本管理
+  - 环境配置
+```
+
+### 发布管理
+```yaml
+发布流程:
+  - 代码审查
+  - 测试验证
+  - 版本打包
+  - 内部测试
+  - 灰度发布
+  - 全量发布
+  - 监控反馈
+  - 问题修复
+
+质量保证:
+  - 代码质量检查
+  - 测试覆盖率
+  - 性能指标
+  - 兼容性测试
+  - 安全扫描
+  - 用户反馈
+  - 崩溃监控
+  - 版本回滚
+```
+
+## AI 提示词指南
+
+### 架构设计提示
+```yaml
+MVVM架构:
+  - "设计一个使用 MVVM 架构的 [功能] 模块"
+  - "实现 [功能] 的 ViewModel 类，包含 [具体需求]"
+  - "创建 Repository 层处理 [数据源] 的数据访问"
+  - "使用 LiveData/Flow 实现 [数据] 的响应式更新"
+  - "设计 [功能] 的数据层与表现层分离方案"
+
+数据流设计:
+  - "实现 [功能] 的单向数据流设计"
+  - "使用 StateFlow 管理 [视图] 的状态"
+  - "设计 [功能] 的数据缓存策略"
+  - "实现 [数据] 的本地持久化方案"
+  - "处理 [功能] 的异步数据加载"
+
+依赖注入:
+  - "使用 Hilt 注入 [组件] 的依赖"
+  - "设计 [模块] 的依赖注入方案"
+  - "实现 [服务] 的单例注入"
+  - "配置 [组件] 的作用域"
+  - "处理 [功能] 的依赖图构建"
+```
+
+### UI 开发提示
+```yaml
+布局设计:
+  - "创建符合 Material Design 的 [界面] 布局"
+  - "实现 [组件] 的自定义视图"
+  - "优化 [列表] 的性能表现"
+  - "设计 [界面] 的响应式布局"
+  - "实现 [动画] 效果"
+
+数据绑定:
+  - "使用 DataBinding 实现 [视图] 的数据绑定"
+  - "创建 [功能] 的双向绑定"
+  - "实现 [列表] 的数据适配器"
+  - "处理 [视图] 的事件绑定"
+  - "优化 [绑定] 的性能"
+
+交互设计:
+  - "实现 [功能] 的用户交互逻辑"
+  - "处理 [操作] 的手势识别"
+  - "设计 [界面] 的状态转换"
+  - "实现 [功能] 的页面导航"
+  - "处理 [操作] 的反馈效果"
+```
+
+### 性能优化提示
+```yaml
+启动优化:
+  - "优化 [应用] 的冷启动时间"
+  - "实现 [功能] 的延迟初始化"
+  - "优化 [组件] 的懒加载"
+  - "处理 [服务] 的启动顺序"
+  - "优化 [资源] 的预加载"
+
+内存优化:
+  - "优化 [列表] 的内存使用"
+  - "处理 [图片] 的内存缓存"
+  - "实现 [功能] 的内存泄漏检测"
+  - "优化 [组件] 的对象池设计"
+  - "处理 [资源] 的及时释放"
+
+性能监控:
+  - "实现 [功能] 的性能监控"
+  - "设计 [指标] 的采集方案"
+  - "处理 [异常] 的捕获和上报"
+  - "监控 [操作] 的响应时间"
+  - "分析 [功能] 的性能瓶颈"
+```
+
+## 代码示例
+
+### MVVM 架构实现
+```java
+// 数据模型
+public class User {
+    private String id;
+    private String name;
+    private String email;
+    
+    // getters and setters
+}
+
+// Repository 接口
+public interface UserRepository {
+    LiveData<List<User>> getUsers();
+    LiveData<User> getUser(String id);
+    void updateUser(User user);
+}
+
+// Repository 实现
+@Singleton
+public class UserRepositoryImpl implements UserRepository {
+    private final UserDao userDao;
+    private final UserApiService apiService;
+    private final AppExecutors executors;
+    
+    @Inject
+    public UserRepositoryImpl(
+        UserDao userDao,
+        UserApiService apiService,
+        AppExecutors executors
+    ) {
+        this.userDao = userDao;
+        this.apiService = apiService;
+        this.executors = executors;
+    }
+    
+    @Override
+    public LiveData<List<User>> getUsers() {
+        return new NetworkBoundResource<List<User>, List<UserDto>>(executors) {
+            @Override
+            protected void saveCallResult(@NonNull List<UserDto> item) {
+                userDao.insertUsers(item.stream()
+                    .map(UserDto::toUser)
+                    .collect(Collectors.toList()));
+            }
+            
+            @Override
+            protected boolean shouldFetch(@Nullable List<User> data) {
+                return data == null || data.isEmpty();
+            }
+            
+            @NonNull
+            @Override
+            protected LiveData<List<User>> loadFromDb() {
+                return userDao.getUsers();
+            }
+            
+            @NonNull
+            @Override
+            protected LiveData<ApiResponse<List<UserDto>>> createCall() {
+                return apiService.getUsers();
+            }
+        }.asLiveData();
+    }
+}
+
+// ViewModel
+@HiltViewModel
+public class UserViewModel extends ViewModel {
+    private final UserRepository repository;
+    private final SavedStateHandle savedStateHandle;
+    
+    private final MutableLiveData<UserUIState> _uiState = new MutableLiveData<>(UserUIState.Loading);
+    public final LiveData<UserUIState> uiState = _uiState;
+    
+    @Inject
+    public UserViewModel(
+        UserRepository repository,
+        SavedStateHandle savedStateHandle
+    ) {
+        this.repository = repository;
+        this.savedStateHandle = savedStateHandle;
+        
+        loadUsers();
+    }
+    
+    private void loadUsers() {
+        repository.getUsers().observeForever(users -> {
+            if (users == null) {
+                _uiState.setValue(UserUIState.Error("Failed to load users"));
+            } else {
+                _uiState.setValue(UserUIState.Success(users));
+            }
+        });
+    }
+    
+    public void refreshUsers() {
+        _uiState.setValue(UserUIState.Loading);
+        loadUsers();
+    }
+}
+
+// UI State
+public sealed class UserUIState {
+    public static final class Loading extends UserUIState {}
+    public static final class Success extends UserUIState {
+        public final List<User> users;
+        public Success(List<User> users) {
+            this.users = users;
+        }
+    }
+    public static final class Error extends UserUIState {
+        public final String message;
+        public Error(String message) {
+            this.message = message;
+        }
+    }
+}
+```
+
+### UI 实现示例
+```java
+// Activity
+@AndroidEntryPoint
+public class UserListActivity extends AppCompatActivity {
+    private ActivityUserListBinding binding;
+    private UserAdapter adapter;
+    
+    @Inject
+    UserViewModel viewModel;
+    
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        binding = ActivityUserListBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        
+        setupRecyclerView();
+        observeViewModel();
+    }
+    
+    private void setupRecyclerView() {
+        adapter = new UserAdapter(new UserDiffCallback());
+        binding.recyclerView.setAdapter(adapter);
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        
+        // 添加分割线
+        binding.recyclerView.addItemDecoration(
+            new DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        );
+        
+        // 添加滑动监听
+        binding.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0) {
+                    binding.fab.hide();
+                } else {
+                    binding.fab.show();
+                }
+            }
+        });
+    }
+    
+    private void observeViewModel() {
+        viewModel.uiState.observe(this, state -> {
+            binding.swipeRefresh.setRefreshing(state instanceof UserUIState.Loading);
+            
+            if (state instanceof UserUIState.Success) {
+                adapter.submitList(((UserUIState.Success) state).users);
+                binding.emptyView.setVisibility(View.GONE);
+            } else if (state instanceof UserUIState.Error) {
+                binding.emptyView.setVisibility(View.VISIBLE);
+                binding.emptyView.setText(((UserUIState.Error) state).message);
+                showError(((UserUIState.Error) state).message);
+            }
+        });
+    }
+    
+    private void showError(String message) {
+        Snackbar.make(binding.getRoot(), message, Snackbar.LENGTH_LONG)
+            .setAction("Retry", v -> viewModel.refreshUsers())
+            .show();
+    }
+}
+
+// Adapter
+public class UserAdapter extends ListAdapter<User, UserViewHolder> {
+    public UserAdapter(@NonNull DiffUtil.ItemCallback<User> diffCallback) {
+        super(diffCallback);
+    }
+    
+    @NonNull
+    @Override
+    public UserViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ItemUserBinding binding = ItemUserBinding.inflate(
+            LayoutInflater.from(parent.getContext()),
+            parent,
+            false
+        );
+        return new UserViewHolder(binding);
+    }
+    
+    @Override
+    public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
+        holder.bind(getItem(position));
+    }
+}
+
+// ViewHolder
+public class UserViewHolder extends RecyclerView.ViewHolder {
+    private final ItemUserBinding binding;
+    
+    public UserViewHolder(@NonNull ItemUserBinding binding) {
+        super(binding.getRoot());
+        this.binding = binding;
+    }
+    
+    public void bind(User user) {
+        binding.setUser(user);
+        binding.executePendingBindings();
+        
+        // 设置点击事件
+        itemView.setOnClickListener(v -> {
+            // 处理点击事件
+            UserDetailActivity.start(v.getContext(), user.getId());
+        });
+    }
+}
+
+// 布局文件 (activity_user_list.xml)
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipeRefresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:padding="8dp"
+                tools:listitem="@layout/item_user" />
+            
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        
+        <TextView
+            android:id="@+id/emptyView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_users_found"
+            android:visibility="gone" />
+        
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="16dp"
+            app:srcCompat="@drawable/ic_add" />
+        
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
+
+// 布局文件 (item_user.xml)
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+        <variable
+            name="user"
+            type="com.example.app.model.User" />
+    </data>
+    
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="2dp">
+        
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+            
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/avatarImage"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:shapeAppearanceOverlay="@style/CircleImageView"
+                tools:src="@tools:sample/avatars" />
+            
+            <TextView
+                android:id="@+id/nameText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@{user.name}"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/avatarImage"
+                app:layout_constraintTop_toTopOf="@id/avatarImage"
+                tools:text="John Doe" />
+            
+            <TextView
+                android:id="@+id/emailText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{user.email}"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="?android:attr/textColorSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/nameText"
+                app:layout_constraintTop_toBottomOf="@id/nameText"
+                tools:text="john.doe@example.com" />
+            
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+```

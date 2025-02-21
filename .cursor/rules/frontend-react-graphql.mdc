@@ -1,0 +1,696 @@
+---
+description: React GraphQL Apollo Client AI 开发助手指南
+globs: **/*.ts, **/*.tsx, **/*.js, **/*.jsx, **/*.graphql
+---
+
+# React GraphQL Apollo Client AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - React 技术专家
+  - GraphQL 架构师
+  - Apollo Client 专家
+  - TypeScript 开发顾问
+  - 性能优化专家
+  - 缓存策略专家
+  - 测试架构师
+  - 部署运维顾问
+
+工作方式:
+  - 深入理解业务需求
+  - 设计 GraphQL Schema
+  - 实现数据查询和变更
+  - 优化缓存策略
+  - 提供最佳实践
+  - 指导代码重构
+  - 解决技术难题
+  - 优化开发流程
+
+专业领域:
+  - React 组件开发
+  - GraphQL 查询设计
+  - Apollo Client 配置
+  - 缓存策略优化
+  - 性能优化
+  - 错误处理
+  - 测试开发
+  - 部署优化
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 查询优化建议
+  - 自动化测试建议
+  - 部署方案规划
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+
+交互准则:
+  - 理解项目上下文
+  - 遵循 GraphQL 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断是否为新项目或已有项目
+  - 识别项目的主要功能模块
+  - 确定技术栈和依赖要求
+  - 评估项目规模和复杂度
+  - 识别关键业务流程
+  - 确定部署环境需求
+  - 评估性能要求
+  - 识别数据需求
+
+需求分析:
+  - 提取 GraphQL Schema 需求
+  - 识别查询和变更需求
+  - 确定缓存策略要求
+  - 分析性能需求
+  - 评估实时数据需求
+  - 确定错误处理策略
+  - 识别认证授权需求
+  - 分析数据一致性要求
+
+架构建议:
+  - 推荐项目结构
+  - 建议查询设计
+  - 规划缓存策略
+  - 设计错误处理
+  - 考虑扩展性
+  - 规划测试策略
+  - 建议部署方案
+  - 规划监控方案
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 TypeScript 类型安全
+  - 实现 GraphQL 查询
+  - 生成 Apollo 组件
+  - 实现缓存策略
+  - 添加错误处理
+  - 实现性能优化
+  - 生成测试用例
+  - 添加文档注释
+
+代码分析:
+  - 评估查询性能
+  - 检查缓存策略
+  - 分析组件结构
+  - 评估类型安全
+  - 检查错误处理
+  - 分析代码质量
+  - 评估测试覆盖
+  - 检查文档完整性
+
+代码优化:
+  - 优化查询结构
+  - 改进缓存策略
+  - 优化性能表现
+  - 增强类型安全
+  - 优化错误处理
+  - 改进代码质量
+  - 提高测试覆盖
+  - 完善文档生成
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认查询需求
+  - 验证缓存策略
+  - 确认组件结构
+  - 明确性能要求
+  - 确认测试范围
+  - 验证部署需求
+  - 确认文档要求
+  - 明确优化目标
+
+代码生成流程:
+  - 设计 GraphQL Schema
+  - 实现查询定义
+  - 创建 Apollo 组件
+  - 添加缓存配置
+  - 实现错误处理
+  - 添加性能优化
+  - 生成测试代码
+  - 添加文档注释
+
+反馈处理:
+  - 分析性能问题
+  - 处理缓存问题
+  - 优化查询结构
+  - 改进类型定义
+  - 处理错误反馈
+  - 优化代码质量
+  - 改进测试覆盖
+  - 完善文档说明
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化查询结构
+  - 管理缓存策略
+  - 优化数据获取
+  - 实现批量查询
+  - 优化实时更新
+  - 管理数据预取
+  - 优化错误重试
+  - 实现懒加载
+  - 优化初始化
+  - 管理内存使用
+
+代码质量:
+  - 遵循 GraphQL 规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+```
+
+## 核心原则
+
+### 基本准则
+```yaml
+开发原则:
+  - 优先使用函数组件
+  - 使用 React Hooks
+  - 根组件使用 Apollo Provider
+  - 实现自定义钩子
+  - TypeScript 类型安全
+  - 缓存机制利用
+
+最佳实践:
+  - Apollo 操作封装
+  - 错误边界处理
+  - 开发工具使用
+  - 命名规范遵循
+```
+
+### GraphQL实践
+```yaml
+Apollo使用:
+  - 状态管理
+  - 数据获取
+  - 查询组件
+  - 数据修改
+  - 片段复用
+  - 错误处理
+
+操作规范:
+  - 查询优化
+  - 缓存策略
+  - 加载状态
+  - 错误处理
+```
+
+## 项目结构
+
+### 目录组织
+```yaml
+基本结构:
+  src/:
+    - components/：组件
+    - graphql/：GraphQL
+      - queries/：查询
+      - mutations/：修改
+      - fragments/：片段
+    - hooks/：钩子
+    - pages/：页面
+    - utils/：工具
+
+文件组织:
+  - 清晰的目录结构
+  - 模块化组件
+  - GraphQL操作
+  - 工具函数
+```
+
+### 开发规范
+```yaml
+技术要求:
+  - TypeScript开发
+  - Apollo集成
+  - GraphQL操作
+  - 错误处理
+  - 缓存管理
+  - 性能优化
+
+工具使用:
+  - Apollo DevTools
+  - GraphQL工具
+  - 开发工具
+  - 调试工具
+```
+
+## 功能实现
+
+### 数据操作
+```yaml
+查询实现:
+  - 查询组件
+  - 数据获取
+  - 加载状态
+  - 错误处理
+  - 缓存策略
+
+修改操作:
+  - 修改函数
+  - 乐观更新
+  - 错误回滚
+  - 缓存更新
+```
+
+### 状态管理
+```yaml
+缓存管理:
+  - 缓存策略
+  - 数据更新
+  - 字段策略
+  - 本地状态
+
+状态同步:
+  - 数据一致性
+  - 实时更新
+  - 状态重置
+  - 错误恢复
+```
+
+## 性能优化
+
+### 优化策略
+```yaml
+查询优化:
+  - 片段复用
+  - 字段选择
+  - 批量查询
+  - 缓存利用
+
+加载优化:
+  - 懒加载
+  - 预加载
+  - 缓存策略
+  - 错误重试
+```
+
+### 缓存策略
+```yaml
+缓存配置:
+  - 缓存策略
+  - 字段策略
+  - 类型策略
+  - 合并函数
+
+缓存管理:
+  - 缓存更新
+  - 缓存清理
+  - 缓存持久化
+  - 缓存验证
+```
+
+## 最佳实践
+
+### 开发流程
+```yaml
+工作方式:
+  - 代码审查
+  - 查询审查
+  - 性能检测
+  - 文档维护
+
+质量控制:
+  - 代码规范
+  - 查询规范
+  - 性能标准
+  - 错误处理
+```
+
+### 维护更新
+```yaml
+维护职责:
+  - 代码更新
+  - 查询维护
+  - 性能监控
+  - 问题修复
+  - 文档维护
+
+更新策略:
+  - 版本控制
+  - 变更记录
+  - 回滚机制
+  - 定期审查
+```
+
+## 代码模板
+
+### 查询模板
+```typescript
+import { gql, useQuery } from '@apollo/client';
+import { FC } from 'react';
+
+const GET_ITEMS = gql`
+  query GetItems {
+    items {
+      id
+      title
+      description
+      status
+    }
+  }
+`;
+
+interface Item {
+  id: string;
+  title: string;
+  description: string;
+  status: string;
+}
+
+interface QueryResult {
+  items: Item[];
+}
+
+export const ItemList: FC = () => {
+  const { loading, error, data } = useQuery<QueryResult>(GET_ITEMS);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <div>
+      <h2>Items</h2>
+      <ul>
+        {data?.items.map(item => (
+          <li key={item.id}>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <span>Status: {item.status}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+```
+
+### 变更模板
+```typescript
+import { gql, useMutation } from '@apollo/client';
+import { FC, useState } from 'react';
+
+const CREATE_ITEM = gql`
+  mutation CreateItem($input: CreateItemInput!) {
+    createItem(input: $input) {
+      id
+      title
+      description
+      status
+    }
+  }
+`;
+
+interface CreateItemInput {
+  title: string;
+  description: string;
+}
+
+interface CreateItemResult {
+  createItem: {
+    id: string;
+    title: string;
+    description: string;
+    status: string;
+  };
+}
+
+export const CreateItemForm: FC = () => {
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  
+  const [createItem, { loading, error }] = useMutation<
+    CreateItemResult,
+    { input: CreateItemInput }
+  >(CREATE_ITEM, {
+    update(cache, { data }) {
+      // 更新缓存
+      cache.modify({
+        fields: {
+          items(existingItems = []) {
+            const newItemRef = cache.writeFragment({
+              data: data?.createItem,
+              fragment: gql`
+                fragment NewItem on Item {
+                  id
+                  title
+                  description
+                  status
+                }
+              `
+            });
+            return [...existingItems, newItemRef];
+          }
+        }
+      });
+    }
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await createItem({
+        variables: {
+          input: { title, description }
+        }
+      });
+      setTitle('');
+      setDescription('');
+    } catch (e) {
+      console.error('Error creating item:', e);
+    }
+  };
+
+  if (loading) return <div>Submitting...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        value={title}
+        onChange={e => setTitle(e.target.value)}
+        placeholder="Title"
+        required
+      />
+      <textarea
+        value={description}
+        onChange={e => setDescription(e.target.value)}
+        placeholder="Description"
+        required
+      />
+      <button type="submit">Create Item</button>
+    </form>
+  );
+};
+```
+
+### 缓存配置模板
+```typescript
+import { ApolloClient, InMemoryCache } from '@apollo/client';
+
+const cache = new InMemoryCache({
+  typePolicies: {
+    Query: {
+      fields: {
+        items: {
+          merge(existing = [], incoming: any[]) {
+            return [...existing, ...incoming];
+          }
+        }
+      }
+    }
+  }
+});
+
+export const client = new ApolloClient({
+  uri: 'YOUR_GRAPHQL_ENDPOINT',
+  cache,
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: 'cache-and-network',
+      errorPolicy: 'all'
+    },
+    query: {
+      fetchPolicy: 'network-only',
+      errorPolicy: 'all'
+    },
+    mutate: {
+      errorPolicy: 'all'
+    }
+  }
+});
+```
+
+## 常见场景实现
+
+### 分页查询
+```typescript
+import { gql, useQuery } from '@apollo/client';
+
+const GET_ITEMS_PAGINATED = gql`
+  query GetItemsPaginated($offset: Int!, $limit: Int!) {
+    items(offset: $offset, limit: $limit) {
+      edges {
+        node {
+          id
+          title
+          description
+        }
+      }
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+    }
+  }
+`;
+
+export const PaginatedList: FC = () => {
+  const [offset, setOffset] = useState(0);
+  const limit = 10;
+
+  const { loading, error, data, fetchMore } = useQuery(GET_ITEMS_PAGINATED, {
+    variables: { offset, limit }
+  });
+
+  const loadMore = () => {
+    fetchMore({
+      variables: {
+        offset: offset + limit,
+        limit
+      },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        if (!fetchMoreResult) return prev;
+        return {
+          items: {
+            ...fetchMoreResult.items,
+            edges: [
+              ...prev.items.edges,
+              ...fetchMoreResult.items.edges
+            ]
+          }
+        };
+      }
+    });
+    setOffset(offset + limit);
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <div>
+      {data?.items.edges.map(({ node }) => (
+        <div key={node.id}>
+          <h3>{node.title}</h3>
+          <p>{node.description}</p>
+        </div>
+      ))}
+      {data?.items.pageInfo.hasNextPage && (
+        <button onClick={loadMore}>Load More</button>
+      )}
+    </div>
+  );
+};
+```
+
+### 实时更新
+```typescript
+import { gql, useSubscription } from '@apollo/client';
+
+const ITEM_UPDATED = gql`
+  subscription OnItemUpdated {
+    itemUpdated {
+      id
+      title
+      description
+      status
+    }
+  }
+`;
+
+export const ItemUpdates: FC = () => {
+  const { data, loading, error } = useSubscription(ITEM_UPDATED);
+
+  if (loading) return <div>Listening for updates...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <div>
+      <h3>Latest Update:</h3>
+      {data?.itemUpdated && (
+        <div>
+          <p>Item {data.itemUpdated.title} was updated</p>
+          <p>New status: {data.itemUpdated.status}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+```
+
+### 错误处理
+```typescript
+import { ApolloError } from '@apollo/client';
+import { FC } from 'react';
+
+interface ErrorBoundaryProps {
+  error?: ApolloError;
+  children: React.ReactNode;
+}
+
+export const GraphQLErrorBoundary: FC<ErrorBoundaryProps> = ({
+  error,
+  children
+}) => {
+  if (error?.networkError) {
+    return (
+      <div>
+        <h3>Network Error</h3>
+        <p>Unable to connect to the server. Please try again later.</p>
+      </div>
+    );
+  }
+
+  if (error?.graphQLErrors?.length) {
+    return (
+      <div>
+        <h3>GraphQL Errors</h3>
+        <ul>
+          {error.graphQLErrors.map((error, i) => (
+            <li key={i}>{error.message}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  return <>{children}</>;
+};
+``` 

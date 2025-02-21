@@ -1,0 +1,652 @@
+---
+description: Java 大数据开发助手指南
+globs: **/*.java, **/pom.xml, **/*.properties, **/*.yaml, **/*.yml
+---
+
+# Java 大数据开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - 大数据架构专家
+  - Spark 开发顾问
+  - Flink 流处理专家
+  - Hadoop 生态专家
+  - 性能优化专家
+  - 数据建模专家
+  - ETL 设计师
+  - 数据质量顾问
+
+工作方式:
+  - 深入理解数据需求
+  - 设计数据架构
+  - 实现数据处理
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化资源使用
+
+专业领域:
+  - Spark 计算
+  - Flink 流处理
+  - Hadoop 存储
+  - Kafka 消息
+  - HBase 存储
+  - Hive 仓库
+  - 数据湖技术
+  - 实时计算
+
+辅助功能:
+  - 架构审查和优化
+  - 性能瓶颈分析
+  - 数据质量检测
+  - 自动化部署建议
+  - 监控方案设计
+  - 资源使用分析
+  - 成本优化建议
+  - 文档生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断数据规模和特点
+  - 识别处理模式需求
+  - 确定延迟要求
+  - 评估资源需求
+  - 识别集成需求
+  - 确定监控要求
+  - 评估扩展需求
+  - 识别安全需求
+
+需求分析:
+  - 提取数据需求
+  - 识别处理逻辑
+  - 确定性能目标
+  - 分析资源约束
+  - 评估可维护性
+  - 确定监控范围
+  - 识别集成点
+  - 分析安全要求
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循大数据最佳实践
+  - 实现数据处理逻辑
+  - 生成性能优化代码
+  - 添加监控指标
+  - 实现错误处理
+  - 添加数据质量检查
+  - 生成测试代码
+  - 添加文档注释
+
+代码分析:
+  - 评估处理逻辑
+  - 检查性能问题
+  - 分析资源使用
+  - 评估可扩展性
+  - 检查错误处理
+  - 分析数据质量
+  - 评估测试覆盖
+  - 检查文档完整性
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化数据分区
+  - 管理数据倾斜
+  - 优化资源分配
+  - 实现缓存策略
+  - 优化 Shuffle
+  - 管理内存使用
+  - 优化 Join
+  - 实现预聚合
+  - 优化序列化
+  - 管理广播变量
+
+资源优化:
+  - 实现资源隔离
+  - 优化资源分配
+  - 管理并行度
+  - 实现动态分配
+  - 优化队列配置
+  - 管理内存配置
+  - 实现资源监控
+  - 优化 CPU 使用
+  - 管理磁盘 IO
+  - 实现网络优化
+
+数据质量:
+  - 实现数据验证
+  - 配置质量规则
+  - 管理数据清洗
+  - 实现异常检测
+  - 优化数据格式
+  - 管理数据血缘
+  - 实现数据监控
+  - 优化元数据
+```
+
+## AI 提示词指南
+
+### 架构设计提示
+```yaml
+Spark架构:
+  - "设计一个使用 Spark 的 [功能] 数据处理流程"
+  - "实现 [数据] 的 ETL 转换逻辑"
+  - "优化 [操作] 的性能表现"
+  - "处理 [场景] 的数据倾斜问题"
+  - "设计 [需求] 的数据分区策略"
+
+Flink流处理:
+  - "实现 [数据流] 的实时处理逻辑"
+  - "设计 [场景] 的时间窗口计算"
+  - "处理 [需求] 的状态管理"
+  - "优化 [操作] 的 Checkpoint"
+  - "实现 [功能] 的容错机制"
+
+数据存储:
+  - "设计 [数据] 的存储模式"
+  - "优化 [表] 的分区策略"
+  - "实现 [需求] 的数据压缩"
+  - "处理 [场景] 的存储格式"
+  - "优化 [操作] 的读写性能"
+```
+
+### 性能优化提示
+```yaml
+计算优化:
+  - "优化 [操作] 的 Shuffle 性能"
+  - "处理 [场景] 的数据倾斜"
+  - "实现 [需求] 的预聚合"
+  - "优化 [查询] 的 Join 策略"
+  - "设计 [功能] 的缓存方案"
+
+资源管理:
+  - "优化 [任务] 的资源分配"
+  - "设计 [集群] 的队列配置"
+  - "实现 [作业] 的动态资源"
+  - "处理 [场景] 的内存配置"
+  - "优化 [操作] 的并行度"
+
+监控告警:
+  - "实现 [指标] 的监控方案"
+  - "设计 [场景] 的告警规则"
+  - "处理 [异常] 的监控指标"
+  - "优化 [系统] 的监控覆盖"
+  - "实现 [需求] 的报警策略"
+```
+
+### 数据质量提示
+```yaml
+质量控制:
+  - "实现 [数据] 的质量检查"
+  - "设计 [场景] 的验证规则"
+  - "处理 [异常] 的数据清洗"
+  - "优化 [流程] 的质量监控"
+  - "实现 [需求] 的数据治理"
+
+血缘追踪:
+  - "设计 [数据] 的血缘关系"
+  - "实现 [场景] 的元数据管理"
+  - "处理 [需求] 的数据追踪"
+  - "优化 [系统] 的血缘分析"
+  - "实现 [功能] 的影响分析"
+```
+
+## 代码示例
+
+### Spark 批处理示例
+```java
+// 数据处理作业
+@Slf4j
+public class DataProcessingJob {
+    private final SparkSession spark;
+    private final JobConfig config;
+    
+    @Inject
+    public DataProcessingJob(SparkSession spark, JobConfig config) {
+        this.spark = spark;
+        this.config = config;
+    }
+    
+    public void process() {
+        try {
+            // 读取数据
+            Dataset<Row> sourceData = readSourceData();
+            
+            // 数据转换
+            Dataset<Row> transformedData = transform(sourceData);
+            
+            // 数据质量检查
+            validateData(transformedData);
+            
+            // 写入结果
+            writeResult(transformedData);
+            
+        } catch (Exception e) {
+            log.error("数据处理失败", e);
+            throw new JobProcessingException("数据处理失败", e);
+        }
+    }
+    
+    private Dataset<Row> readSourceData() {
+        return spark.read()
+            .format(config.getSourceFormat())
+            .options(config.getSourceOptions())
+            .load(config.getSourcePath())
+            .repartition(config.getPartitionNum());
+    }
+    
+    private Dataset<Row> transform(Dataset<Row> source) {
+        // 数据清洗
+        Dataset<Row> cleaned = source
+            .dropDuplicates()
+            .na().fill(config.getDefaultValues())
+            .filter(config.getFilterCondition());
+        
+        // 数据转换
+        return cleaned
+            .withColumn("process_time", current_timestamp())
+            .withColumn("year", year(col("date")))
+            .withColumn("month", month(col("date")))
+            .withWatermark("process_time", "1 minute")
+            .groupBy("year", "month")
+            .agg(
+                count("*").as("total_count"),
+                sum("amount").as("total_amount")
+            );
+    }
+    
+    private void validateData(Dataset<Row> data) {
+        // 数据质量检查
+        long nullCount = data.filter(col("total_amount").isNull()).count();
+        if (nullCount > 0) {
+            throw new DataQualityException("存在空值数据");
+        }
+        
+        // 数据规则验证
+        long invalidCount = data.filter(col("total_amount").lt(0)).count();
+        if (invalidCount > 0) {
+            throw new DataQualityException("存在负值数据");
+        }
+    }
+    
+    private void writeResult(Dataset<Row> data) {
+        data.write()
+            .format(config.getTargetFormat())
+            .mode(config.getWriteMode())
+            .partitionBy("year", "month")
+            .options(config.getTargetOptions())
+            .save(config.getTargetPath());
+    }
+}
+
+// 配置类
+@Data
+@Builder
+public class JobConfig {
+    private String sourceFormat;
+    private String sourcePath;
+    private Map<String, String> sourceOptions;
+    private String targetFormat;
+    private String targetPath;
+    private Map<String, String> targetOptions;
+    private SaveMode writeMode;
+    private int partitionNum;
+    private Map<String, Object> defaultValues;
+    private String filterCondition;
+}
+
+// 异常类
+public class JobProcessingException extends RuntimeException {
+    public JobProcessingException(String message, Throwable cause) {
+        super(message, cause);
+    }
+}
+
+public class DataQualityException extends RuntimeException {
+    public DataQualityException(String message) {
+        super(message);
+    }
+}
+```
+
+### Flink 流处理示例
+```java
+// 流处理作业
+@Slf4j
+public class StreamProcessingJob {
+    private final StreamExecutionEnvironment env;
+    private final StreamingJobConfig config;
+    
+    @Inject
+    public StreamProcessingJob(
+        StreamExecutionEnvironment env,
+        StreamingJobConfig config
+    ) {
+        this.env = env;
+        this.config = config;
+    }
+    
+    public void process() throws Exception {
+        // 配置检查点
+        configureCheckpointing();
+        
+        // 读取数据流
+        DataStream<Event> sourceStream = createSourceStream();
+        
+        // 数据处理
+        DataStream<Result> resultStream = processStream(sourceStream);
+        
+        // 写入结果
+        writeResult(resultStream);
+        
+        // 执行作业
+        env.execute(config.getJobName());
+    }
+    
+    private void configureCheckpointing() {
+        env.enableCheckpointing(config.getCheckpointInterval());
+        env.getCheckpointConfig().setCheckpointingMode(CheckpointingMode.EXACTLY_ONCE);
+        env.getCheckpointConfig().setMinPauseBetweenCheckpoints(500);
+        env.getCheckpointConfig().setCheckpointTimeout(60000);
+        env.getCheckpointConfig().setMaxConcurrentCheckpoints(1);
+        env.getCheckpointConfig().enableExternalizedCheckpoints(
+            ExternalizedCheckpointCleanup.RETAIN_ON_CANCELLATION
+        );
+    }
+    
+    private DataStream<Event> createSourceStream() {
+        return env.addSource(new FlinkKafkaConsumer<>(
+            config.getSourceTopic(),
+            new EventDeserializationSchema(),
+            config.getKafkaProperties()
+        )).name("kafka-source")
+          .uid("kafka-source-uid");
+    }
+    
+    private DataStream<Result> processStream(DataStream<Event> source) {
+        return source
+            // 添加水印
+            .assignTimestampsAndWatermarks(
+                WatermarkStrategy
+                    .<Event>forBoundedOutOfOrder(Duration.ofSeconds(5))
+                    .withTimestampAssigner((event, timestamp) -> event.getTimestamp())
+            )
+            // 键控分组
+            .keyBy(Event::getUserId)
+            // 时间窗口
+            .window(TumblingEventTimeWindows.of(Time.minutes(5)))
+            // 聚合计算
+            .aggregate(new EventAggregator())
+            // 异步操作
+            .asyncMap(new AsyncDatabaseEnricher())
+            // 侧输出处理
+            .process(new AlertProcessor());
+    }
+    
+    private void writeResult(DataStream<Result> result) {
+        result.addSink(new FlinkKafkaProducer<>(
+            config.getTargetTopic(),
+            new ResultSerializationSchema(),
+            config.getKafkaProperties(),
+            FlinkKafkaProducer.Semantic.EXACTLY_ONCE
+        )).name("kafka-sink")
+          .uid("kafka-sink-uid");
+    }
+}
+
+// 聚合器
+public class EventAggregator implements AggregateFunction<
+    Event,
+    AccumulatorState,
+    Result
+> {
+    @Override
+    public AccumulatorState createAccumulator() {
+        return new AccumulatorState();
+    }
+    
+    @Override
+    public AccumulatorState add(Event event, AccumulatorState acc) {
+        acc.addEvent(event);
+        return acc;
+    }
+    
+    @Override
+    public Result getResult(AccumulatorState acc) {
+        return acc.toResult();
+    }
+    
+    @Override
+    public AccumulatorState merge(AccumulatorState a, AccumulatorState b) {
+        return AccumulatorState.merge(a, b);
+    }
+}
+
+// 异步数据库查询
+@Slf4j
+public class AsyncDatabaseEnricher extends RichAsyncFunction<Result, Result> {
+    private transient HikariDataSource dataSource;
+    
+    @Override
+    public void open(Configuration parameters) {
+        dataSource = createDataSource();
+    }
+    
+    @Override
+    public void close() {
+        if (dataSource != null) {
+            dataSource.close();
+        }
+    }
+    
+    @Override
+    public void asyncInvoke(
+        Result input,
+        ResultFuture<Result> resultFuture
+    ) {
+        CompletableFuture.supplyAsync(() -> {
+            try (Connection conn = dataSource.getConnection()) {
+                return enrichWithUserData(conn, input);
+            } catch (SQLException e) {
+                log.error("数据库查询失败", e);
+                return input;
+            }
+        }).thenAccept(resultFuture::complete);
+    }
+    
+    private Result enrichWithUserData(Connection conn, Result input) 
+        throws SQLException {
+        // 实现数据库查询逻辑
+        return input;
+    }
+}
+
+// 告警处理器
+public class AlertProcessor extends ProcessFunction<Result, Result> {
+    private final OutputTag<Alert> alertOutput = new OutputTag<Alert>("alerts"){};
+    
+    @Override
+    public void processElement(
+        Result value,
+        Context ctx,
+        Collector<Result> out
+    ) {
+        // 检查告警条件
+        if (value.needsAlert()) {
+            ctx.output(alertOutput, createAlert(value));
+        }
+        out.collect(value);
+    }
+    
+    private Alert createAlert(Result result) {
+        return Alert.builder()
+            .severity(AlertSeverity.HIGH)
+            .message("检测到异常数据")
+            .timestamp(System.currentTimeMillis())
+            .data(result)
+            .build();
+    }
+}
+```
+
+### 数据质量监控示例
+```java
+// 数据质量检查
+@Slf4j
+public class DataQualityChecker {
+    private final SparkSession spark;
+    private final QualityConfig config;
+    
+    @Inject
+    public DataQualityChecker(SparkSession spark, QualityConfig config) {
+        this.spark = spark;
+        this.config = config;
+    }
+    
+    public QualityReport check(Dataset<Row> data) {
+        QualityReport.Builder reportBuilder = QualityReport.builder()
+            .startTime(System.currentTimeMillis());
+        
+        try {
+            // 完整性检查
+            checkCompleteness(data, reportBuilder);
+            
+            // 准确性检查
+            checkAccuracy(data, reportBuilder);
+            
+            // 一致性检查
+            checkConsistency(data, reportBuilder);
+            
+            // 及时性检查
+            checkTimeliness(data, reportBuilder);
+            
+        } catch (Exception e) {
+            log.error("数据质量检查失败", e);
+            reportBuilder.status(QualityStatus.FAILED)
+                        .errorMessage(e.getMessage());
+        }
+        
+        return reportBuilder
+            .endTime(System.currentTimeMillis())
+            .build();
+    }
+    
+    private void checkCompleteness(
+        Dataset<Row> data,
+        QualityReport.Builder reportBuilder
+    ) {
+        // 空值检查
+        Map<String, Long> nullCounts = new HashMap<>();
+        for (String column : config.getRequiredColumns()) {
+            long nullCount = data.filter(col(column).isNull()).count();
+            nullCounts.put(column, nullCount);
+        }
+        
+        reportBuilder.nullCounts(nullCounts);
+        
+        // 记录总数检查
+        long totalCount = data.count();
+        if (totalCount < config.getMinimumRecords()) {
+            throw new DataQualityException(
+                String.format("记录数 %d 小于最小要求 %d",
+                    totalCount,
+                    config.getMinimumRecords())
+            );
+        }
+    }
+    
+    private void checkAccuracy(
+        Dataset<Row> data,
+        QualityReport.Builder reportBuilder
+    ) {
+        // 数值范围检查
+        Map<String, Long> outOfRangeCounts = new HashMap<>();
+        for (Map.Entry<String, Range<Double>> entry : 
+             config.getValueRanges().entrySet()) {
+            String column = entry.getKey();
+            Range<Double> range = entry.getValue();
+            
+            long invalidCount = data.filter(
+                col(column).lt(range.getMin())
+                    .or(col(column).gt(range.getMax()))
+            ).count();
+            
+            outOfRangeCounts.put(column, invalidCount);
+        }
+        
+        reportBuilder.outOfRangeCounts(outOfRangeCounts);
+    }
+    
+    private void checkConsistency(
+        Dataset<Row> data,
+        QualityReport.Builder reportBuilder
+    ) {
+        // 唯一性检查
+        Map<String, Long> duplicateCounts = new HashMap<>();
+        for (String column : config.getUniqueColumns()) {
+            long duplicateCount = data.groupBy(column)
+                .count()
+                .filter(col("count").gt(1))
+                .count();
+            
+            duplicateCounts.put(column, duplicateCount);
+        }
+        
+        reportBuilder.duplicateCounts(duplicateCounts);
+        
+        // 参照完整性检查
+        for (ReferentialRule rule : config.getReferentialRules()) {
+            checkReferentialIntegrity(data, rule, reportBuilder);
+        }
+    }
+    
+    private void checkTimeliness(
+        Dataset<Row> data,
+        QualityReport.Builder reportBuilder
+    ) {
+        // 数据时效性检查
+        String timeColumn = config.getTimelinessConfig().getTimeColumn();
+        long maxDelay = config.getTimelinessConfig().getMaxDelay();
+        
+        long delayedCount = data.filter(
+            unix_timestamp(col(timeColumn))
+                .lt(unix_timestamp() - maxDelay)
+        ).count();
+        
+        reportBuilder.delayedCount(delayedCount);
+    }
+}
+
+// 质量报告
+@Data
+@Builder
+public class QualityReport {
+    private long startTime;
+    private long endTime;
+    private QualityStatus status;
+    private String errorMessage;
+    private Map<String, Long> nullCounts;
+    private Map<String, Long> outOfRangeCounts;
+    private Map<String, Long> duplicateCounts;
+    private long delayedCount;
+    private List<ReferentialViolation> referentialViolations;
+    
+    public boolean isValid() {
+        return status == QualityStatus.SUCCESS &&
+            nullCounts.values().stream().allMatch(count -> count == 0) &&
+            outOfRangeCounts.values().stream().allMatch(count -> count == 0) &&
+            duplicateCounts.values().stream().allMatch(count -> count == 0) &&
+            delayedCount == 0 &&
+            referentialViolations.isEmpty();
+    }
+}
+```

@@ -1,0 +1,377 @@
+---
+description: TypeScript Jasmine 测试框架开发助手指南
+globs: **/*.spec.ts, **/*.test.ts, **/tests/**/*.ts, *.ts
+---
+
+# TypeScript Jasmine 测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - TypeScript 测试专家
+  - Jasmine 框架顾问
+  - 单元测试架构师
+  - 性能优化专家
+  - 测试设计顾问
+  - Mock 实现专家
+  - 测试工具专家
+  - 自动化测试顾问
+
+工作方式:
+  - 深入理解测试需求
+  - 设计测试架构
+  - 实现测试用例
+  - 优化测试性能
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化测试流程
+
+专业领域:
+  - Jasmine 测试框架
+  - TypeScript 类型系统
+  - 单元测试设计
+  - Spy 和 Mock
+  - 异步测试
+  - 行为驱动开发
+  - 测试覆盖率
+  - 性能测试
+
+辅助功能:
+  - 测试审查和优化
+  - 类型定义检查
+  - 测试覆盖分析
+  - 自动化测试建议
+  - Mock 实现优化
+  - 测试数据管理
+  - 测试环境配置
+  - 文档生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别框架版本需求
+  - 确定类型系统要求
+  - 评估测试复杂度
+  - 识别异步需求
+  - 确定 Spy 需求
+  - 评估性能要求
+  - 识别集成需求
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估类型定义
+  - 确定 Mock 范围
+  - 识别测试重点
+  - 分析测试风险
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Jasmine 最佳实践
+  - 实现类型安全测试
+  - 生成 Spy 函数
+  - 添加测试断言
+  - 实现异步测试
+  - 添加行为描述
+  - 生成测试套件
+  - 添加测试文档
+
+代码分析:
+  - 评估类型覆盖
+  - 检查测试质量
+  - 分析异步处理
+  - 评估 Spy 使用
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+  - 检查错误处理
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+单元测试:
+  - "设计 [类/函数] 的单元测试用例"
+  - "实现 [功能] 的异步测试"
+  - "处理 [场景] 的错误测试"
+  - "设计 [组件] 的行为测试"
+  - "实现 [接口] 的类型测试"
+
+Spy 测试:
+  - "使用 spyOn() 监控 [方法] 调用"
+  - "设计 [函数] 的 Spy 实现"
+  - "实现 [服务] 的调用追踪"
+  - "处理 [依赖] 的模拟数据"
+  - "模拟 [异步] 的测试场景"
+
+集成测试:
+  - "设计 [模块] 的集成测试"
+  - "实现 [API] 的请求测试"
+  - "处理 [状态] 的数据流测试"
+  - "设计 [组件] 的交互测试"
+  - "实现 [事件] 的触发测试"
+```
+
+### 框架特性提示
+```yaml
+Jasmine 配置:
+  - "配置 jasmine.json 的 [选项]"
+  - "设置 SpecReporter 的 [输出]"
+  - "配置 TypeScript 的 [编译]"
+  - "设置 Helper 文件的 [加载]"
+  - "配置 Random 的 [种子]"
+
+测试生命周期:
+  - "使用 beforeAll 设置 [环境]"
+  - "实现 beforeEach 准备 [数据]"
+  - "处理 afterEach 清理 [资源]"
+  - "使用 afterAll 释放 [连接]"
+  - "实现 fdescribe 聚焦 [测试]"
+
+断言方法:
+  - "使用 expect(value).toBe() 验证 [值]"
+  - "实现 expect(spy).toHaveBeenCalled() 验证 [调用]"
+  - "处理 expect().toThrow() 验证 [错误]"
+  - "使用 expect().toBeDefined() 验证 [存在]"
+  - "实现 expect().toBeResolved() 测试 [Promise]"
+```
+
+### 测试优化提示
+```yaml
+性能优化:
+  - "优化 [测试] 的执行时间"
+  - "实现 [套件] 的并行执行"
+  - "优化 [Spy] 的实现方式"
+  - "处理 [数据] 的缓存策略"
+  - "设计 [异步] 的超时控制"
+
+类型安全:
+  - "优化 [接口] 的类型定义"
+  - "实现 [泛型] 的测试用例"
+  - "设计 [类型守卫] 的测试"
+  - "处理 [联合类型] 的测试"
+  - "优化 [条件类型] 的验证"
+
+测试覆盖:
+  - "生成 [代码] 的覆盖报告"
+  - "设计 [分支] 的测试场景"
+  - "实现 [条件] 的边界测试"
+  - "处理 [异常] 的覆盖测试"
+  - "优化 [路径] 的测试完整性"
+```
+
+### 最佳实践提示
+```yaml
+代码组织:
+  - "优化 [测试] 的文件结构"
+  - "实现 [辅助函数] 的复用"
+  - "设计 [夹具] 的管理方式"
+  - "处理 [配置] 的环境分离"
+  - "优化 [导入] 的模块组织"
+
+测试可维护性:
+  - "优化 [描述] 的命名规范"
+  - "实现 [文档] 的注释规范"
+  - "设计 [变量] 的命名策略"
+  - "处理 [重复] 的代码提取"
+  - "优化 [结构] 的测试组织"
+
+错误处理:
+  - "设计 [异常] 的测试策略"
+  - "实现 [错误] 的类型检查"
+  - "处理 [边界] 的异常测试"
+  - "优化 [消息] 的错误提示"
+  - "设计 [恢复] 的测试场景"
+```
+
+## 测试示例
+
+### 基础单元测试
+```typescript
+// userService.spec.ts
+import { UserService } from './userService';
+import { User, CreateUserDto } from './types';
+
+describe('UserService', () => {
+  let userService: UserService;
+  let userRepository: any;
+
+  beforeEach(() => {
+    userRepository = {
+      findByEmail: jasmine.createSpy('findByEmail'),
+      save: jasmine.createSpy('save')
+    };
+    userService = new UserService(userRepository);
+  });
+
+  describe('createUser', () => {
+    it('should create a new user successfully', async () => {
+      const createUserDto: CreateUserDto = {
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User'
+      };
+
+      const expectedUser: User = {
+        id: 1,
+        ...createUserDto,
+        createdAt: new Date()
+      };
+
+      userRepository.findByEmail.and.returnValue(Promise.resolve(null));
+      userRepository.save.and.returnValue(Promise.resolve(expectedUser));
+
+      const result = await userService.createUser(createUserDto);
+
+      expect(result).toEqual(expectedUser);
+      expect(userRepository.findByEmail).toHaveBeenCalledWith(createUserDto.email);
+      expect(userRepository.save).toHaveBeenCalledWith(jasmine.objectContaining(createUserDto));
+    });
+
+    it('should throw error when email already exists', async () => {
+      const createUserDto: CreateUserDto = {
+        email: 'existing@example.com',
+        password: 'password123',
+        name: 'Existing User'
+      };
+
+      userRepository.findByEmail.and.returnValue(Promise.resolve({ id: 1 }));
+
+      await expectAsync(userService.createUser(createUserDto))
+        .toBeRejectedWithError('User with this email already exists');
+    });
+  });
+});
+```
+
+### 异步测试示例
+```typescript
+// dataService.spec.ts
+import { DataService } from './dataService';
+import { ApiClient } from './apiClient';
+
+describe('DataService', () => {
+  let dataService: DataService;
+  let apiClient: jasmine.SpyObj<ApiClient>;
+
+  beforeEach(() => {
+    apiClient = jasmine.createSpyObj('ApiClient', ['fetchData']);
+    dataService = new DataService(apiClient);
+  });
+
+  describe('getData', () => {
+    it('should fetch and transform data successfully', async () => {
+      const mockApiResponse = {
+        items: [
+          { id: 1, name: 'Item 1' },
+          { id: 2, name: 'Item 2' }
+        ]
+      };
+      apiClient.fetchData.and.returnValue(Promise.resolve(mockApiResponse));
+
+      const result = await dataService.getData();
+
+      expect(result).toEqual(jasmine.arrayContaining([
+        jasmine.objectContaining({ id: 1, name: 'Item 1' }),
+        jasmine.objectContaining({ id: 2, name: 'Item 2' })
+      ]));
+      expect(apiClient.fetchData).toHaveBeenCalledTimes(1);
+    });
+
+    it('should handle API errors gracefully', async () => {
+      const errorMessage = 'API Error';
+      apiClient.fetchData.and.returnValue(Promise.reject(new Error(errorMessage)));
+
+      await expectAsync(dataService.getData())
+        .toBeRejectedWithError(errorMessage);
+    });
+  });
+});
+```
+
+### 自定义匹配器示例
+```typescript
+// matchers/toBeValidEmail.ts
+beforeEach(() => {
+  jasmine.addMatchers({
+    toBeValidEmail: () => {
+      return {
+        compare: (actual: string) => {
+          const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+          const pass = emailRegex.test(actual);
+          
+          return {
+            pass,
+            message: pass ?
+              `Expected ${actual} not to be a valid email` :
+              `Expected ${actual} to be a valid email`
+          };
+        }
+      };
+    }
+  });
+});
+
+// email.spec.ts
+describe('Email validation', () => {
+  it('should validate correct email format', () => {
+    expect('test@example.com').toBeValidEmail();
+    expect('invalid.email').not.toBeValidEmail();
+  });
+});
+```
+
+### 工具类示例
+
+```typescript
+import 'jasmine';
+import { DateFormatterUtil } from './date.util';
+
+describe('DateFormatterUtil', () => {
+  const testDate = '2024-03-15T14:30:45';
+
+  describe('format', () => {
+    it('should return null when dateString is empty', () => {
+      expect(DateFormatterUtil.format('')).toBe('');
+      expect(DateFormatterUtil.format(null as any)).toBe('');
+    });
+
+    it('should format date with default pattern (yyyy/MM/dd HH:mm:ss)', () => {
+      const result = DateFormatterUtil.format(testDate);
+      expect(result).toBe('2024/03/15 14:30:45');
+    });
+
+    it('should format date with custom pattern yyyy/MM/dd HH:mm', () => {
+      const result = DateFormatterUtil.format(testDate, 'yyyy/MM/dd HH:mm');
+      expect(result).toBe('2024/03/15 14:30');
+    });
+
+    it('should format date with custom pattern yyyy/MM/dd', () => {
+      const result = DateFormatterUtil.format(testDate, 'yyyy/MM/dd');
+      expect(result).toBe('2024/03/15');
+    });
+
+    it('should format date with custom pattern yyyy/MM', () => {
+      const result = DateFormatterUtil.format(testDate, 'yyyy/MM');
+      expect(result).toBe('2024/03');
+    });
+
+    it('should pad single digit month, day, hour, minute and second with zero', () => {
+      const singleDigitDate = '2024-02-05T04:05:06';
+      const result = DateFormatterUtil.format(singleDigitDate);
+      expect(result).toBe('2024/02/05 04:05:06');
+    });
+  });
+});
+```
+

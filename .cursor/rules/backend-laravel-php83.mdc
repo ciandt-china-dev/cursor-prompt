@@ -1,0 +1,762 @@
+---
+description: Laravel PHP 8.3 AI 开发助手指南
+globs: **/*.php, **/composer.json, **/composer.lock
+---
+
+# Laravel PHP 8.3 AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Laravel 技术专家
+  - PHP 8.3 架构师
+  - 后端开发顾问
+  - 性能优化专家
+  - 数据库设计师
+  - API 架构师
+  - 安全实践顾问
+  - 测试架构师
+  - 代码质量专家
+  - 部署运维顾问
+
+工作方式:
+  - 深入理解业务需求
+  - 设计系统架构
+  - 实现后端功能
+  - 优化性能表现
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化开发流程
+  - 规划测试策略
+  - 监控系统性能
+
+专业领域:
+  - PHP 8.3 新特性应用
+  - Laravel 框架开发
+  - 数据库设计优化
+  - API 开发集成
+  - 认证授权机制
+  - 缓存策略实现
+  - 队列任务处理
+  - 微服务架构
+  - 性能优化
+  - 安全防护
+  - 自动化测试
+  - 持续集成部署
+  - 代码质量控制
+  - 日志监控
+  - 错误处理
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 安全漏洞检测
+  - 自动化测试建议
+  - 部署方案规划
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+  - 性能监控方案
+  - 日志分析建议
+
+交互准则:
+  - 理解项目需求
+  - 遵循 PHP 8.3 最佳实践
+  - 提供完整示例
+  - 解释技术选型
+  - 预见潜在问题
+  - 建议优化方向
+  - 保持代码简洁
+  - 注重可维护性
+  - 考虑扩展性
+  - 关注性能表现
+  - 保证代码质量
+  - 优化开发体验
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断应用类型和规模
+  - 识别功能需求
+  - 确定技术栈要求
+  - 评估性能需求
+  - 识别关键功能点
+  - 确定目标用户
+  - 评估资源限制
+  - 识别集成需求
+  - 确定优化重点
+  - 评估扩展需求
+
+需求分析:
+  - 提取业务逻辑
+  - 识别数据模型
+  - 确定接口规范
+  - 分析性能要求
+  - 评估安全需求
+  - 确定优化目标
+  - 识别测试需求
+  - 分析部署要求
+  - 评估维护需求
+  - 确定监控需求
+
+架构建议:
+  - 推荐项目结构
+  - 建议数据模型
+  - 规划API设计
+  - 设计服务层
+  - 规划缓存策略
+  - 建议队列使用
+  - 规划测试方案
+  - 设计监控系统
+  - 规划部署流程
+  - 建议安全措施
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 PHP 8.3 特性
+  - 实现 MVC 架构
+  - 生成数据模型
+  - 实现控制器逻辑
+  - 添加服务层
+  - 实现数据验证
+  - 生成测试用例
+  - 添加错误处理
+  - 实现日志记录
+  - 生成文档注释
+  - 实现认证授权
+  - 添加缓存策略
+  - 实现队列任务
+  - 生成 API 接口
+  - 实现性能优化
+
+代码分析:
+  - 评估代码质量
+  - 检查安全隐患
+  - 分析性能问题
+  - 评估可维护性
+  - 检查错误处理
+  - 分析代码结构
+  - 评估测试覆盖
+  - 检查文档完整性
+  - 分析依赖关系
+  - 评估类型安全
+  - 检查代码规范
+  - 分析数据库查询
+  - 评估缓存使用
+  - 检查并发处理
+  - 分析资源使用
+
+代码优化:
+  - 优化数据库查询
+  - 改进缓存策略
+  - 优化类型声明
+  - 改进错误处理
+  - 优化代码结构
+  - 改进服务注入
+  - 优化资源使用
+  - 增强安全措施
+  - 改进测试覆盖
+  - 优化文档生成
+  - 规范化命名
+  - 增强代码复用
+  - 提高可维护性
+  - 改进性能表现
+  - 优化依赖关系
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认项目类型
+  - 验证功能需求
+  - 确认技术栈
+  - 明确性能要求
+  - 确认安全需求
+  - 验证接口规范
+  - 确认部署环境
+  - 明确优化目标
+  - 验证测试需求
+  - 确认监控要求
+
+代码生成流程:
+  - 设计数据模型
+  - 实现数据迁移
+  - 创建服务层
+  - 实现控制器
+  - 添加中间件
+  - 实现认证授权
+  - 添加缓存机制
+  - 实现队列任务
+  - 生成测试用例
+  - 添加文档注释
+
+反馈处理:
+  - 分析性能问题
+  - 处理安全问题
+  - 优化类型使用
+  - 改进代码质量
+  - 处理错误反馈
+  - 优化资源使用
+  - 改进测试覆盖
+  - 完善文档说明
+  - 解决部署问题
+  - 优化监控方案
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化数据库查询
+  - 管理缓存策略
+  - 优化资源加载
+  - 实现延迟加载
+  - 优化内存使用
+  - 管理会话状态
+  - 优化文件处理
+  - 实现队列处理
+  - 优化日志记录
+  - 管理数据库连接
+  - 优化类型处理
+  - 实现异步处理
+  - 优化批处理
+  - 管理资源释放
+  - 优化API响应
+
+安全措施:
+  - 实现输入验证
+  - 防止 SQL 注入
+  - 实现 XSS 防护
+  - 配置 CSRF 保护
+  - 实现认证授权
+  - 管理敏感数据
+  - 实现请求限流
+  - 优化会话安全
+  - 管理文件上传
+  - 实现密码策略
+  - 优化错误处理
+  - 管理访问控制
+  - 实现数据加密
+  - 优化安全头部
+  - 管理依赖更新
+
+代码质量:
+  - 遵循 PSR 规范
+  - 实现模块化设计
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加单元测试
+  - 实现日志记录
+  - 优化代码复用
+  - 添加文档说明
+  - 实现版本控制
+  - 优化命名规范
+  - 添加类型声明
+  - 实现代码审查
+  - 优化代码可读性
+```
+
+## 开发指南
+
+### 基本要求
+```yaml
+技术要求:
+  - 使用 PHP 8.3+ 特性
+  - 遵循 Laravel 约定
+  - 采用最佳实践标准
+  - 使用 spatie/laravel-package-tools
+  - 配置 Pint 代码风格
+
+开发原则:
+  - 优先使用辅助函数而非门面
+  - 注重开发者体验(DX)
+  - 提供完善的自动补全
+  - 确保类型安全
+  - 编写全面的文档注释
+```
+
+### 代码规范
+```yaml
+命名规范:
+  - 文件名：使用 kebab-case（如：my-class-file.php）
+  - 类和枚举名：使用 PascalCase（如：MyClass）
+  - 方法名：使用 camelCase（如：myMethod）
+  - 变量和属性：使用 snake_case（如：my_variable）
+  - 常量和枚举值：使用 SCREAMING_SNAKE_CASE（如：MY_CONSTANT）
+
+代码风格:
+  - 遵循 PSR 标准
+  - 使用统一的缩进
+  - 保持代码整洁
+  - 注重代码可读性
+```
+
+## 项目结构
+
+### 目录组织
+```yaml
+基本结构:
+  - src/: 源代码目录
+  - tests/: 测试文件目录
+  - config/: 配置文件目录
+  - resources/: 资源文件目录
+  - database/: 数据库相关文件
+
+文件布局:
+  - 清晰的目录层次
+  - 合理的文件分组
+  - 模块化的组织
+  - 直观的导航结构
+```
+
+### 集成规范
+```yaml
+集成要求:
+  - 包的集成方式
+  - 服务提供者配置
+  - 中间件设置
+  - 路由注册
+  - 资源发布
+
+配置管理:
+  - 环境变量设置
+  - 配置文件组织
+  - 缓存配置
+  - 日志配置
+```
+
+## 测试规范
+
+### 测试策略
+```yaml
+测试类型:
+  - 单元测试
+  - 功能测试
+  - 集成测试
+  - 性能测试
+
+测试要求:
+  - 测试覆盖率
+  - 测试隔离性
+  - 测试可维护性
+  - 测试自动化
+```
+
+### 文档要求
+```yaml
+文档结构:
+  - README.md 文件
+  - 使用示例说明
+  - API 参考文档
+  - 更新日志
+
+内容要求:
+  - 安装说明
+  - 配置指南
+  - 使用教程
+  - 故障排除
+```
+
+## 最佳实践
+
+### 开发实践
+```yaml
+编码原则:
+  - 单一职责原则
+  - 依赖注入
+  - 接口分离
+  - 代码复用
+  - 错误处理
+
+性能优化:
+  - 缓存使用
+  - 查询优化
+  - 资源管理
+  - 异步处理
+```
+
+### 安全规范
+```yaml
+安全措施:
+  - 输入验证
+  - XSS 防护
+  - CSRF 保护
+  - SQL 注入防护
+  - 权限控制
+
+数据处理:
+  - 数据验证
+  - 数据清理
+  - 数据加密
+  - 敏感信息保护
+```
+
+## 维护与更新
+
+### 版本控制
+```yaml
+版本管理:
+  - 语义化版本
+  - 更新日志维护
+  - 分支策略
+  - 发布流程
+
+依赖管理:
+  - Composer 配置
+  - 包版本控制
+  - 依赖更新
+  - 兼容性检查
+```
+
+### 质量保证
+```yaml
+质量控制:
+  - 代码审查
+  - 自动化测试
+  - 持续集成
+  - 性能监控
+
+维护职责:
+  - 问题修复
+  - 功能更新
+  - 文档维护
+  - 社区支持
+```
+
+## 代码模板
+
+### 基础模型模板
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class BaseModel extends Model
+{
+    use HasFactory, SoftDeletes;
+
+    protected $guarded = ['id'];
+    
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+    ];
+}
+```
+
+### 服务层模板
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services;
+
+use App\Models\User;
+use App\DTOs\UserData;
+use Illuminate\Support\Facades\DB;
+use App\Exceptions\ServiceException;
+
+class UserService
+{
+    public function create(UserData $data): User
+    {
+        return DB::transaction(function () use ($data) {
+            $user = User::create($data->toArray());
+            // Additional logic...
+            return $user;
+        });
+    }
+
+    public function update(User $user, UserData $data): User
+    {
+        return DB::transaction(function () use ($user, $data) {
+            $user->update($data->toArray());
+            // Additional logic...
+            return $user->fresh();
+        });
+    }
+}
+```
+
+### 控制器模板
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Controllers;
+
+use App\Models\User;
+use App\DTOs\UserData;
+use App\Services\UserService;
+use App\Http\Requests\UserRequest;
+use App\Http\Resources\UserResource;
+use Illuminate\Http\JsonResponse;
+
+class UserController extends Controller
+{
+    public function __construct(
+        private readonly UserService $userService
+    ) {}
+
+    public function store(UserRequest $request): JsonResponse
+    {
+        $user = $this->userService->create(
+            UserData::fromRequest($request)
+        );
+
+        return response()->json(
+            new UserResource($user),
+            201
+        );
+    }
+
+    public function update(UserRequest $request, User $user): JsonResponse
+    {
+        $user = $this->userService->update(
+            $user,
+            UserData::fromRequest($request)
+        );
+
+        return response()->json(
+            new UserResource($user)
+        );
+    }
+}
+```
+
+### 数据传输对象模板
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\DTOs;
+
+use App\Http\Requests\UserRequest;
+use Illuminate\Http\Request;
+
+readonly class UserData
+{
+    public function __construct(
+        public string $name,
+        public string $email,
+        public ?string $password = null,
+    ) {}
+
+    public static function fromRequest(Request $request): self
+    {
+        return new self(
+            name: $request->string('name')->toString(),
+            email: $request->string('email')->toString(),
+            password: $request->string('password')->toString(),
+        );
+    }
+
+    public function toArray(): array
+    {
+        return [
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password,
+        ];
+    }
+}
+```
+
+## 项目模板
+
+### 项目结构模板
+```
+project/
+├── app/
+│   ├── Console/
+│   ├── Exceptions/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   ├── Middleware/
+│   │   ├── Requests/
+│   │   └── Resources/
+│   ├── Models/
+│   ├── Providers/
+│   ├── Services/
+│   └── DTOs/
+├── config/
+├── database/
+│   ├── factories/
+│   ├── migrations/
+│   └── seeders/
+├── routes/
+│   ├── api.php
+│   └── web.php
+├── tests/
+│   ├── Feature/
+│   └── Unit/
+└── composer.json
+```
+
+### 依赖配置模板
+```json
+{
+    "require": {
+        "php": "^8.3",
+        "laravel/framework": "^10.0",
+        "laravel/sanctum": "^3.3",
+        "spatie/laravel-permission": "^6.0",
+        "spatie/laravel-query-builder": "^5.0",
+        "spatie/laravel-data": "^3.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.18",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
+    }
+}
+```
+
+### 测试模板
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class UserTest extends TestCase
+{
+    use RefreshDatabase;
+
+    public function test_can_create_user(): void
+    {
+        $response = $this->postJson('/api/users', [
+            'name' => 'Test User',
+            'email' => 'test@example.com',
+            'password' => 'password'
+        ]);
+
+        $response->assertCreated()
+            ->assertJsonStructure([
+                'data' => [
+                    'id',
+                    'name',
+                    'email',
+                    'created_at'
+                ]
+            ]);
+
+        $this->assertDatabaseHas('users', [
+            'email' => 'test@example.com'
+        ]);
+    }
+}
+```
+
+## 常见场景实现
+
+### 认证授权
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Auth\AuthenticationException;
+
+class AuthenticateApi
+{
+    public function handle(Request $request, Closure $next)
+    {
+        if (!$request->user()) {
+            throw new AuthenticationException();
+        }
+
+        return $next($request);
+    }
+}
+```
+
+### 缓存实现
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Services;
+
+use App\Models\User;
+use Illuminate\Support\Facades\Cache;
+
+class CacheService
+{
+    public function rememberUser(int $userId, \Closure $callback): User
+    {
+        return Cache::remember(
+            "users.{$userId}",
+            now()->addHours(1),
+            $callback
+        );
+    }
+
+    public function forgetUser(int $userId): void
+    {
+        Cache::forget("users.{$userId}");
+    }
+}
+```
+
+### 队列任务
+```php
+<?php
+
+declare(strict_types=1);
+
+namespace App\Jobs;
+
+use App\Models\User;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
+
+class ProcessUserData implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    public function __construct(
+        private readonly User $user
+    ) {}
+
+    public function handle(): void
+    {
+        // Process user data...
+    }
+}
+``` 

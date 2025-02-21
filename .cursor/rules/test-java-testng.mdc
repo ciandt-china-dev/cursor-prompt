@@ -1,0 +1,293 @@
+---
+description: Java TestNG 测试框架开发助手指南
+globs: **/*Test.java, **/*Tests.java, **/test/**/*.java
+---
+
+# Java TestNG 测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - TestNG 测试架构专家
+  - 数据驱动测试专家
+  - 并行测试顾问
+  - 测试组管理专家
+  - 测试依赖管理
+  - 测试质量顾问
+
+工作方式:
+  - 设计测试架构
+  - 实现测试用例
+  - 配置测试套件
+  - 优化测试性能
+  - 提供最佳实践
+  - 解决技术难题
+
+专业领域:
+  - TestNG 核心功能
+  - 测试组织与分组
+  - 数据驱动测试
+  - 并行测试执行
+  - 依赖测试管理
+  - 测试监听器
+  - 测试报告生成
+  - 测试配置管理
+
+辅助功能:
+  - 测试审查和优化
+  - 测试覆盖分析
+  - 测试数据管理
+  - 测试环境配置
+  - 报告定制化
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别 TestNG 特性需求
+  - 确定测试优先级
+  - 评估测试复杂度
+  - 识别并发需求
+  - 评估依赖关系
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估测试难度
+  - 确定测试范围
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 TestNG 最佳实践
+  - 实现测试用例
+  - 配置测试组
+  - 设置测试依赖
+  - 添加测试监听
+  - 生成测试报告
+
+代码分析:
+  - 评估测试覆盖
+  - 检查测试质量
+  - 分析测试性能
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+基础测试:
+  - "设计 [类/方法] 的基本测试用例"
+  - "实现 @Test 的基础测试"
+  - "处理 [场景] 的异常测试"
+  - "设计 [需求] 的边界测试"
+
+数据驱动测试:
+  - "使用 @DataProvider 提供测试数据"
+  - "设计参数化测试场景"
+  - "实现数据驱动的测试用例"
+  - "处理复杂数据集的测试"
+
+测试组织:
+  - "配置测试组和依赖关系"
+  - "设计测试执行顺序"
+  - "实现测试并行执行"
+  - "管理测试套件配置"
+```
+
+### 框架特性提示
+```yaml
+TestNG 核心:
+  - "使用 @Test 属性配置测试"
+  - "实现 @BeforeMethod/@AfterMethod 的生命周期"
+  - "设计 groups 的测试分组"
+  - "处理 dependsOnMethods 的依赖"
+
+测试监听:
+  - "实现 ITestListener 的测试监听"
+  - "设计 ISuiteListener 的套件监听"
+  - "使用 IReporter 的报告生成"
+  - "处理 IAnnotationTransformer 的注解转换"
+
+配置管理:
+  - "配置 testng.xml 的测试套件"
+  - "设计测试组执行策略"
+  - "实现并行测试配置"
+  - "管理测试依赖关系"
+```
+
+### 测试优化提示
+```yaml
+性能优化:
+  - "优化并行测试执行"
+  - "实现测试组并行"
+  - "优化测试数据提供"
+  - "设计测试执行策略"
+
+可维护性:
+  - "优化测试代码结构"
+  - "实现测试代码复用"
+  - "设计测试组织结构"
+  - "处理测试依赖隔离"
+
+测试报告:
+  - "配置测试报告生成"
+  - "设计自定义报告模板"
+  - "实现失败重试机制"
+  - "处理测试结果分析"
+```
+
+## 代码示例
+
+### 基础测试示例
+```java
+@Test(groups = "userManagement")
+public class UserServiceTest {
+    private UserService userService;
+    
+    @BeforeClass
+    public void setUp() {
+        userService = new UserService();
+    }
+    
+    @Test(description = "验证用户创建")
+    public void testCreateUser() {
+        User user = new User("test@example.com", "password");
+        User created = userService.createUser(user);
+        
+        Assert.assertNotNull(created.getId());
+        Assert.assertEquals(created.getEmail(), user.getEmail());
+    }
+    
+    @Test(description = "验证重复用户创建",
+          expectedExceptions = UserExistsException.class)
+    public void testCreateDuplicateUser() {
+        User user = new User("existing@example.com", "password");
+        userService.createUser(user);
+        userService.createUser(user); // 应该抛出异常
+    }
+}
+```
+
+### 数据驱动测试示例
+```java
+public class DataDrivenTest {
+    @DataProvider(name = "userDataProvider")
+    public Object[][] createUserData() {
+        return new Object[][] {
+            {"user1@example.com", "password1", true},
+            {"invalid-email", "password2", false},
+            {"user2@example.com", "", false},
+            {null, "password3", false}
+        };
+    }
+    
+    @Test(dataProvider = "userDataProvider",
+          description = "验证用户数据")
+    public void testUserValidation(String email,
+                                 String password,
+                                 boolean expectedValid) {
+        UserValidator validator = new UserValidator();
+        boolean isValid = validator.validateUser(email, password);
+        Assert.assertEquals(isValid, expectedValid);
+    }
+    
+    @Test(dataProvider = "userDataProvider",
+          dependsOnMethods = "testUserValidation",
+          groups = "userValidation")
+    public void testUserRegistration(String email,
+                                   String password,
+                                   boolean shouldSucceed) {
+        if (!shouldSucceed) {
+            return; // 跳过无效数据的注册测试
+        }
+        
+        UserService service = new UserService();
+        User user = service.register(email, password);
+        Assert.assertNotNull(user);
+        Assert.assertEquals(user.getEmail(), email);
+    }
+}
+```
+
+### 高级特性示例
+```java
+public class AdvancedTestNGTest {
+    @Test(groups = {"performance", "critical"})
+    public void testHighPriorityFeature() {
+        // 高优先级测试
+    }
+    
+    @Test(
+        groups = "userManagement",
+        dependsOnGroups = "performance",
+        alwaysRun = true
+    )
+    public void testUserFeature() {
+        // 用户管理测试
+    }
+    
+    @Test(
+        threadPoolSize = 3,
+        invocationCount = 10,
+        timeOut = 1000
+    )
+    public void testConcurrentAccess() {
+        // 并发访问测试
+    }
+}
+
+// 自定义测试监听器
+public class CustomTestListener implements ITestListener {
+    @Override
+    public void onTestStart(ITestResult result) {
+        System.out.println("Test started: " +
+            result.getName());
+    }
+    
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        System.out.println("Test succeeded: " +
+            result.getName());
+    }
+    
+    @Override
+    public void onTestFailure(ITestResult result) {
+        System.out.println("Test failed: " +
+            result.getName());
+        // 可以添加失败截图或日志收集
+    }
+}
+
+// 测试套件配置示例 (testng.xml)
+/*
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite" parallel="methods" thread-count="3">
+    <listeners>
+        <listener class-name="com.example.CustomTestListener"/>
+    </listeners>
+    
+    <test name="UserTests">
+        <groups>
+            <run>
+                <include name="userManagement"/>
+                <include name="performance"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.example.UserServiceTest"/>
+            <class name="com.example.DataDrivenTest"/>
+        </classes>
+    </test>
+</suite>
+*/ 

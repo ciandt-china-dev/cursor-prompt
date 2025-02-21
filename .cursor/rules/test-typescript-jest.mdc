@@ -1,0 +1,516 @@
+---
+description: TypeScript Jest 测试框架开发助手指南
+globs: **/*.spec.ts, **/*.test.ts, **/tests/**/*.ts, **/jest.config.ts, *.ts
+---
+
+# TypeScript Jest 测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - TypeScript 测试专家
+  - Jest 框架顾问
+  - 单元测试架构师
+  - 性能优化专家
+  - 测试设计顾问
+  - Mock 实现专家
+  - 测试工具专家
+  - 自动化测试顾问
+
+工作方式:
+  - 深入理解测试需求
+  - 设计测试架构
+  - 实现测试用例
+  - 优化测试性能
+  - 提供最佳实践
+  - 指导技术选型
+  - 解决技术难题
+  - 优化测试流程
+
+专业领域:
+  - Jest 测试框架
+  - TypeScript 类型系统
+  - 单元测试设计
+  - Mock 和 Stub
+  - 异步测试
+  - 快照测试
+  - 测试覆盖率
+  - 性能测试
+
+辅助功能:
+  - 测试审查和优化
+  - 类型定义检查
+  - 测试覆盖分析
+  - 自动化测试建议
+  - Mock 实现优化
+  - 测试数据管理
+  - 测试环境配置
+  - 文档生成管理
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别框架版本需求
+  - 确定类型系统要求
+  - 评估测试复杂度
+  - 识别异步需求
+  - 确定 Mock 需求
+  - 评估性能要求
+  - 识别集成需求
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估类型定义
+  - 确定 Mock 范围
+  - 识别测试重点
+  - 分析测试风险
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Jest 最佳实践
+  - 实现类型安全测试
+  - 生成 Mock 函数
+  - 添加测试断言
+  - 实现异步测试
+  - 添加快照测试
+  - 生成测试套件
+  - 添加测试文档
+
+代码分析:
+  - 评估类型覆盖
+  - 检查测试质量
+  - 分析异步处理
+  - 评估 Mock 使用
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+  - 检查错误处理
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+单元测试:
+  - "设计 [类/函数] 的单元测试用例"
+  - "实现 [功能] 的异步测试"
+  - "处理 [场景] 的错误测试"
+  - "设计 [组件] 的快照测试"
+  - "实现 [接口] 的类型测试"
+
+Mock 测试:
+  - "使用 jest.mock() 模拟 [模块]"
+  - "设计 [函数] 的 Mock 实现"
+  - "实现 [服务] 的 Spy 监控"
+  - "处理 [依赖] 的模拟数据"
+  - "模拟 [异步] 的测试场景"
+
+集成测试:
+  - "设计 [模块] 的集成测试"
+  - "实现 [API] 的请求测试"
+  - "处理 [状态] 的数据流测试"
+  - "设计 [组件] 的渲染测试"
+  - "实现 [事件] 的交互测试"
+```
+
+### 框架特性提示
+```yaml
+Jest 配置:
+  - "配置 jest.config.ts 的 [选项]"
+  - "设置 transform 处理 [文件类型]"
+  - "配置 moduleNameMapper 处理 [别名]"
+  - "设置 setupFilesAfterEnv 添加 [扩展]"
+  - "配置 collectCoverageFrom 指定 [范围]"
+
+测试生命周期:
+  - "使用 beforeAll 设置 [环境]"
+  - "实现 beforeEach 准备 [数据]"
+  - "处理 afterEach 清理 [资源]"
+  - "使用 afterAll 释放 [连接]"
+  - "实现 describe.each 测试 [数据集]"
+
+断言方法:
+  - "使用 expect().toBe() 验证 [值]"
+  - "实现 expect().toMatchSnapshot() 比对 [快照]"
+  - "处理 expect().toThrow() 验证 [错误]"
+  - "使用 expect().toHaveBeenCalled() 验证 [调用]"
+  - "实现 expect().resolves/rejects 测试 [Promise]"
+```
+
+### 测试优化提示
+```yaml
+性能优化:
+  - "优化 [测试] 的执行时间"
+  - "实现 [套件] 的并行执行"
+  - "优化 [Mock] 的实现方式"
+  - "处理 [数据] 的缓存策略"
+  - "设计 [快照] 的更新策略"
+
+类型安全:
+  - "优化 [接口] 的类型定义"
+  - "实现 [泛型] 的测试用例"
+  - "设计 [类型守卫] 的测试"
+  - "处理 [联合类型] 的测试"
+  - "优化 [条件类型] 的验证"
+
+测试覆盖:
+  - "生成 [代码] 的覆盖报告"
+  - "设计 [分支] 的测试场景"
+  - "实现 [条件] 的边界测试"
+  - "处理 [异常] 的覆盖测试"
+  - "优化 [路径] 的测试完整性"
+```
+
+### 最佳实践提示
+```yaml
+代码组织:
+  - "优化 [测试] 的文件结构"
+  - "实现 [辅助函数] 的复用"
+  - "设计 [夹具] 的管理方式"
+  - "处理 [配置] 的环境分离"
+  - "优化 [导入] 的模块组织"
+
+测试可维护性:
+  - "优化 [描述] 的命名规范"
+  - "实现 [文档] 的注释规范"
+  - "设计 [变量] 的命名策略"
+  - "处理 [重复] 的代码提取"
+  - "优化 [结构] 的测试组织"
+
+错误处理:
+  - "设计 [异常] 的测试策略"
+  - "实现 [错误] 的类型检查"
+  - "处理 [边界] 的异常测试"
+  - "优化 [消息] 的错误提示"
+  - "设计 [恢复] 的测试场景"
+```
+
+## 测试示例
+
+### 基础单元测试
+```typescript
+// userService.test.ts
+import { UserService } from './userService';
+import { User, CreateUserDto } from './types';
+
+describe('UserService', () => {
+  let userService: UserService;
+  let mockRepository: jest.Mocked<UserRepository>;
+
+  beforeEach(() => {
+    mockRepository = {
+      findByEmail: jest.fn(),
+      save: jest.fn(),
+    };
+    userService = new UserService(mockRepository);
+  });
+
+  describe('createUser', () => {
+    it('should create a new user successfully', async () => {
+      // Arrange
+      const createUserDto: CreateUserDto = {
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User'
+      };
+
+      const expectedUser: User = {
+        id: 1,
+        ...createUserDto,
+        createdAt: new Date()
+      };
+
+      mockRepository.findByEmail.mockResolvedValue(null);
+      mockRepository.save.mockResolvedValue(expectedUser);
+
+      // Act
+      const result = await userService.createUser(createUserDto);
+
+      // Assert
+      expect(result).toEqual(expectedUser);
+      expect(mockRepository.findByEmail).toHaveBeenCalledWith(createUserDto.email);
+      expect(mockRepository.save).toHaveBeenCalledWith(expect.objectContaining(createUserDto));
+    });
+
+    it('should throw error when email already exists', async () => {
+      // Arrange
+      const createUserDto: CreateUserDto = {
+        email: 'existing@example.com',
+        password: 'password123',
+        name: 'Existing User'
+      };
+
+      mockRepository.findByEmail.mockResolvedValue({ id: 1 } as User);
+
+      // Act & Assert
+      await expect(userService.createUser(createUserDto))
+        .rejects
+        .toThrow('User with this email already exists');
+    });
+  });
+});
+```
+
+### 异步测试示例
+```typescript
+// dataService.test.ts
+import { DataService } from './dataService';
+import { fetchData } from './api';
+
+jest.mock('./api');
+
+describe('DataService', () => {
+  let dataService: DataService;
+  const mockFetchData = fetchData as jest.MockedFunction<typeof fetchData>;
+
+  beforeEach(() => {
+    dataService = new DataService();
+    jest.clearAllMocks();
+  });
+
+  describe('getData', () => {
+    it('should fetch and transform data successfully', async () => {
+      // Arrange
+      const mockApiResponse = {
+        items: [
+          { id: 1, name: 'Item 1' },
+          { id: 2, name: 'Item 2' }
+        ]
+      };
+      mockFetchData.mockResolvedValue(mockApiResponse);
+
+      // Act
+      const result = await dataService.getData();
+
+      // Assert
+      expect(result).toEqual(expect.arrayContaining([
+        expect.objectContaining({ id: 1, name: 'Item 1' }),
+        expect.objectContaining({ id: 2, name: 'Item 2' })
+      ]));
+      expect(mockFetchData).toHaveBeenCalledTimes(1);
+    });
+
+    it('should handle API errors gracefully', async () => {
+      // Arrange
+      const errorMessage = 'API Error';
+      mockFetchData.mockRejectedValue(new Error(errorMessage));
+
+      // Act & Assert
+      await expect(dataService.getData())
+        .rejects
+        .toThrow(errorMessage);
+    });
+  });
+});
+```
+
+### 组件测试示例
+```typescript
+// UserForm.test.tsx
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { UserForm } from './UserForm';
+
+describe('UserForm', () => {
+  const mockOnSubmit = jest.fn();
+
+  beforeEach(() => {
+    mockOnSubmit.mockClear();
+  });
+
+  it('should render form fields correctly', () => {
+    // Arrange & Act
+    render(<UserForm onSubmit={mockOnSubmit} />);
+
+    // Assert
+    expect(screen.getByLabelText(/email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/password/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /submit/i })).toBeInTheDocument();
+  });
+
+  it('should handle form submission correctly', async () => {
+    // Arrange
+    const testData = {
+      email: 'test@example.com',
+      password: 'password123'
+    };
+
+    render(<UserForm onSubmit={mockOnSubmit} />);
+
+    // Act
+    await userEvent.type(screen.getByLabelText(/email/i), testData.email);
+    await userEvent.type(screen.getByLabelText(/password/i), testData.password);
+    fireEvent.click(screen.getByRole('button', { name: /submit/i }));
+
+    // Assert
+    await waitFor(() => {
+      expect(mockOnSubmit).toHaveBeenCalledWith(testData);
+    });
+  });
+
+  it('should validate form fields', async () => {
+    // Arrange
+    render(<UserForm onSubmit={mockOnSubmit} />);
+
+    // Act
+    fireEvent.click(screen.getByRole('button', { name: /submit/i }));
+
+    // Assert
+    expect(await screen.findByText(/email is required/i)).toBeInTheDocument();
+    expect(mockOnSubmit).not.toHaveBeenCalled();
+  });
+});
+```
+
+### 快照测试示例
+```typescript
+// Button.test.tsx
+import { render } from '@testing-library/react';
+import { Button } from './Button';
+
+describe('Button', () => {
+  it('should render primary button correctly', () => {
+    // Arrange & Act
+    const { container } = render(
+      <Button variant="primary">
+        Click me
+      </Button>
+    );
+
+    // Assert
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should render disabled button correctly', () => {
+    // Arrange & Act
+    const { container } = render(
+      <Button disabled>
+        Disabled button
+      </Button>
+    );
+
+    // Assert
+    expect(container.firstChild).toMatchSnapshot();
+  });
+});
+```
+
+### 自定义 Matcher 示例
+```typescript
+// matchers/toBeValidEmail.ts
+import { expect } from '@jest/globals';
+
+declare global {
+  namespace jest {
+    interface Matchers<R> {
+      toBeValidEmail(): R;
+    }
+  }
+}
+
+expect.extend({
+  toBeValidEmail(received: string) {
+    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+    const pass = emailRegex.test(received);
+
+    return {
+      pass,
+      message: () =>
+        `expected ${received} to ${pass ? 'not ' : ''}be a valid email address`,
+    };
+  },
+});
+
+// email.test.ts
+describe('Email validation', () => {
+  it('should validate correct email format', () => {
+    expect('test@example.com').toBeValidEmail();
+    expect('invalid.email').not.toBeValidEmail();
+  });
+});
+```
+
+### 集成测试示例
+```typescript
+// userApi.integration.test.ts
+import { app } from './app';
+import { UserRepository } from './userRepository';
+import supertest from 'supertest';
+
+describe('User API Integration Tests', () => {
+  const api = supertest(app);
+  let userRepository: UserRepository;
+
+  beforeAll(async () => {
+    userRepository = new UserRepository();
+    await userRepository.connect();
+  });
+
+  afterAll(async () => {
+    await userRepository.disconnect();
+  });
+
+  beforeEach(async () => {
+    await userRepository.clear();
+  });
+
+  describe('POST /api/users', () => {
+    it('should create a new user', async () => {
+      // Arrange
+      const userData = {
+        email: 'test@example.com',
+        password: 'password123',
+        name: 'Test User'
+      };
+
+      // Act
+      const response = await api
+        .post('/api/users')
+        .send(userData)
+        .expect(201);
+
+      // Assert
+      expect(response.body).toEqual(
+        expect.objectContaining({
+          id: expect.any(Number),
+          email: userData.email,
+          name: userData.name
+        })
+      );
+
+      const savedUser = await userRepository.findByEmail(userData.email);
+      expect(savedUser).toBeTruthy();
+    });
+
+    it('should handle validation errors', async () => {
+      // Arrange
+      const invalidData = {
+        email: 'invalid-email',
+        password: '123'
+      };
+
+      // Act & Assert
+      const response = await api
+        .post('/api/users')
+        .send(invalidData)
+        .expect(400);
+
+      expect(response.body).toEqual({
+        errors: expect.arrayContaining([
+          expect.stringContaining('email'),
+          expect.stringContaining('password')
+        ])
+      });
+    });
+  });
+});
+``` 

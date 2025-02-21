@@ -1,0 +1,411 @@
+---
+description: 安全标准规范
+globs: **/*
+---
+# 安全规范
+
+## 安全分层
+
+### 应用安全
+```yaml
+身份认证:
+  - 强密码策略:
+      最小长度: 12
+      必须包含: [大写字母, 小写字母, 数字, 特殊字符]
+      密码历史: 最近5个不能重复
+      过期时间: 90天
+  
+  - 多因素认证:
+      支持方式: [TOTP, SMS, 邮件验证码]
+      强制场景: [管理员登录, 敏感操作]
+      有效期: 30天
+  
+  - 会话管理:
+      超时时间: 30分钟
+      并发限制: 3个设备
+      Token刷新: JWT + Refresh Token
+      注销策略: 全端注销
+
+访问控制:
+  - RBAC配置:
+      角色划分:
+        - 超级管理员: 全部权限
+        - 普通管理员: 部分管理权限
+        - 普通用户: 基本操作权限
+        - 访客: 只读权限
+      
+      权限粒度:
+        - 模块级: 整个功能模块
+        - 操作级: 具体功能操作
+        - 数据级: 数据访问范围
+        - 字段级: 敏感字段控制
+
+数据验证:
+  - 输入验证:
+      - SQL注入防护: 使用参数化查询
+      - XSS防护: 输出编码
+      - 文件上传: 类型验证、大小限制
+      - API参数: 类型检查、范围验证
+```
+
+### 数据安全
+```yaml
+数据分类:
+  级别:
+    公开数据:
+      - 产品信息
+      - 公开文档
+      - 新闻公告
+    内部数据:
+      - 内部文档
+      - 操作日志
+      - 统计报表
+    保密数据:
+      - 用户信息
+      - 交易数据
+      - 配置信息
+    机密数据:
+      - 密钥信息
+      - 支付凭证
+      - 审计日志
+
+加密方案:
+  传输加密:
+    - TLS 1.3
+    - 证书更新周期: 1年
+    - 密钥强度: 2048位
+  
+  存储加密:
+    - 对称加密: AES-256-GCM
+    - 非对称加密: RSA-2048
+    - 哈希算法: Argon2id
+```
+
+### 通信安全
+```yaml
+传输加密:
+  - TLS 1.3+
+  - 证书管理
+  - 密钥轮换
+  - 加密套件配置
+  - 证书验证
+
+API安全:
+  - 认证授权
+  - 请求限流
+  - 参数验证
+  - 响应加密
+  - 日志审计
+```
+
+## 安全实践
+
+### 代码示例
+
+#### 密码加密
+```java
+@Service
+public class PasswordService {
+    private static final int SALT_LENGTH = 16;
+    private static final int HASH_LENGTH = 32;
+    private static final int ITERATIONS = 10000;
+    
+    public String hashPassword(String password) {
+        byte[] salt = generateSalt();
+        byte[] hash = hashPassword(password.toCharArray(), salt);
+        return Base64.getEncoder().encodeToString(salt) + "$" +
+               Base64.getEncoder().encodeToString(hash);
+    }
+    
+    public boolean verifyPassword(String password, String storedHash) {
+        String[] parts = storedHash.split("\\$");
+        byte[] salt = Base64.getDecoder().decode(parts[0]);
+        byte[] hash = Base64.getDecoder().decode(parts[1]);
+        byte[] testHash = hashPassword(password.toCharArray(), salt);
+        return Arrays.equals(hash, testHash);
+    }
+    
+    private byte[] generateSalt() {
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[SALT_LENGTH];
+        random.nextBytes(salt);
+        return salt;
+    }
+}
+```
+
+#### 安全Headers配置
+```java
+@Configuration
+public class SecurityHeadersConfig {
+    @Bean
+    public WebMvcConfigurer securityHeadersConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addInterceptors(InterceptorRegistry registry) {
+                registry.addInterceptor(new HandlerInterceptor() {
+                    @Override
+                    public boolean preHandle(
+                        HttpServletRequest request,
+                        HttpServletResponse response,
+                        Object handler
+                    ) {
+                        response.setHeader("X-Content-Type-Options", "nosniff");
+                        response.setHeader("X-Frame-Options", "DENY");
+                        response.setHeader("X-XSS-Protection", "1; mode=block");
+                        response.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+                        response.setHeader("Content-Security-Policy", 
+                            "default-src 'self'; " +
+                            "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
+                            "style-src 'self' 'unsafe-inline';");
+                        return true;
+                    }
+                });
+            }
+        };
+    }
+}
+```
+
+#### 输入验证
+```java
+@Validated
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+    
+    @PostMapping
+    public ResponseEntity<UserResponse> createUser(
+        @Valid @RequestBody UserRequest request
+    ) {
+        // 业务逻辑
+    }
+}
+
+@Data
+public class UserRequest {
+    @NotBlank(message = "用户名不能为空")
+    @Pattern(regexp = "^[a-zA-Z0-9]{4,16}$", 
+             message = "用户名必须是4-16位字母或数字")
+    private String username;
+    
+    @NotBlank(message = "密码不能为空")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{12,}$",
+             message = "密码必须包含大小写字母、数字和特殊字符，且长度不少于12位")
+    private String password;
+    
+    @NotBlank(message = "邮箱不能为空")
+    @Email(message = "邮箱格式不正确")
+    private String email;
+}
+```
+
+### 环境安全
+```yaml
+部署安全:
+  - 安全基线配置
+  - 最小化安装
+  - 端口管理
+  - 服务加固
+  - 补丁管理
+
+容器安全:
+  - 镜像安全扫描
+  - 容器隔离
+  - 资源限制
+  - 特权控制
+  - 网络隔离
+```
+
+### 运维安全
+```yaml
+监控告警:
+  - 安全事件监控
+  - 异常行为检测
+  - 实时告警
+  - 应急响应
+  - 安全审计
+
+访问控制:
+  - 堡垒机
+  - 权限管理
+  - 操作审计
+  - 密钥管理
+  - 账号生命周期
+```
+
+## 安全管理
+
+### 制度规范
+```yaml
+安全策略:
+  - 安全管理制度
+  - 安全操作规程
+  - 应急响应预案
+  - 灾难恢复计划
+  - 安全培训计划
+
+合规要求:
+  - 数据保护法规
+  - 行业安全标准
+  - 等级保护要求
+  - 安全认证要求
+  - 审计要求
+```
+
+### 安全评估
+```yaml
+评估类型:
+  - 安全基线检查
+  - 漏洞扫描
+  - 渗透测试
+  - 代码审计
+  - 应用评估
+
+评估周期:
+  - 日常检查
+  - 定期评估
+  - 变更评估
+  - 应急评估
+  - 第三方评估
+```
+
+## 安全开发生命周期(SDL)
+
+### 需求阶段
+```yaml
+安全需求:
+  - 威胁建模
+  - 风险评估
+  - 安全合规
+  - 隐私保护
+  - 安全架构
+```
+
+### 设计阶段
+```yaml
+安全设计:
+  - 安全架构设计
+  - 加密方案设计
+  - 认证授权设计
+  - 日志审计设计
+  - 应急方案设计
+```
+
+### 开发阶段
+```yaml
+安全开发:
+  - 安全编码规范
+  - 代码安全审查
+  - 安全测试用例
+  - 漏洞修复验证
+  - 安全组件使用
+```
+
+### 测试阶段
+```yaml
+安全测试:
+  - 安全功能测试
+  - 渗透测试
+  - 漏洞扫描
+  - 性能安全测试
+  - 应急演练
+```
+
+### 发布阶段
+```yaml
+安全发布:
+  - 安全基线检查
+  - 配置核查
+  - 漏洞验证
+  - 应急预案
+  - 回滚机制
+```
+
+### 运维阶段
+```yaml
+安全运维:
+  - 安全监控
+  - 日志分析
+  - 漏洞管理
+  - 补丁更新
+  - 应急响应
+```
+
+## 应急响应
+
+### 响应流程
+```yaml
+准备阶段:
+  - 应急预案
+  - 响应团队
+  - 工具准备
+  - 联系机制
+  - 培训演练
+
+处置阶段:
+  - 事件确认
+  - 影响评估
+  - 证据收集
+  - 问题处置
+  - 结果验证
+
+恢复阶段:
+  - 服务恢复
+  - 数据恢复
+  - 系统加固
+  - 监控强化
+  - 预案更新
+```
+
+### 事件分类
+```yaml
+安全事件:
+  - 入侵攻击
+  - 数据泄露
+  - 病毒木马
+  - 拒绝服务
+  - 内部威胁
+
+响应级别:
+  - 一般事件
+  - 重要事件
+  - 严重事件
+  - 特别重大事件
+```
+
+## 安全意识
+
+### 培训教育
+```yaml
+培训内容:
+  - 安全意识
+  - 安全技能
+  - 最佳实践
+  - 案例分析
+  - 新技术趋势
+
+培训方式:
+  - 定期培训
+  - 在线学习
+  - 技术分享
+  - 实战演练
+  - 考核认证
+```
+
+### 安全文化
+```yaml
+文化建设:
+  - 安全意识培养
+  - 责任意识强化
+  - 合规意识提升
+  - 团队协作意识
+  - 持续改进意识
+
+激励机制:
+  - 安全考核
+  - 奖惩制度
+  - 晋升机制
+  - 技能认证
+  - 创新激励
+``` 

@@ -1,0 +1,401 @@
+---
+description: Java Spring Boot 集成测试框架开发助手指南
+globs: **/*IT.java, **/*IntegrationTest.java, **/test/**/integration/**/*.java
+---
+
+# Java Spring Boot 集成测试框架开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - Spring Boot 测试架构专家
+  - 集成测试专家
+  - REST API 测试顾问
+  - 数据库测试专家
+  - 安全测试顾问
+  - 性能测试专家
+  - 测试容器专家
+  - 测试配置管理
+
+工作方式:
+  - 设计测试架构
+  - 实现测试用例
+  - 配置测试环境
+  - 优化测试性能
+  - 提供最佳实践
+  - 解决技术难题
+
+专业领域:
+  - Spring Test
+  - Spring WebTestClient
+  - TestRestTemplate
+  - MockMvc
+  - @SpringBootTest
+  - TestContainers
+  - 数据库测试
+  - 安全测试
+  - 缓存测试
+  - 消息队列测试
+
+辅助功能:
+  - 测试环境管理
+  - 测试数据准备
+  - 测试覆盖分析
+  - 性能监控
+  - 测试报告生成
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断测试类型和范围
+  - 识别 Spring Boot 特性
+  - 确定测试优先级
+  - 评估测试复杂度
+  - 识别集成点
+  - 评估测试环境需求
+
+需求分析:
+  - 提取测试需求
+  - 识别测试场景
+  - 确定测试目标
+  - 分析测试数据
+  - 评估测试难度
+  - 确定测试范围
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 Spring Boot 测试最佳实践
+  - 实现测试用例
+  - 配置测试环境
+  - 准备测试数据
+  - 设置测试上下文
+  - 生成测试报告
+
+代码分析:
+  - 评估测试覆盖
+  - 检查测试质量
+  - 分析测试性能
+  - 检查测试隔离
+  - 分析测试依赖
+  - 评估测试效率
+```
+
+## AI 提示词指南
+
+### 测试设计提示
+```yaml
+基础测试:
+  - "设计 REST API 的集成测试"
+  - "实现数据库操作的测试"
+  - "处理安全认证的测试"
+  - "设计缓存功能的测试"
+
+环境配置:
+  - "配置测试属性文件"
+  - "设置测试容器环境"
+  - "实现测试数据准备"
+  - "管理测试配置文件"
+
+测试策略:
+  - "设计端到端测试流程"
+  - "实现服务层集成测试"
+  - "处理异步操作测试"
+  - "管理测试数据清理"
+```
+
+### 框架特性提示
+```yaml
+Spring Test:
+  - "使用 @SpringBootTest 配置测试"
+  - "实现 WebTestClient 的 API 测试"
+  - "设计 MockMvc 的控制器测试"
+  - "处理 TestRestTemplate 的请求测试"
+
+数据访问:
+  - "配置测试数据源"
+  - "实现 JPA 测试"
+  - "设计事务测试"
+  - "处理数据库回滚"
+
+安全测试:
+  - "实现认证测试"
+  - "设计授权测试"
+  - "处理 JWT 测试"
+  - "配置安全上下文"
+```
+
+### 测试优化提示
+```yaml
+性能优化:
+  - "优化测试执行时间"
+  - "实现并行测试执行"
+  - "优化测试数据准备"
+  - "设计测试缓存策略"
+
+可维护性:
+  - "优化测试代码结构"
+  - "实现测试工具类"
+  - "设计测试基类"
+  - "处理测试配置复用"
+
+监控报告:
+  - "配置测试覆盖报告"
+  - "设计性能测试报告"
+  - "实现测试日志收集"
+  - "处理测试结果分析"
+```
+
+## 代码示例
+
+### REST API 测试示例
+```java
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class UserControllerIntegrationTest {
+    @Autowired
+    private TestRestTemplate restTemplate;
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @BeforeEach
+    void setUp() {
+        userRepository.deleteAll();
+    }
+    
+    @Test
+    void shouldCreateUser() {
+        // 准备测试数据
+        UserDto userDto = UserDto.builder()
+            .email("test@example.com")
+            .name("Test User")
+            .build();
+        
+        // 执行测试
+        ResponseEntity<User> response = restTemplate.postForEntity(
+            "/api/users",
+            userDto,
+            User.class
+        );
+        
+        // 验证结果
+        assertThat(response.getStatusCode())
+            .isEqualTo(HttpStatus.CREATED);
+        assertThat(response.getBody())
+            .isNotNull()
+            .satisfies(user -> {
+                assertThat(user.getId()).isNotNull();
+                assertThat(user.getEmail())
+                    .isEqualTo(userDto.getEmail());
+                assertThat(user.getName())
+                    .isEqualTo(userDto.getName());
+            });
+        
+        // 验证数据库状态
+        assertThat(userRepository.findByEmail(userDto.getEmail()))
+            .isPresent()
+            .get()
+            .satisfies(user ->
+                assertThat(user.getName())
+                    .isEqualTo(userDto.getName())
+            );
+    }
+}
+```
+
+### 数据库集成测试示例
+```java
+@SpringBootTest
+@Transactional
+class UserRepositoryIntegrationTest {
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Autowired
+    private TestEntityManager entityManager;
+    
+    @Test
+    void shouldSaveAndFindUser() {
+        // 准备测试数据
+        User user = User.builder()
+            .email("test@example.com")
+            .name("Test User")
+            .build();
+        
+        // 保存用户
+        userRepository.save(user);
+        entityManager.flush();
+        entityManager.clear();
+        
+        // 验证查询结果
+        Optional<User> found = userRepository
+            .findByEmail(user.getEmail());
+        
+        assertThat(found)
+            .isPresent()
+            .get()
+            .satisfies(u -> {
+                assertThat(u.getId()).isNotNull();
+                assertThat(u.getEmail())
+                    .isEqualTo(user.getEmail());
+                assertThat(u.getName())
+                    .isEqualTo(user.getName());
+            });
+    }
+    
+    @Test
+    void shouldHandleConcurrentUpdates() {
+        // 准备测试数据
+        User user = User.builder()
+            .email("test@example.com")
+            .name("Test User")
+            .version(0L)
+            .build();
+        
+        userRepository.save(user);
+        entityManager.flush();
+        entityManager.clear();
+        
+        // 并发更新测试
+        assertThrows(
+            OptimisticLockingFailureException.class,
+            () -> {
+                // 第一个事务
+                User first = userRepository
+                    .findByEmail(user.getEmail()).get();
+                first.setName("Updated by first");
+                
+                // 模拟第二个事务
+                User second = userRepository
+                    .findByEmail(user.getEmail()).get();
+                second.setName("Updated by second");
+                userRepository.save(second);
+                entityManager.flush();
+                
+                // 尝试保存第一个事务的更改
+                userRepository.save(first);
+                entityManager.flush();
+            }
+        );
+    }
+}
+```
+
+### 安全集成测试示例
+```java
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class SecurityIntegrationTest {
+    @Autowired
+    private TestRestTemplate restTemplate;
+    
+    @Autowired
+    private JwtTokenProvider tokenProvider;
+    
+    @Test
+    void shouldRequireAuthentication() {
+        // 未认证请求
+        ResponseEntity<String> response = restTemplate
+            .getForEntity("/api/secured", String.class);
+        
+        assertThat(response.getStatusCode())
+            .isEqualTo(HttpStatus.UNAUTHORIZED);
+    }
+    
+    @Test
+    void shouldAccessWithValidToken() {
+        // 准备认证令牌
+        String token = tokenProvider.createToken("user");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(token);
+        
+        // 发送认证请求
+        ResponseEntity<String> response = restTemplate
+            .exchange(
+                "/api/secured",
+                HttpMethod.GET,
+                new HttpEntity<>(headers),
+                String.class
+            );
+        
+        assertThat(response.getStatusCode())
+            .isEqualTo(HttpStatus.OK);
+    }
+    
+    @Test
+    void shouldRejectExpiredToken() {
+        // 准备过期令牌
+        String token = tokenProvider
+            .createExpiredToken("user");
+        HttpHeaders headers = new HttpHeaders();
+        headers.setBearerAuth(token);
+        
+        // 发送请求
+        ResponseEntity<String> response = restTemplate
+            .exchange(
+                "/api/secured",
+                HttpMethod.GET,
+                new HttpEntity<>(headers),
+                String.class
+            );
+        
+        assertThat(response.getStatusCode())
+            .isEqualTo(HttpStatus.UNAUTHORIZED);
+    }
+}
+```
+
+### 测试容器示例
+```java
+@Testcontainers
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+class DatabaseIntegrationTest {
+    @Container
+    static PostgreSQLContainer<?> postgres = new PostgreSQLContainer<>(
+        "postgres:13-alpine"
+    )
+        .withDatabaseName("testdb")
+        .withUsername("test")
+        .withPassword("test");
+    
+    @DynamicPropertySource
+    static void registerPgProperties(
+        DynamicPropertyRegistry registry) {
+        registry.add("spring.datasource.url",
+            postgres::getJdbcUrl);
+        registry.add("spring.datasource.username",
+            postgres::getUsername);
+        registry.add("spring.datasource.password",
+            postgres::getPassword);
+    }
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    @Test
+    void shouldConnectToTestDatabase() {
+        // 准备测试数据
+        User user = User.builder()
+            .email("test@example.com")
+            .name("Test User")
+            .build();
+        
+        // 执行数据库操作
+        User saved = userRepository.save(user);
+        
+        // 验证结果
+        assertThat(saved.getId()).isNotNull();
+        assertThat(userRepository.findById(saved.getId()))
+            .isPresent()
+            .get()
+            .satisfies(u -> {
+                assertThat(u.getEmail())
+                    .isEqualTo(user.getEmail());
+                assertThat(u.getName())
+                    .isEqualTo(user.getName());
+            });
+    }
+} 

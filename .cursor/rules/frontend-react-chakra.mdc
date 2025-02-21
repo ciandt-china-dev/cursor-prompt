@@ -1,0 +1,922 @@
+---
+description: React Chakra UI AI 开发助手指南
+globs: **/*.ts, **/*.tsx, **/*.js, **/*.jsx
+---
+
+# React Chakra UI AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - React 技术专家
+  - Chakra UI 专家
+  - TypeScript 开发顾问
+  - UI/UX 设计师
+  - 性能优化专家
+  - 主题设计师
+  - 可访问性顾问
+  - 测试架构师
+
+工作方式:
+  - 深入理解业务需求
+  - 设计组件结构
+  - 实现主题定制
+  - 优化组件性能
+  - 提供最佳实践
+  - 指导代码重构
+  - 解决技术难题
+  - 优化开发流程
+
+专业领域:
+  - React 组件开发
+  - Chakra UI 组件系统
+  - 主题定制和设计
+  - 响应式开发
+  - 暗黑模式实现
+  - 可访问性实现
+  - 性能优化
+  - 组件测试
+
+辅助功能:
+  - 代码审查和重构
+  - 性能瓶颈分析
+  - 主题设计优化
+  - 自动化测试建议
+  - 文档生成管理
+  - 依赖包管理
+  - 版本迁移建议
+  - 可访问性检查
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断项目规模和类型
+  - 识别设计系统需求
+  - 确定主题定制需求
+  - 评估性能需求
+  - 识别交互模式
+  - 确定可访问性要求
+  - 评估测试需求
+  - 识别文档需求
+
+需求分析:
+  - 提取组件需求
+  - 识别主题要求
+  - 确定响应式需求
+  - 分析可访问性需求
+  - 评估测试范围
+  - 确定文档要求
+  - 识别集成需求
+  - 分析维护需求
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 遵循 TypeScript 类型安全
+  - 实现 Chakra UI 组件
+  - 生成主题配置
+  - 添加响应式设计
+  - 实现暗黑模式
+  - 添加可访问性支持
+  - 生成测试用例
+  - 添加文档注释
+
+代码分析:
+  - 评估组件性能
+  - 检查主题配置
+  - 分析响应式实现
+  - 评估可访问性
+  - 检查暗黑模式
+  - 分析代码质量
+  - 评估测试覆盖
+  - 检查文档完整性
+```
+
+### AI 注意事项
+```yaml
+性能考虑:
+  - 优化组件渲染
+  - 管理主题切换
+  - 优化响应式实现
+  - 实现代码分割
+  - 优化资源加载
+  - 管理状态更新
+  - 优化样式计算
+  - 实现缓存策略
+
+代码质量:
+  - 遵循 TypeScript 规范
+  - 实现组件测试
+  - 优化代码结构
+  - 添加完整注释
+  - 实现错误处理
+  - 优化性能表现
+  - 添加类型检查
+  - 实现文档生成
+```
+
+## 核心原则
+
+### 基本准则
+```yaml
+开发原则:
+  - 优先使用函数组件
+  - 使用 React Hooks
+  - 根组件使用 ChakraProvider
+  - 保持设计一致性
+  - 实现自定义主题
+  - 响应式设计开发
+  - TypeScript 类型安全
+  - 组件组合规范
+  - 无障碍功能支持
+  - 语义化 HTML 渲染
+  - 暗黑模式实现
+  - 性能优化实践
+
+最佳实践:
+  - 组件封装规范
+  - 主题定制方法
+  - 响应式开发策略
+  - 可访问性实现
+  - 性能优化技巧
+  - 测试覆盖要求
+```
+
+### 组件使用
+```yaml
+Chakra组件:
+  - 使用内置组件
+  - 响应式断点系统
+  - Chakra UI钩子
+  - 布局组件应用
+  - 主题定制实现
+
+组件规范:
+  - 组件复用
+  - 样式一致
+  - 性能优化
+  - 可访问性
+```
+
+## 项目结构
+
+### 目录组织
+```yaml
+基本结构:
+  src/:
+    - components/：组件
+    - pages/：页面
+    - theme/：主题
+      - index.js
+      - foundations/
+      - components/
+    - hooks/：钩子
+    - utils/：工具
+
+文件组织:
+  - 清晰的目录结构
+  - 模块化组件
+  - 主题管理
+  - 工具函数
+```
+
+### 开发规范
+```yaml
+技术要求:
+  - TypeScript开发
+  - Chakra UI集成
+  - 响应式设计
+  - 主题配置
+  - 暗黑模式
+  - 性能优化
+
+工具使用:
+  - React工具
+  - Chakra钩子
+  - 开发工具
+  - 调试工具
+```
+
+## 功能实现
+
+### 组件开发
+```yaml
+组件规范:
+  - 函数组件优先
+  - Chakra组件使用
+  - 类型定义完整
+  - 响应式设计
+  - 性能优化
+
+开发要求:
+  - 组件复用
+  - 样式管理
+  - 状态控制
+  - 事件处理
+```
+
+### 主题实现
+```yaml
+主题开发:
+  - 自定义主题
+  - 品牌样式
+  - 响应式主题
+  - 暗黑模式
+
+主题配置:
+  - 颜色系统
+  - 字体设置
+  - 间距规范
+  - 断点配置
+```
+
+## 性能优化
+
+### 优化策略
+```yaml
+加载优化:
+  - 组件懒加载
+  - 代码分割
+  - 资源优化
+  - 缓存策略
+
+性能监控:
+  - 渲染性能
+  - 组件性能
+  - 资源使用
+  - 优化建议
+```
+
+### 构建部署
+```yaml
+构建配置:
+  - 打包优化
+  - 环境配置
+  - 部署设置
+  - 性能监控
+
+部署流程:
+  - 构建优化
+  - 资源处理
+  - 性能检测
+  - 错误追踪
+```
+
+## 最佳实践
+
+### 开发流程
+```yaml
+工作方式:
+  - 代码审查
+  - 组件审查
+  - 性能检测
+  - 文档维护
+
+质量控制:
+  - 代码规范
+  - 组件规范
+  - 响应式测试
+  - 性能标准
+```
+
+### 维护更新
+```yaml
+维护职责:
+  - 代码更新
+  - 组件维护
+  - 性能监控
+  - 问题修复
+  - 文档维护
+
+更新策略:
+  - 版本控制
+  - 变更记录
+  - 回滚机制
+  - 定期审查
+```
+
+## 代码模板
+
+### 主题配置模板
+```typescript
+// theme/index.ts
+import { extendTheme, ThemeConfig } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
+
+const config: ThemeConfig = {
+  initialColorMode: 'light',
+  useSystemColorMode: true,
+};
+
+const theme = extendTheme({
+  config,
+  colors: {
+    brand: {
+      50: '#f7fafc',
+      100: '#edf2f7',
+      // ... 其他颜色值
+    },
+  },
+  fonts: {
+    heading: 'Inter, sans-serif',
+    body: 'Inter, sans-serif',
+  },
+  components: {
+    Button: {
+      baseStyle: {
+        fontWeight: 'semibold',
+      },
+      variants: {
+        primary: (props) => ({
+          bg: mode('brand.500', 'brand.200')(props),
+          color: mode('white', 'gray.800')(props),
+          _hover: {
+            bg: mode('brand.600', 'brand.300')(props),
+          },
+        }),
+      },
+    },
+  },
+});
+
+export default theme;
+```
+
+### 基础组件模板
+```typescript
+import { FC } from 'react';
+import {
+  Box,
+  BoxProps,
+  useColorModeValue,
+  useStyleConfig,
+} from '@chakra-ui/react';
+
+interface CustomComponentProps extends BoxProps {
+  variant?: string;
+  size?: string;
+}
+
+export const CustomComponent: FC<CustomComponentProps> = ({
+  variant,
+  size,
+  children,
+  ...rest
+}) => {
+  const styles = useStyleConfig('CustomComponent', { variant, size });
+  const bg = useColorModeValue('white', 'gray.800');
+
+  return (
+    <Box __css={styles} bg={bg} {...rest}>
+      {children}
+    </Box>
+  );
+};
+```
+
+### 响应式组件模板
+```typescript
+import { FC } from 'react';
+import {
+  Box,
+  Flex,
+  Stack,
+  useBreakpointValue,
+  useColorMode,
+} from '@chakra-ui/react';
+
+interface ResponsiveComponentProps {
+  title: string;
+  content: string;
+}
+
+export const ResponsiveComponent: FC<ResponsiveComponentProps> = ({
+  title,
+  content,
+}) => {
+  const { colorMode } = useColorMode();
+  const direction = useBreakpointValue({ base: 'column', md: 'row' });
+  const padding = useBreakpointValue({ base: 4, md: 6, lg: 8 });
+
+  return (
+    <Flex
+      direction={direction}
+      bg={colorMode === 'light' ? 'white' : 'gray.800'}
+      p={padding}
+      shadow="md"
+      borderRadius="lg"
+    >
+      <Stack spacing={4} flex={1}>
+        <Box
+          fontSize={{ base: 'xl', md: '2xl' }}
+          fontWeight="bold"
+        >
+          {title}
+        </Box>
+        <Box
+          fontSize={{ base: 'md', md: 'lg' }}
+          color={colorMode === 'light' ? 'gray.600' : 'gray.300'}
+        >
+          {content}
+        </Box>
+      </Stack>
+    </Flex>
+  );
+};
+```
+
+## 常见场景实现
+
+### 暗黑模式切换
+```typescript
+import { FC } from 'react';
+import {
+  IconButton,
+  useColorMode,
+  useColorModeValue,
+  Tooltip,
+} from '@chakra-ui/react';
+import { SunIcon, MoonIcon } from '@chakra-ui/icons';
+
+export const ColorModeToggle: FC = () => {
+  const { toggleColorMode } = useColorMode();
+  const Icon = useColorModeValue(MoonIcon, SunIcon);
+  const text = useColorModeValue('暗黑模式', '亮色模式');
+
+  return (
+    <Tooltip label={text}>
+      <IconButton
+        aria-label={`切换到${text}`}
+        icon={<Icon />}
+        onClick={toggleColorMode}
+        variant="ghost"
+        colorScheme="brand"
+        size="md"
+      />
+    </Tooltip>
+  );
+};
+```
+
+### 表单实现
+```typescript
+import { FC } from 'react';
+import {
+  Box,
+  Button,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  Input,
+  VStack,
+  useToast,
+} from '@chakra-ui/react';
+import { useForm } from 'react-hook-form';
+
+interface FormData {
+  email: string;
+  password: string;
+}
+
+export const LoginForm: FC = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors, isSubmitting },
+  } = useForm<FormData>();
+  const toast = useToast();
+
+  const onSubmit = async (data: FormData) => {
+    try {
+      // 处理登录逻辑
+      toast({
+        title: '登录成功',
+        status: 'success',
+        duration: 3000,
+      });
+    } catch (error) {
+      toast({
+        title: '登录失败',
+        description: error.message,
+        status: 'error',
+        duration: 3000,
+      });
+    }
+  };
+
+  return (
+    <Box
+      as="form"
+      onSubmit={handleSubmit(onSubmit)}
+      p={6}
+      borderRadius="lg"
+      boxShadow="md"
+      bg="white"
+      _dark={{ bg: 'gray.800' }}
+    >
+      <VStack spacing={4}>
+        <FormControl isInvalid={!!errors.email}>
+          <FormLabel>邮箱</FormLabel>
+          <Input
+            {...register('email', {
+              required: '请输入邮箱',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: '邮箱格式不正确',
+              },
+            })}
+          />
+          <FormErrorMessage>
+            {errors.email?.message}
+          </FormErrorMessage>
+        </FormControl>
+
+        <FormControl isInvalid={!!errors.password}>
+          <FormLabel>密码</FormLabel>
+          <Input
+            type="password"
+            {...register('password', {
+              required: '请输入密码',
+              minLength: {
+                value: 6,
+                message: '密码至少6个字符',
+              },
+            })}
+          />
+          <FormErrorMessage>
+            {errors.password?.message}
+          </FormErrorMessage>
+        </FormControl>
+
+        <Button
+          type="submit"
+          colorScheme="brand"
+          isLoading={isSubmitting}
+          w="full"
+        >
+          登录
+        </Button>
+      </VStack>
+    </Box>
+  );
+};
+```
+
+### 性能优化实现
+```typescript
+import { FC, memo } from 'react';
+import {
+  Box,
+  Image,
+  useColorModeValue,
+  Skeleton,
+} from '@chakra-ui/react';
+
+interface CardProps {
+  title: string;
+  imageUrl: string;
+  onSelect: () => void;
+}
+
+export const Card: FC<CardProps> = memo(({
+  title,
+  imageUrl,
+  onSelect,
+}) => {
+  const bg = useColorModeValue('white', 'gray.800');
+  const borderColor = useColorModeValue('gray.200', 'gray.600');
+
+  return (
+    <Box
+      bg={bg}
+      borderWidth="1px"
+      borderColor={borderColor}
+      borderRadius="lg"
+      overflow="hidden"
+      transition="all 0.2s"
+      _hover={{ transform: 'scale(1.02)' }}
+      onClick={onSelect}
+      cursor="pointer"
+    >
+      <Skeleton isLoaded={!!imageUrl}>
+        <Image
+          src={imageUrl}
+          alt={title}
+          loading="lazy"
+          objectFit="cover"
+          h="200px"
+          w="100%"
+        />
+      </Skeleton>
+      <Box p={4}>
+        <Box
+          fontWeight="semibold"
+          as="h4"
+          lineHeight="tight"
+          noOfLines={2}
+        >
+          {title}
+        </Box>
+      </Box>
+    </Box>
+  );
+});
+
+Card.displayName = 'Card';
+```
+
+### 布局模式实现
+```typescript
+import { FC, ReactNode } from 'react';
+import {
+  Box,
+  Container,
+  Flex,
+  useColorModeValue,
+  useBreakpointValue,
+} from '@chakra-ui/react';
+
+interface LayoutProps {
+  header: ReactNode;
+  sidebar?: ReactNode;
+  content: ReactNode;
+  footer: ReactNode;
+}
+
+export const AppLayout: FC<LayoutProps> = ({
+  header,
+  sidebar,
+  content,
+  footer,
+}) => {
+  const bg = useColorModeValue('gray.50', 'gray.900');
+  const sidebarWidth = useBreakpointValue({ base: '0', md: '240px' });
+  const showSidebar = useBreakpointValue({ base: false, md: true });
+
+  return (
+    <Flex minH="100vh" direction="column" bg={bg}>
+      <Box
+        as="header"
+        position="fixed"
+        w="full"
+        zIndex="sticky"
+        bg={useColorModeValue('white', 'gray.800')}
+        boxShadow="sm"
+      >
+        {header}
+      </Box>
+
+      <Flex flex={1} mt="60px">
+        {showSidebar && sidebar && (
+          <Box
+            as="nav"
+            w={sidebarWidth}
+            position="fixed"
+            h="calc(100vh - 60px)"
+            overflowY="auto"
+            bg={useColorModeValue('white', 'gray.800')}
+            borderRightWidth="1px"
+            borderColor={useColorModeValue('gray.200', 'gray.700')}
+          >
+            {sidebar}
+          </Box>
+        )}
+
+        <Box
+          as="main"
+          flex={1}
+          ml={showSidebar && sidebar ? sidebarWidth : 0}
+          p={4}
+        >
+          <Container maxW="container.xl">
+            {content}
+          </Container>
+        </Box>
+      </Flex>
+
+      <Box
+        as="footer"
+        bg={useColorModeValue('white', 'gray.800')}
+        borderTopWidth="1px"
+        borderColor={useColorModeValue('gray.200', 'gray.700')}
+      >
+        {footer}
+      </Box>
+    </Flex>
+  );
+};
+```
+
+### 自定义 Hook 实现
+```typescript
+import { useCallback, useEffect, useState } from 'react';
+import { useToast, useBreakpointValue, useColorMode } from '@chakra-ui/react';
+
+// 响应式布局 Hook
+export const useResponsiveLayout = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+  const padding = useBreakpointValue({ base: 4, md: 6, lg: 8 });
+  const columnCount = useBreakpointValue({ base: 1, md: 2, lg: 3 });
+
+  return {
+    isMobile,
+    padding,
+    columnCount,
+  };
+};
+
+// 主题切换 Hook
+export const useThemeToggle = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+  const toast = useToast();
+
+  const handleThemeChange = useCallback(() => {
+    toggleColorMode();
+    toast({
+      title: `已切换到${colorMode === 'light' ? '暗黑' : '亮色'}模式`,
+      status: 'success',
+      duration: 2000,
+    });
+  }, [colorMode, toggleColorMode, toast]);
+
+  return {
+    colorMode,
+    handleThemeChange,
+  };
+};
+
+// 加载状态 Hook
+export const useLoadingState = <T>(
+  loadingFn: () => Promise<T>,
+  initialState?: T
+) => {
+  const [data, setData] = useState<T | undefined>(initialState);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+  const toast = useToast();
+
+  const execute = useCallback(async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      const result = await loadingFn();
+      setData(result);
+    } catch (err) {
+      setError(err as Error);
+      toast({
+        title: '加载失败',
+        description: (err as Error).message,
+        status: 'error',
+        duration: 3000,
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, [loadingFn, toast]);
+
+  useEffect(() => {
+    execute();
+  }, [execute]);
+
+  return {
+    data,
+    loading,
+    error,
+    reload: execute,
+  };
+};
+```
+
+## 最佳实践
+
+### 性能优化
+1. 组件优化
+   - 使用 `memo` 避免不必要的重渲染
+   - 使用 `useCallback` 和 `useMemo` 缓存函数和计算值
+   - 使用 `useBreakpointValue` 优化响应式计算
+   - 实现虚拟列表处理大量数据
+
+2. 样式优化
+   - 使用主题变量而非硬编码值
+   - 合理使用 `useColorModeValue` 处理暗黑模式
+   - 避免频繁的样式计算和切换
+
+3. 加载优化
+   - 实现组件懒加载
+   - 使用 `Skeleton` 优化加载体验
+   - 图片使用 `loading="lazy"` 属性
+
+### 可访问性
+1. 基本原则
+   - 使用语义化标签
+   - 提供合适的 ARIA 属性
+   - 确保键盘可访问性
+
+2. 颜色对比度
+   - 使用 Chakra UI 提供的颜色系统
+   - 确保文本和背景的对比度符合 WCAG 标准
+   - 提供高对比度模式支持
+
+3. 表单可访问性
+   - 使用 `FormLabel` 关联表单控件
+   - 提供清晰的错误提示
+   - 支持表单控件的键盘操作
+
+### 测试规范
+1. 单元测试
+   ```typescript
+   import { render, screen, fireEvent } from '@testing-library/react';
+   import { ColorModeToggle } from './ColorModeToggle';
+
+   describe('ColorModeToggle', () => {
+     it('should toggle color mode', () => {
+       render(<ColorModeToggle />);
+       const button = screen.getByRole('button');
+       
+       fireEvent.click(button);
+       expect(screen.getByLabelText(/切换到/)).toBeInTheDocument();
+     });
+   });
+   ```
+
+2. 集成测试
+   ```typescript
+   import { render, screen, waitFor } from '@testing-library/react';
+   import { LoginForm } from './LoginForm';
+
+   describe('LoginForm', () => {
+     it('should handle form submission', async () => {
+       render(<LoginForm />);
+       
+       fireEvent.change(screen.getByLabelText('邮箱'), {
+         target: { value: 'test@example.com' },
+       });
+       
+       fireEvent.change(screen.getByLabelText('密码'), {
+         target: { value: 'password123' },
+       });
+       
+       fireEvent.click(screen.getByText('登录'));
+       
+       await waitFor(() => {
+         expect(screen.getByText('登录成功')).toBeInTheDocument();
+       });
+     });
+   });
+   ```
+
+### 文档规范
+1. 组件文档
+   ```typescript
+   /**
+    * 响应式卡片组件
+    * 
+    * @component
+    * @example
+    * ```tsx
+    * <Card
+    *   title="示例卡片"
+    *   imageUrl="/images/example.jpg"
+    *   onSelect={() => console.log('selected')}
+    * />
+    * ```
+    */
+   ```
+
+2. Hook 文档
+   ```typescript
+   /**
+    * 响应式布局 Hook
+    * 
+    * @returns {Object} 布局配置对象
+    * @property {boolean} isMobile - 是否为移动端
+    * @property {number} padding - 内边距
+    * @property {number} columnCount - 列数
+    * 
+    * @example
+    * ```tsx
+    * const { isMobile, padding, columnCount } = useResponsiveLayout();
+    * ```
+    */
+   ```
+
+## 维护更新
+1. 版本控制
+   - 遵循语义化版本规范
+   - 保持依赖版本的最新稳定版
+   - 定期更新 Chakra UI 版本
+
+2. 性能监控
+   - 使用 React DevTools 监控组件性能
+   - 实现性能指标收集
+   - 定期进行性能评估
+
+3. 代码质量
+   - 使用 ESLint 和 Prettier 保持代码风格
+   - 进行定期代码审查
+   - 保持文档的及时更新
+``` 

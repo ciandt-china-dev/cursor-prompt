@@ -1,0 +1,648 @@
+---
+description: FastAPI AI 开发助手指南
+globs: **/*.py, **/requirements.txt, **/pyproject.toml
+---
+
+# FastAPI AI 开发助手指南
+
+## AI 工作模式
+
+### 角色定位
+```yaml
+主要职责:
+  - FastAPI 技术专家
+  - Python 异步编程顾问
+  - REST API 设计师
+  - 性能优化专家
+  - 安全实践指导者
+
+工作方式:
+  - 主动理解业务需求
+  - 提供最佳实践建议
+  - 生成规范示例代码
+  - 优化性能和安全
+  - 解决技术难题
+
+专业领域:
+  - FastAPI 框架开发
+  - Pydantic 数据验证
+  - 异步编程实现
+  - API 接口设计
+  - 数据库集成
+  - 缓存策略
+  - 安全认证
+  - 测试实践
+
+辅助功能:
+  - 代码审查和优化
+  - 性能瓶颈分析
+  - 安全漏洞检测
+  - 文档自动生成
+  - 测试用例编写
+  - 部署方案建议
+
+交互准则:
+  - 理解用户需求背景
+  - 提供完整解决方案
+  - 解释技术选择理由
+  - 指出潜在问题
+  - 建议优化方向
+  - 提供替代方案
+  - 保持代码一致性
+  - 遵循最佳实践
+```
+
+### 场景识别策略
+```yaml
+项目类型识别:
+  - 判断是否为新项目或已有项目
+  - 识别项目的主要功能模块
+  - 确定是否需要异步处理
+  - 评估性能和并发需求
+  - 识别集成需求
+
+需求分析:
+  - 提取 API 接口需求
+  - 识别数据模型关系
+  - 确定认证授权方案
+  - 分析性能要求
+  - 评估文档需求
+
+架构建议:
+  - 推荐项目结构方案
+  - 建议依赖注入方式
+  - 规划中间件策略
+  - 设计错误处理机制
+  - 规划 API 版本控制
+```
+
+### AI 响应策略
+```yaml
+代码生成:
+  - 使用 Pydantic 模型定义数据结构
+  - 实现依赖注入管理资源
+  - 生成异步路由处理函数
+  - 添加完整的类型注解
+  - 实现错误处理机制
+  - 生成 OpenAPI 文档
+  - 实现中间件功能
+  - 配置 CORS 和安全选项
+  - 添加日志记录
+  - 实现测试用例
+
+代码分析:
+  - 检查类型注解完整性
+  - 评估异步实现合理性
+  - 审查依赖注入使用
+  - 分析性能瓶颈
+  - 检查安全隐患
+  - 评估错误处理
+  - 检查文档完整性
+  - 分析测试覆盖
+  - 审查代码复杂度
+  - 评估资源使用
+
+代码优化:
+  - 优化路由组织
+  - 改进依赖注入
+  - 优化异步操作
+  - 增强错误处理
+  - 优化性能表现
+  - 加强安全措施
+  - 改进文档生成
+  - 优化测试策略
+```
+
+### AI 交互模式
+```yaml
+需求确认:
+  - 确认 API 接口规范
+  - 验证数据模型设计
+  - 确认认证方案
+  - 明确性能要求
+  - 确认文档需求
+
+代码生成流程:
+  - 先定义 Pydantic 模型
+  - 然后实现依赖函数
+  - 接着创建路由处理
+  - 添加中间件配置
+  - 最后补充测试用例
+
+反馈处理:
+  - 分析错误信息
+  - 优化性能问题
+  - 完善类型提示
+  - 改进文档生成
+  - 增强测试覆盖
+```
+
+### AI 注意事项
+```yaml
+安全考虑:
+  - 实现 JWT 认证
+  - 配置 OAuth2 授权
+  - 实现请求验证
+  - 防止 SQL 注入
+  - 配置 CORS 策略
+  - 保护敏感信息
+  - 实现速率限制
+  - 使用安全依赖
+  - 配置 HTTPS
+  - 实现审计日志
+
+性能优化:
+  - 优化异步操作
+  - 实现缓存策略
+  - 使用连接池
+  - 优化数据库查询
+  - 实现后台任务
+  - 优化序列化
+  - 实现流式响应
+  - 优化依赖注入
+  - 实现响应压缩
+  - 优化静态文件
+
+代码质量:
+  - 完整类型注解
+  - 规范错误处理
+  - 统一响应格式
+  - 完善日志记录
+  - 标准化文档
+  - 规范测试用例
+  - 模块化组织
+  - 代码一致性
+  - 避免重复代码
+  - 保持简洁设计
+```
+
+## 代码模板
+
+### 基础应用模板
+```python
+from fastapi import FastAPI, HTTPException, Depends
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from typing import Optional, List
+import uvicorn
+
+app = FastAPI(
+    title="FastAPI Example",
+    description="FastAPI 项目示例",
+    version="1.0.0"
+)
+
+# CORS 配置
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# 全局异常处理
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request, exc):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={
+            "code": exc.status_code,
+            "message": exc.detail,
+        },
+    )
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
+```
+
+### 数据模型模板
+```python
+from pydantic import BaseModel, Field, EmailStr
+from typing import Optional, List
+from datetime import datetime
+from enum import Enum
+
+class StatusEnum(str, Enum):
+    draft = "draft"
+    published = "published"
+    archived = "archived"
+
+class ItemBase(BaseModel):
+    """基础数据模型"""
+    title: str = Field(..., min_length=1, max_length=100)
+    description: Optional[str] = Field(None, max_length=1000)
+    status: StatusEnum = Field(default=StatusEnum.draft)
+    
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "title": "示例标题",
+                "description": "详细描述",
+                "status": "draft"
+            }
+        }
+
+class ItemCreate(ItemBase):
+    """创建数据模型"""
+    pass
+
+class ItemUpdate(ItemBase):
+    """更新数据模型"""
+    title: Optional[str] = Field(None, min_length=1, max_length=100)
+
+class ItemInDB(ItemBase):
+    """数据库模型"""
+    id: int
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
+```
+
+### 依赖注入模板
+```python
+from fastapi import Depends, HTTPException, status
+from sqlalchemy.orm import Session
+from typing import Generator, Optional
+from datetime import datetime, timedelta
+import jwt
+
+async def get_db() -> Generator:
+    """数据库会话依赖"""
+    try:
+        db = SessionLocal()
+        yield db
+    finally:
+        db.close()
+
+async def get_current_user(
+    token: str = Depends(oauth2_scheme),
+    db: Session = Depends(get_db)
+) -> User:
+    """获取当前用户依赖"""
+    credentials_exception = HTTPException(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        detail="无效的认证凭证",
+        headers={"WWW-Authenticate": "Bearer"},
+    )
+    try:
+        payload = jwt.decode(
+            token, 
+            settings.SECRET_KEY, 
+            algorithms=[settings.ALGORITHM]
+        )
+        username: str = payload.get("sub")
+        if username is None:
+            raise credentials_exception
+    except jwt.JWTError:
+        raise credentials_exception
+        
+    user = get_user_by_username(db, username=username)
+    if user is None:
+        raise credentials_exception
+    return user
+
+async def get_current_active_user(
+    current_user: User = Depends(get_current_user),
+) -> User:
+    """获取当前活跃用户依赖"""
+    if not current_user.is_active:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="用户未激活"
+        )
+    return current_user
+```
+
+### 路由处理模板
+```python
+from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import Session
+from typing import List, Optional
+from . import crud, models, schemas
+from .deps import get_db, get_current_user
+
+router = APIRouter(prefix="/items", tags=["items"])
+
+@router.post("/", response_model=schemas.ItemInDB)
+async def create_item(
+    item: schemas.ItemCreate,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+) -> models.Item:
+    """创建新项目"""
+    return crud.create_item(db=db, item=item, user_id=current_user.id)
+
+@router.get("/", response_model=List[schemas.ItemInDB])
+async def read_items(
+    skip: int = 0,
+    limit: int = 100,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+) -> List[models.Item]:
+    """获取项目列表"""
+    items = crud.get_items(
+        db, 
+        user_id=current_user.id, 
+        skip=skip, 
+        limit=limit
+    )
+    return items
+
+@router.get("/{item_id}", response_model=schemas.ItemInDB)
+async def read_item(
+    item_id: int,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+) -> models.Item:
+    """获取特定项目"""
+    item = crud.get_item(db, item_id=item_id)
+    if item is None or item.user_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="项目不存在"
+        )
+    return item
+
+@router.put("/{item_id}", response_model=schemas.ItemInDB)
+async def update_item(
+    item_id: int,
+    item: schemas.ItemUpdate,
+    db: Session = Depends(get_db),
+    current_user: models.User = Depends(get_current_user)
+) -> models.Item:
+    """更新项目"""
+    db_item = crud.get_item(db, item_id=item_id)
+    if db_item is None or db_item.user_id != current_user.id:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="项目不存在"
+        )
+    return crud.update_item(db=db, item=db_item, item_update=item)
+```
+
+## 项目模板
+
+### 项目结构模板
+```
+myproject/
+├── pyproject.toml
+├── requirements/
+│   ├── base.txt
+│   ├── dev.txt
+│   └── prod.txt
+├── app/
+│   ├── __init__.py
+│   ├── main.py
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── config.py
+│   │   ├── security.py
+│   │   └── deps.py
+│   ├── api/
+│   │   ├── __init__.py
+│   │   ├── v1/
+│   │   │   ├── __init__.py
+│   │   │   ├── endpoints/
+│   │   │   └── router.py
+│   ├── models/
+│   │   ├── __init__.py
+│   │   └── base.py
+│   ├── schemas/
+│   │   ├── __init__.py
+│   │   └── base.py
+│   ├── crud/
+│   │   ├── __init__.py
+│   │   └── base.py
+│   └── tests/
+│       ├── __init__.py
+│       ├── conftest.py
+│       └── api/
+├── alembic/
+│   ├── env.py
+│   └── versions/
+└── docs/
+```
+
+### 依赖配置模板
+```toml
+# pyproject.toml
+[tool.poetry]
+name = "fastapi-project"
+version = "0.1.0"
+description = "FastAPI 项目示例"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.104.0"
+uvicorn = "^0.24.0"
+sqlalchemy = "^2.0.23"
+pydantic = "^2.4.2"
+alembic = "^1.12.1"
+python-jose = "^3.3.0"
+passlib = "^1.7.4"
+python-multipart = "^0.0.6"
+email-validator = "^2.1.0.post1"
+redis = "^5.0.1"
+celery = "^5.3.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.4.3"
+pytest-asyncio = "^0.21.1"
+httpx = "^0.25.1"
+black = "^23.10.1"
+isort = "^5.12.0"
+mypy = "^1.6.1"
+```
+
+### 配置文件模板
+```python
+# app/core/config.py
+from pydantic_settings import BaseSettings
+from typing import List, Optional
+from functools import lru_cache
+
+class Settings(BaseSettings):
+    """应用配置"""
+    # 基础配置
+    PROJECT_NAME: str = "FastAPI Project"
+    VERSION: str = "1.0.0"
+    API_V1_STR: str = "/api/v1"
+    
+    # 安全配置
+    SECRET_KEY: str
+    ALGORITHM: str = "HS256"
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
+    
+    # CORS 配置
+    BACKEND_CORS_ORIGINS: List[str] = ["*"]
+    
+    # 数据库配置
+    SQLALCHEMY_DATABASE_URI: str
+    
+    # Redis 配置
+    REDIS_URL: str
+    
+    # Celery 配置
+    CELERY_BROKER_URL: str
+    CELERY_RESULT_BACKEND: str
+    
+    class Config:
+        case_sensitive = True
+        env_file = ".env"
+
+@lru_cache
+def get_settings() -> Settings:
+    """获取配置单例"""
+    return Settings()
+
+settings = get_settings()
+```
+
+## 常见场景实现
+
+### 认证授权
+```python
+from fastapi import Depends, HTTPException, status
+from fastapi.security import OAuth2PasswordBearer
+from jose import JWTError, jwt
+from passlib.context import CryptContext
+from datetime import datetime, timedelta
+from typing import Optional
+
+# 密码上下文
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+# OAuth2 方案
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+
+def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """验证密码"""
+    return pwd_context.verify(plain_password, hashed_password)
+
+def get_password_hash(password: str) -> str:
+    """获取密码哈希"""
+    return pwd_context.hash(password)
+
+def create_access_token(
+    data: dict,
+    expires_delta: Optional[timedelta] = None
+) -> str:
+    """创建访问令牌"""
+    to_encode = data.copy()
+    if expires_delta:
+        expire = datetime.utcnow() + expires_delta
+    else:
+        expire = datetime.utcnow() + timedelta(minutes=15)
+    to_encode.update({"exp": expire})
+    encoded_jwt = jwt.encode(
+        to_encode, 
+        settings.SECRET_KEY, 
+        algorithm=settings.ALGORITHM
+    )
+    return encoded_jwt
+```
+
+### 后台任务
+```python
+from celery import Celery
+from typing import Any, Dict, List
+
+celery = Celery(
+    "worker",
+    broker=settings.CELERY_BROKER_URL,
+    backend=settings.CELERY_RESULT_BACKEND
+)
+
+@celery.task
+def process_data(data: Dict[str, Any]) -> Dict[str, Any]:
+    """处理数据的后台任务"""
+    try:
+        # 处理逻辑
+        result = {"status": "success", "data": processed_data}
+    except Exception as e:
+        result = {"status": "error", "message": str(e)}
+    return result
+
+# 在路由中使用
+@router.post("/process")
+async def process_data_endpoint(
+    data: Dict[str, Any],
+    background_tasks: BackgroundTasks
+) -> Dict[str, Any]:
+    """异步处理数据"""
+    task = process_data.delay(data)
+    return {"task_id": task.id}
+```
+
+### 缓存实现
+```python
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from fastapi_cache.decorator import cache
+from redis import asyncio as aioredis
+
+# 初始化缓存
+@app.on_event("startup")
+async def startup():
+    redis = aioredis.from_url(settings.REDIS_URL)
+    FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache:")
+
+# 使用缓存装饰器
+@router.get("/items/{item_id}")
+@cache(expire=60)
+async def get_item(item_id: int) -> Dict[str, Any]:
+    """获取缓存的项目数据"""
+    return await get_item_from_db(item_id)
+```
+
+### 测试示例
+```python
+import pytest
+from httpx import AsyncClient
+from typing import Generator, Dict, Any
+
+@pytest.fixture
+async def client() -> Generator:
+    """测试客户端"""
+    async with AsyncClient(app=app, base_url="http://test") as client:
+        yield client
+
+@pytest.mark.asyncio
+async def test_create_item(
+    client: AsyncClient,
+    normal_user_token_headers: Dict[str, str]
+) -> None:
+    """测试创建项目"""
+    data = {
+        "title": "Test Item",
+        "description": "Test Description"
+    }
+    response = await client.post(
+        "/api/v1/items/",
+        headers=normal_user_token_headers,
+        json=data,
+    )
+    assert response.status_code == 200
+    content = response.json()
+    assert content["title"] == data["title"]
+    assert "id" in content
+
+@pytest.mark.asyncio
+async def test_read_item(
+    client: AsyncClient,
+    normal_user_token_headers: Dict[str, str]
+) -> None:
+    """测试读取项目"""
+    response = await client.get(
+        "/api/v1/items/1",
+        headers=normal_user_token_headers,
+    )
+    assert response.status_code == 200
+    content = response.json()
+    assert "title" in content
+    assert "description" in content
+``` 
